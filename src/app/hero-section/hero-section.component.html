@@ -1,8 +1,9 @@
 <main class="landing-page">
-  <nav class="navbar">
+  <nav class="navbar" #navbar>
     <div class="navbar-content">
       <div class="navbar-left">
         <img src="/Images/navbar-logo.avif" alt="Logo" />
+        <a href="#">Haider Desk</a>
       </div>
       <div class="navbar-right">
         <ul>
@@ -17,8 +18,8 @@
   </nav>
 
   <section class="hero-section">
-    <main class="main-content">
-      <h1 class="headline">
+    <main class="main-content" #heroSection>
+      <h1 class="headline" #headline>
         Crafting simple, effective<br />
         <span class="headline-brands">Brands</span> for tech innovators
       </h1>
@@ -28,28 +29,32 @@
         audience.
       </p>
       <a href="#" class="cta-button">Get in touch</a>
-      <p class="spots-text">1 available spot</p>
+      <p class="spots-text">3 available spot</p>
     </main>
   </section>
 
   <section class="features">
     <div class="feature-container">
-      <div class="feature-section">
-        <div class="feature-image-container brand-guide">
+      <div class="feature-section" #featureSection1>
+        <div class="feature-image-container brand-guide" #featureGif>
           <img src="gifs/heroGif1.gif" />
         </div>
-        <div class="feature-text">Let's tell your brand story!</div>
+        <div class="feature-text" #featureText1>
+          Let's tell your brand story!
+        </div>
       </div>
 
-      <div class="feature-section">
-        <div class="feature-image-container homes-logo">
+      <div class="feature-section" #featureSection2>
+        <div class="feature-image-container homes-logo" #featureGif1>
           <img src="gifs/heroGif2.gif" />
         </div>
-        <div class="feature-text">Ready to make some magic happen?</div>
+        <div class="feature-text" #featureText2>
+          Ready to make some magic happen?
+        </div>
       </div>
 
-      <div class="feature-section">
-        <div class="feature-image-container homes-logo">
+      <div class="feature-section" #featureSection3>
+        <div class="feature-image-container homes-logo" #featureGif2>
           <img src="gifs/heroGif3.gif" />
         </div>
       </div>
@@ -57,56 +62,60 @@
   </section>
 
   <section class="selectedWork">
-    <div class="selected-work-container">
+    <div class="selected-work-container" #selectedWorkContainer>
       <header class="selected-work-header">
         <div>
           <img class="contact-me-header-logo" src="Images/logo.png" />
         </div>
-        <h1>Selected works</h1>
+        <h1 #selectedWorkHeadline>Selected works</h1>
       </header>
 
       <div class="works-grid">
         <div class="work-item">
-          <div class="work-overlay">
+          <div class="work-overlay" #work1>
             <img src="Images/zoox.avif" />
           </div>
         </div>
 
         <div class="work-item">
-          <div class="work-overlay"><img src="Images/homes.avif" /></div>
+          <div class="work-overlay" #work2><img src="Images/homes.avif" /></div>
+        </div>
+
+        <div class="work-item" #selectedWork34Container>
+          <div class="work-overlay" #work3>
+            <img src="Images/elephant.avif" />
+          </div>
         </div>
 
         <div class="work-item">
-          <div class="work-overlay"><img src="Images/elephant.avif" /></div>
+          <div class="work-overlay" #work4><img src="gifs/evolve.gif" /></div>
+        </div>
+
+        <div class="work-item" #selectedWork56Container>
+          <div class="work-overlay" #work5><img src="gifs/sophony.gif" /></div>
         </div>
 
         <div class="work-item">
-          <div class="work-overlay"><img src="gifs/evolve.gif" /></div>
-        </div>
-
-        <div class="work-item">
-          <div class="work-overlay"><img src="gifs/sophony.gif" /></div>
-        </div>
-
-        <div class="work-item">
-          <div class="work-overlay"><img src="Images/baytai.avif" /></div>
+          <div class="work-overlay" #work6>
+            <img src="Images/baytai.avif" />
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="testimonials">
-    <div class="testimonials-container">
+    <div class="testimonials-container" #testimonialsContainer>
       <header class="testimonials-header">
         <div>
           <img class="contact-me-header-logo" src="Images/logo.png" />
         </div>
-        <h1>What my clients say</h1>
+        <h1 #testHeadline>What my clients say</h1>
       </header>
 
       <div class="testimonials-card">
-        <div class="testimonials-grid">
-          <div class="testimonial">
+        <div class="testimonials-grid" #testGrid>
+          <div class="testimonial" #test1>
             <div class="testimonial-image">
               <img src="clients/client1.png" />
             </div>
@@ -122,7 +131,7 @@
             </div>
           </div>
 
-          <div class="testimonial">
+          <div class="testimonial" #test2>
             <div class="testimonial-image">
               <img src="clients/client2.png" />
             </div>
@@ -137,7 +146,7 @@
             </div>
           </div>
 
-          <div class="testimonial">
+          <div class="testimonial" #test3>
             <div class="testimonial-image">
               <img src="clients/client3.png" />
             </div>
@@ -153,7 +162,7 @@
             </div>
           </div>
 
-          <div class="testimonial">
+          <div class="testimonial" #test4>
             <div class="testimonial-image">
               <img src="clients/client4.jpg" />
             </div>
@@ -173,21 +182,21 @@
   </section>
 
   <section class="aboutMe">
-    <div class="about-me-container">
+    <div class="about-me-container" #aboutMeContainer>
       <header class="about-me-header">
         <div>
           <img class="contact-me-header-logo" src="Images/logo.png" />
         </div>
-        <h1>About me</h1>
+        <h1 #aboutMeHeadline>About me</h1>
       </header>
 
       <div class="aboutme-grid">
-        <div class="aboutme-card intro-card">
-          <h2>
+        <div class="aboutme-card intro-card" #introContainer>
+          <h2 #introHeading>
             I create logos and brand identities that make brands stand out and
             shine.
           </h2>
-          <p>
+          <p #introText>
             Hey there, I'm Ahmad, a creative wizard specializing in crafting
             sleek and powerful logos and brand identities. My secret sauce? A
             love for all things minimalistic, where less is definitely more. I'm
@@ -200,62 +209,70 @@
           </p>
         </div>
 
-        <div class="aboutme-card stats-card">
-          <div class="stats-number">100+</div>
-          <div class="stats-text">
+        <div class="aboutme-card stats-card" #statsContainer>
+          <div class="stats-number" #statsNumber>100+</div>
+          <div class="stats-text" #statsText>
             I have worked with more than 100+ clients worldwide
           </div>
         </div>
 
-        <div class="aboutme-card experience-card">
-          <div class="stats-number" style="color: #897136">10+</div>
-          <div class="stats-text" style="color: #897136">
+        <div class="aboutme-card experience-card" #experienceContainer>
+          <div class="stats-number" style="color: #897136" #experienceNumber>
+            10+
+          </div>
+          <div class="stats-text" style="color: #897136" #experienceText>
             Years of experience
           </div>
         </div>
 
-        <div class="aboutme-card vision-card">
-          <p>
+        <div class="aboutme-card vision-card" #visionContainer>
+          <p #visionText>
             I listen to your <em>vision</em>: What are you passionate about? How
             can we create a <em>brand</em> that reflects your
             <em>values</em> and attracts your customers?
           </p>
         </div>
 
-        <div class="aboutme-card portfolio-card">
-          <p>
+        <div class="aboutme-card portfolio-card" #portfolioContainer>
+          <p #portfolioText>
             My work has been <em>featured</em> on many design platforms and
             design books, such as <em>Behance, Dribbble, Logo Lounge</em> and
             more.
           </p>
         </div>
 
-        <div class="aboutme-card views-card">
-          <div class="views-number">406,735+</div>
-          <div class="stats-text" style="color: #9dff91">Project views</div>
+        <div class="aboutme-card views-card" #viewsContainer>
+          <div class="views-number" #viewsNumber>406,735+</div>
+          <div class="stats-text" style="color: #9dff91" #viewsText>
+            Project views
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <section class="brands">
-    <div class="brands-container">
+    <div class="brands-container" #brandsContainer>
       <div class="brands-header">
         <div>
-          <img class="contact-me-header-logo" src="Images/logo.png" />
+          <img
+            class="contact-me-header-logo"
+            src="Images/logo.png"
+            #brandsLogo
+          />
         </div>
-        <h1>Brand sprints for startups</h1>
-        <p>
+        <h1 #brandsheadline>Brand sprints for startups</h1>
+        <p #brandsText>
           Do you need a brand that stands out from the crowd and resonates with
           your target audience? Do you want to avoid wasting time and money on
           endless revisions and feedback loops? Do you want to launch your brand
           in just two weeks?
         </p>
-        <a href="#" class="brands-cta-button">Try Brand Sprint</a>
+        <a href="#" class="brands-cta-button" #brandsButton>Try Brand Sprint</a>
       </div>
 
-      <div class="brands-grid">
-        <div class="brands-card">
+      <div class="brands-grid" #brandsGridContainer>
+        <div class="brands-card" #brand1>
           <div class="brands-card-image">
             <img src="Images/brandSprint1.png" />
           </div>
@@ -264,7 +281,7 @@
           </div>
         </div>
 
-        <div class="brands-card">
+        <div class="brands-card" #brand2>
           <div class="brands-card-image">
             <img src="Images/brandSprint2.png" />
           </div>
@@ -273,7 +290,7 @@
           </div>
         </div>
 
-        <div class="brands-card">
+        <div class="brands-card" #brand3>
           <div class="brands-card-image">
             <img src="Images/brandSprint3.png" />
           </div>
@@ -282,7 +299,7 @@
           </div>
         </div>
 
-        <div class="brands-card">
+        <div class="brands-card" #brand4>
           <div class="brands-card-image">
             <img src="Images/brandSprint4.png" />
           </div>
@@ -291,7 +308,7 @@
           </div>
         </div>
 
-        <div class="brands-card">
+        <div class="brands-card" #brand5>
           <div class="brands-card-image">
             <img src="Images/brandSprint5.png" />
           </div>
@@ -300,7 +317,7 @@
           </div>
         </div>
 
-        <div class="brands-card">
+        <div class="brands-card" #brand6>
           <div class="brands-card-image">
             <img src="Images/brandSprint6.png" />
           </div>
@@ -313,14 +330,14 @@
   </section>
 
   <section class="logoStore">
-    <div class="logo-store-container">
+    <div class="logo-store-container" #storeContainer>
       <div>
-        <img class="contact-me-header-logo" src="Images/logo.png" />
+        <img class="contact-me-header-logo" src="Images/logo.png" #storeLogo />
       </div>
 
-      <h1 class="store-heading">Logo store</h1>
+      <h1 class="store-heading" #storeHeadline>Logo store</h1>
 
-      <p class="store-description">
+      <p class="store-description" #storeText>
         Tired of scouring the internet for the perfect logo? Look no further!
         Our brand identity design studio has curated a collection of ready-made
         logos that are not only visually stunning but also affordable. Whether
@@ -328,49 +345,49 @@
         logos are the perfect sidekick to kickstart your branding journey.
       </p>
 
-      <button class="explore-button">Explore Logos</button>
+      <button class="explore-button" #storeButton>Explore Logos</button>
     </div>
   </section>
 
   <section class="brandGuide">
-    <div class="brand-guide-container">
+    <div class="brand-guide-container" #guideContainer>
       <div>
-        <img class="contact-me-header-logo" src="Images/logo.png" />
+        <img class="contact-me-header-logo" src="Images/logo.png" #guideLogo />
       </div>
 
-      <h1 class="brand-guide-title">Brand Guideline Template</h1>
+      <h1 class="brand-guide-title" #guideHeadline>Brand Guideline Template</h1>
 
-      <p class="brand-guide-description">
+      <p class="brand-guide-description" #guideText>
         Are you tired of sifting through lackluster brand guidelines? Look no
         further! Our meticulously crafted 80-page brand guideline template is a
         game-changer for designers. Our template exudes elegance, just like a
         high-end design agency. Say goodbye to bland guidelines!
       </p>
 
-      <a href="#" class="brand-guide-cta-button">Buy Template</a>
+      <a href="#" class="brand-guide-cta-button" #guideButton>Buy Template</a>
 
-      <div class="brand-guide-template-preview">
-        <img src="Images/template.avif" />
+      <div class="brand-guide-template-preview" #guideImageContainer>
+        <img src="Images/template.avif" #guideImage />
       </div>
     </div>
   </section>
 
-  <section class="contactMe">
+  <section class="contactMe" #contactContainer>
     <header class="contact-me-header">
-      <img class="contact-me-header-logo" src="Images/logo.png" />
-      <h1 class="contact-me-header-title">Work with me</h1>
+      <img class="contact-me-header-logo" src="Images/logo.png" #contactLogo />
+      <h1 class="contact-me-header-title" #contactHeadline>Work with me</h1>
     </header>
 
     <div class="contact-me-content-wrapper">
-      <div class="project-card">
-        <h2 class="project-title">Have a project?</h2>
-        <p class="project-description">
+      <div class="project-card" #projectContainer>
+        <h2 class="project-title" #projectHeadline>Have a project?</h2>
+        <p class="project-description" #projectText>
           If you have an interesting project in mind, don't hesitate to contact
           me and figure out how I can help.
         </p>
       </div>
 
-      <div class="form-card">
+      <div class="form-card" #formContainer>
         <form>
           <input type="text" class="input-field" placeholder="Name" required />
           <input
@@ -396,11 +413,11 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-container">
+  <footer class="footer" #footerContainer>
+    <div class="footer-container" #footerData>
       <div class="footer-left">
         <img src="Images/footerlogo.avif" />
-        <span>Ahmed Creatives © 2024</span>
+        <span>Haider Desk © 2025</span>
       </div>
       <div class="social-links">
         <a href="#" class="social-link">

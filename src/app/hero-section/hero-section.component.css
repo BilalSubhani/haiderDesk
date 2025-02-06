@@ -5,21 +5,45 @@
 .navbar {
   margin: 0;
   padding: 0px 120px;
-  z-index: 1;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 1s ease;
+  background-color: #ffffef;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+}
+
+.navbar.expand {
+  box-shadow: none;
 }
 
 .navbar-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 77px;
-  padding: 10px 35px 10px 0;
+  min-height: 77px;
+  padding: 0 35px 0 0;
 }
 
 .navbar-left img {
   max-height: 43px;
   cursor: pointer;
   margin-left: 35px;
+  anchor-name: --my-anchor;
+}
+.navbar-left a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  color: #005840;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  margin-left: 10px;
+  transform: translateY(13px);
+  position: absolute;
+  position-anchor: --my-anchor;
 }
 
 .navbar-right ul {
@@ -57,7 +81,7 @@
 .main-content {
   text-align: center;
   padding: 78px 78px;
-  max-width: 1200px;
+  max-width: 1223px;
   margin: 0 auto;
 }
 
@@ -67,6 +91,9 @@
   color: rgb(0, 87, 63);
   line-height: 1.2;
   margin-bottom: 1rem;
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
 }
 
 .headline-brands {
@@ -124,14 +151,23 @@
 }
 
 .feature-image-container.brand-guide {
-  background: #006655;
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
 }
 
 .feature-image-container.homes-logo {
-  background: #003366;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
+}
+
+.headline.show,
+.feature-image-container.brand-guide.show,
+.feature-image-container.homes-logo.show,
+.feature-text.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .feature-text {
@@ -140,6 +176,9 @@
   font-size: 3rem;
   padding-top: 45px;
   padding-bottom: 22px;
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
 }
 
 /*------------- Selected Work */
@@ -163,6 +202,14 @@
   color: #115e59;
   font-size: 30px;
   font-weight: 400;
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
+}
+.selected-work-header h1.show,
+.work-overlay.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .works-grid {
@@ -244,6 +291,9 @@
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 /*  ------ Testimonials*/
@@ -266,6 +316,9 @@
   color: #005940;
   font-size: 30px;
   font-weight: 400;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 .testimonials-card {
@@ -284,6 +337,15 @@
   display: flex;
   gap: 0.2rem;
   color: white;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.testimonials-header h1.show,
+.testimonial.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .testimonial-image {
@@ -350,6 +412,44 @@
   color: #005940;
   font-size: 30px;
   font-weight: 400;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.aboutme-card.intro-card,
+.aboutme-card.stats-card,
+.aboutme-card.experience-card,
+.aboutme-card.vision-card,
+.aboutme-card.portfolio-card,
+.aboutme-card.views-card {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.aboutme-card.intro-card.show,
+.aboutme-card.stats-card.show,
+.aboutme-card.experience-card.show,
+.aboutme-card.vision-card.show,
+.aboutme-card.portfolio-card.show,
+.aboutme-card.views-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.about-me-header h1.show,
+.aboutme-card.show,
+.intro-card h2.show,
+.intro-card p.show,
+.stats-number.show,
+.stats-text.show,
+.vision-card p.show,
+.portfolio-card p.show,
+.views-number.show,
+.views-card .stats-text.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .aboutme-grid {
@@ -381,12 +481,19 @@
   margin-bottom: 5.4rem;
   font-weight: 400;
   margin-top: 25px;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 .intro-card p {
   margin-left: 18px;
   font-size: 18px;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
+
 .stats-card {
   background-color: #bae6fd;
   height: 255px;
@@ -402,11 +509,17 @@
   font-weight: 500;
   color: #007982;
   margin-bottom: 0.5rem;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 .stats-text {
   color: #007982;
   font-size: 1rem;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 .experience-card {
@@ -429,6 +542,13 @@
   grid-column: 1 / -1;
   font-size: 44px;
   color: #704f5b;
+}
+
+.vision-card p,
+.portfolio-card p {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 .vision-card em {
@@ -463,12 +583,18 @@
   color: #9dff91;
   font-size: 72px;
   font-weight: 400;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 .views-card .stats-text {
   font-weight: 400;
   color: #9dff91;
   transform: translateY(70px);
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
 /*------------------Brands*/
@@ -519,6 +645,25 @@
   line-height: 1.5;
   font-size: 18px;
   font-weight: 400;
+}
+
+.brands-header img,
+.brands-header h1,
+.brands-header p,
+.brands-header .brands-cta-button,
+.brands-card {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.brands-header img.show,
+.brands-header h1.show,
+.brands-header p.show,
+.brands-header .brands-cta-button.show,
+.brands-card.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .brands-grid {
@@ -614,6 +759,23 @@
   color: #9dff91;
 }
 
+.contact-me-header-logo,
+.store-heading,
+.store-description,
+.explore-button {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.contact-me-header-logo.show,
+.store-heading.show,
+.store-description.show,
+.explore-button.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 /*--------------Brand Guide*/
 
 .brandGuide {
@@ -628,15 +790,22 @@
   text-align: center;
 }
 
-.brand-guide-logo {
-  width: 40px;
-  height: 37px;
-  margin-bottom: 1rem;
+.brand-guide-container .contact-me-header-logo,
+.brand-guide-title,
+.brand-guide-description,
+.brand-guide-template-preview img {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
-.brand-guide-logo svg {
-  width: 100%;
-  height: 100%;
+.brand-guide-container .contact-me-header-logo.show,
+.brand-guide-title.show,
+.brand-guide-description.show,
+.brand-guide-cta-button.show,
+.brand-guide-template-preview img.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .brand-guide-title {
@@ -663,6 +832,9 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
+  transform: translateY(100px);
+  transition: 2s;
+  opacity: 0;
 }
 .brand-guide-cta-button:hover {
   color: #9dff91;
@@ -740,6 +912,29 @@
   background-color: #9dff91;
   padding: 3.3rem 3.9rem 2.5rem 1.8rem;
   border-radius: 1.5rem;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.contact-me-header-logo,
+.contact-me-header-title,
+.project-card,
+.project-title,
+.project-description {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.contact-me-header-logo.show,
+.contact-me-header-title.show,
+.project-card.show,
+.project-title.show,
+.project-description.show,
+.form-card.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .input-field {
@@ -748,7 +943,19 @@
   margin-bottom: 40px;
   border: none;
   border-radius: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 14px;
+  background-color: #ffffef;
+  font-family: "Inter", sans-serif;
+}
+
+.input-field:hover,
+.message-field:hover {
+  background-color: #fcfcd2;
+}
+
+.input-field:focus,
+.message-field:focus {
+  background-color: #fcfcd2;
 }
 
 .message-field {
@@ -759,9 +966,10 @@
   margin-bottom: 26px;
   border: none;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 14px;
   resize: vertical;
-  background-color: rgb(255, 253, 244);
+  background-color: #ffffef;
+  font-family: "Inter", sans-serif;
 }
 
 .submit-button {
@@ -792,8 +1000,15 @@
   align-items: center;
   color: white;
   max-width: 1223px;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
 }
 
+.footer-container.show {
+  transform: translateY(0);
+  opacity: 1;
+}
 .footer-left {
   display: flex;
   align-items: center;
