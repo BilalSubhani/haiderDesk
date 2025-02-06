@@ -121,7 +121,6 @@
   height: 655px;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 2rem;
 }
 
 .feature-image-container.brand-guide {
@@ -139,28 +138,31 @@
   text-align: center;
   color: #006655;
   font-size: 3rem;
-  padding: 50px;
+  padding-top: 45px;
+  padding-bottom: 22px;
 }
 
 /*------------- Selected Work */
 .selectedWork {
-  padding: 2rem;
+  padding: 0;
+  transform: translateY(-50px);
 }
 
 .selected-work-container {
   max-width: 1200px;
+  height: 1450px;
   margin: 0 auto;
 }
 
 .selected-work-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .selected-work-header h1 {
   color: #115e59;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .works-grid {
@@ -185,37 +187,42 @@
 .work-item:nth-child(1) {
   grid-column: 1;
   grid-row: 1;
-  background-color: #1a1a2e;
+  height: 470px;
+  margin-bottom: 10px;
 }
 
 .work-item:nth-child(2) {
   grid-column: 2;
   grid-row: 1;
-  background-color: #ff4500;
+  height: 413px;
 }
 
 .work-item:nth-child(3) {
   grid-column: 1;
   grid-row: 2;
-  background-color: #1a1a1a;
+  height: 388px;
+  transform: translateY(160px);
 }
 
 .work-item:nth-child(4) {
   grid-column: 2;
   grid-row: 2;
-  background-color: #2f6b62;
+  height: 440px;
+  transform: translateY(107px);
 }
 
 .work-item:nth-child(5) {
   grid-column: 1;
   grid-row: 3;
-  background-color: #1e3a8a;
+  height: 440px;
+  transform: translateY(238px);
 }
 
 .work-item:nth-child(6) {
   grid-column: 2;
   grid-row: 3;
-  background-color: #f0f0f0;
+  height: 440px;
+  transform: translateY(238px);
 }
 
 .work-image {
@@ -246,7 +253,7 @@
 }
 
 .testimonials-container {
-  max-width: 1200px;
+  max-width: 1220px;
   margin: 0 auto;
 }
 
@@ -256,34 +263,35 @@
 }
 
 .testimonials-header h1 {
-  color: #115e59;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  color: #005940;
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .testimonials-card {
-  background-color: #115e59;
+  background-color: #005940;
   border-radius: 1rem;
-  padding: 3rem 2rem;
+  padding: 5rem 2rem;
 }
 
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 6.4rem;
 }
 
 .testimonial {
   display: flex;
-  gap: 1rem;
+  gap: 0.2rem;
   color: white;
 }
 
 .testimonial-image {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #e5e7eb;
+  margin-left: 18px;
+}
+
+.testimonial-image img {
+  border-radius: 10px;
   flex-shrink: 0;
 }
 
@@ -292,77 +300,96 @@
 }
 
 .testimonial-text {
+  transform: translateY(-18px);
   margin-bottom: 1rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.testimonial-text strong {
-  color: #4ade80;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 .testimonial-author {
   color: #4ade80;
-  font-size: 0.9rem;
+  font-size: 18px;
+  font-weight: 300;
   position: relative;
   padding-left: 1rem;
+  transform: translateX(5px);
+}
+
+.testimonial-text:nth-child(odd) {
+  margin-left: 15px;
+}
+
+.testimonial-author:nth-child(2) {
+  padding-left: 18px;
 }
 
 .testimonial-author::before {
-  content: "—";
+  content: "-";
   position: absolute;
-  left: 0;
+  left: 5px;
 }
 
 /*------------About Me*/
 .aboutMe {
-  padding: 2rem;
+  padding: 2rem 2rem 0;
   line-height: 1.6;
 }
 
 .about-me-container {
-  max-width: 1200px;
+  max-width: 1222px;
   margin: 0 auto;
 }
 
 .about-me-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .about-me-header h1 {
-  color: #115e59;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  color: #005940;
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .aboutme-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .aboutme-card {
-  padding: 2rem;
+  padding: 2rem 1rem;
   border-radius: 1rem;
-  height: 100%;
 }
 
 .intro-card {
-  background-color: #115e59;
+  background-color: #005940;
   color: white;
+  height: 535px;
+  width: 610px;
+  padding: 50px;
   grid-row: span 2;
 }
 
 .intro-card h2 {
-  color: #4ade80;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  color: #9dff91;
+  font-size: 40px;
+  line-height: normal;
+  margin-left: 16px;
+  margin-bottom: 5.4rem;
+  font-weight: 400;
+  margin-top: 25px;
 }
 
+.intro-card p {
+  margin-left: 18px;
+  font-size: 18px;
+}
 .stats-card {
   background-color: #bae6fd;
+  height: 255px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -371,15 +398,15 @@
 }
 
 .stats-number {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #0c4a6e;
+  font-size: 120px;
+  font-weight: 500;
+  color: #007982;
   margin-bottom: 0.5rem;
 }
 
 .stats-text {
-  color: #0c4a6e;
-  font-size: 0.9rem;
+  color: #007982;
+  font-size: 1rem;
 }
 
 .experience-card {
@@ -389,22 +416,33 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 6px;
+  height: 240px;
 }
 
 .vision-card {
+  margin-top: 2px;
+  height: 265px;
   background-color: #fecdd3;
   padding: 2.5rem;
+  padding-left: 70px;
   grid-column: 1 / -1;
+  font-size: 44px;
+  color: #704f5b;
 }
 
 .vision-card em {
   font-style: italic;
-  color: #be185d;
+  color: #704f5b;
 }
 
 .portfolio-card {
   background-color: #bae6fd;
   padding: 2rem;
+  padding-left: 70px;
+  color: #007982;
+  font-size: 32px;
+  transform: translateY(-10px);
 }
 
 .portfolio-card em {
@@ -412,28 +450,35 @@
 }
 
 .views-card {
-  background-color: #115e59;
-  color: #4ade80;
+  background-color: #005940;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  transform: translateY(-10px);
 }
 
 .views-number {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  color: #9dff91;
+  font-size: 72px;
+  font-weight: 400;
+}
+
+.views-card .stats-text {
+  font-weight: 400;
+  color: #9dff91;
+  transform: translateY(70px);
 }
 
 /*------------------Brands*/
 .brands {
-  padding: 2rem 1rem;
   background-color: #fcfcd2;
+  min-width: 100%;
 }
 .brands-container {
-  max-width: 1200px;
+  max-width: 1223px;
+  height: 1240px;
   margin: 0 auto;
 }
 
@@ -442,24 +487,44 @@
   margin-bottom: 3rem;
 }
 
+.brands-header .brands-cta-button {
+  display: inline-block;
+  background-color: rgb(0, 87, 63);
+  color: #fcfcd2;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+.brands-header .brands-cta-button:hover {
+  color: #9dff91;
+}
+
+.brands-header img {
+  margin-top: 2.1rem;
+}
+
 .brands-header h1 {
-  color: #0f766e;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  color: #005840;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 3rem;
 }
 
 .brands-header p {
-  color: #374151;
-  max-width: 800px;
+  color: #005840;
+  max-width: 810px;
   margin: 0 auto 2rem;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .brands-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
+  gap: 10px;
 }
 
 .brands-card {
@@ -468,8 +533,8 @@
 }
 
 .brands-card-image {
-  width: 100%;
-  height: 250px;
+  width: 400px;
+  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -478,24 +543,25 @@
 .brands-card-image img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: fit;
   border-radius: 1rem;
 }
 
 .brands-card-title {
-  font-size: 1.25rem;
-  color: #374151;
-  margin-bottom: 0.5rem;
+  font-size: 18px;
+  font-weight: 500;
+  color: #005840;
+  transform: translateY(-19px);
+  margin-bottom: 0.2rem;
 }
 
 /*------------------ Logo Store*/
 .logo-store-container {
-  max-width: 1200px;
+  max-width: 1223px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 45px 20px;
   text-align: center;
-  background-color: #fffaf5;
-  min-height: 100vh;
+  background-color: #ffffef;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -503,42 +569,41 @@
 }
 
 .logo-icon {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 37px;
   background-color: #4ade80;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 auto 10px;
 }
 
 .logo-icon svg {
-  width: 32px;
-  height: 32px;
-  color: white;
+  width: 40px;
+  height: 37px;
 }
 
 .store-heading {
-  font-size: 2.5rem;
-  color: #065f46;
+  font-size: 32px;
+  color: #005840;
   margin-bottom: 24px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .store-description {
-  font-size: 1.1rem;
+  font-size: 18px;
   line-height: 1.7;
-  color: #065f46;
-  max-width: 800px;
+  color: #005840;
+  max-width: 810px;
   margin: 0 auto 40px;
 }
 
 .explore-button {
   background-color: #065f46;
-  color: #fffaf5;
+  color: #ffffef;
   font-size: 1.25rem;
-  padding: 16px 32px;
+  padding: 18px 45px;
   border-radius: 9999px;
   border: none;
   cursor: pointer;
@@ -554,18 +619,19 @@
 .brandGuide {
   background-color: #fcfcd2;
   padding: 2rem;
+  margin-top: 8px;
 }
 
 .brand-guide-container {
-  max-width: 1200px;
+  max-width: 1223px;
   margin: 0 auto;
   text-align: center;
 }
 
 .brand-guide-logo {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1.5rem;
+  width: 40px;
+  height: 37px;
+  margin-bottom: 1rem;
 }
 
 .brand-guide-logo svg {
@@ -574,28 +640,29 @@
 }
 
 .brand-guide-title {
-  color: rgb(0, 87, 63);
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 32px;
+  color: #005840;
+  margin-bottom: 24px;
+  font-weight: 400;
 }
 
 .brand-guide-description {
-  color: rgb(0, 87, 63);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #005840;
+  max-width: 810px;
+  margin: 0 auto 40px;
 }
 
 .brand-guide-cta-button {
-  display: inline-block;
-  background-color: rgb(0, 87, 63);
-  color: #fcfcd2;
-  text-decoration: none;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
+  background-color: #065f46;
+  color: #ffffef;
+  font-size: 1.25rem;
+  padding: 18px 45px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 .brand-guide-cta-button:hover {
   color: #9dff91;
@@ -603,7 +670,9 @@
 
 .brand-guide-template-preview {
   width: 100%;
-  height: 500px;
+  height: 575px;
+  margin-top: 90px;
+  margin-bottom: 80px;
   background-color: #f0f0f0;
   border-radius: 1rem;
   overflow: hidden;
@@ -616,7 +685,7 @@
 /*-----------------Contact me*/
 .contactMe {
   background-color: #fffdf4;
-  padding: 2rem;
+  padding: 2rem 2rem 1rem;
 }
 
 .contact-me-header {
@@ -626,62 +695,68 @@
 
 .contact-me-header-logo {
   width: 40px;
-  height: 40px;
-  margin-bottom: 1rem;
+  height: 37px;
 }
 
 .contact-me-header-title {
   color: #005940;
-  font-size: 2rem;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 65px;
 }
 
 .contact-me-content-wrapper {
-  max-width: 1200px;
+  max-width: 1223px;
+  height: 540px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 15px;
 }
 
 .project-card {
   background-color: #005940;
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 1.5rem;
 }
 
 .project-title {
-  font-size: 3rem;
+  font-size: 64px;
   color: #9dff91;
-  margin-bottom: 2rem;
+  font-weight: 400;
+  margin-bottom: 15rem;
+  margin-left: 44px;
 }
 
 .project-description {
-  font-size: 1.2rem;
+  font-size: 24px;
   line-height: 1.5;
+  margin-left: 47px;
+  font-weight: normal;
   color: #fffdf4;
 }
 
 .form-card {
   background-color: #9dff91;
-  padding: 3rem;
+  padding: 3.3rem 3.9rem 2.5rem 1.8rem;
   border-radius: 1.5rem;
 }
 
 .input-field {
   width: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 17px;
+  margin-bottom: 40px;
   border: none;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .message-field {
   width: 100%;
-  height: 150px;
+  height: 62px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 5px;
+  margin-bottom: 26px;
   border: none;
   border-radius: 0.5rem;
   font-size: 1rem;
@@ -692,7 +767,7 @@
 .submit-button {
   background-color: #005940;
   color: white;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2rem;
   border: none;
   border-radius: 0.5rem;
   font-size: 1rem;
@@ -705,16 +780,18 @@
 /*---------Footer*/
 .footer {
   background-color: #fcfcd7;
-  padding: 2rem;
+  padding: 0.1rem 5rem 1rem;
 }
 .footer-container {
   background-color: #002b1d;
-  padding: 2rem;
+  padding: 7.5rem 5rem;
+  margin: 0 59px;
   border-radius: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
+  max-width: 1223px;
 }
 
 .footer-left {
@@ -724,16 +801,11 @@
 }
 
 .footer-logo {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 37px;
 }
 
 .social-links {
   display: flex;
-  gap: 2rem;
-}
-
-.social-link {
-  color: white;
-  text-decoration: none;
+  gap: 6rem;
 }
