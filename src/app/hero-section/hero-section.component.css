@@ -1,0 +1,739 @@
+.landing-page {
+  font-family: "Inter", sans-serif;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0px 120px;
+  z-index: 1;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 77px;
+  padding: 10px 35px 10px 0;
+}
+
+.navbar-left img {
+  max-height: 43px;
+  cursor: pointer;
+  margin-left: 35px;
+}
+
+.navbar-right ul {
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 42px;
+}
+
+.navbar-right ul li {
+  margin-left: 7px;
+}
+
+.navbar-right ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #005840;
+  transition: color 0.3s ease;
+  padding-bottom: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.navbar-right ul li a:hover {
+  color: #005840;
+  border-bottom: 2px solid #005840;
+}
+
+.cta-button:hover {
+  color: rgb(157, 255, 145);
+}
+
+.main-content {
+  text-align: center;
+  padding: 78px 78px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headline {
+  font-size: 64px;
+  font-weight: 400;
+  color: rgb(0, 87, 63);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.headline-brands {
+  font-style: italic;
+}
+
+.subheadline {
+  font-size: 14px;
+  color: #005840;
+  line-height: 1.6;
+  max-width: 565px;
+  margin: 40px auto 2.5rem auto;
+}
+
+.cta-button {
+  color: rgba(252, 252, 210, 0.88);
+  background-color: #005840;
+  padding: 25px 5.4rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.spots-text {
+  color: #005840;
+  font-size: 0.9rem;
+  transform: translateY(-10px);
+}
+
+.features {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.feature-container {
+  max-width: 1224px;
+  margin: 0 auto;
+  transform: translateY(-50px);
+}
+
+.feature-section {
+  margin-bottom: 4rem;
+}
+
+.feature-image-container {
+  width: 100%;
+  height: 655px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.feature-image-container.brand-guide {
+  background: #006655;
+}
+
+.feature-image-container.homes-logo {
+  background: #003366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-text {
+  text-align: center;
+  color: #006655;
+  font-size: 3rem;
+  padding: 50px;
+}
+
+/*------------- Selected Work */
+.selectedWork {
+  padding: 2rem;
+}
+
+.selected-work-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.selected-work-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.selected-work-header h1 {
+  color: #115e59;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 300px;
+  gap: 1.5rem;
+}
+
+.work-item {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.work-item:hover {
+  transform: translateY(0px);
+}
+
+.work-item:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+  background-color: #1a1a2e;
+}
+
+.work-item:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  background-color: #ff4500;
+}
+
+.work-item:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+  background-color: #1a1a1a;
+}
+
+.work-item:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #2f6b62;
+}
+
+.work-item:nth-child(5) {
+  grid-column: 1;
+  grid-row: 3;
+  background-color: #1e3a8a;
+}
+
+.work-item:nth-child(6) {
+  grid-column: 2;
+  grid-row: 3;
+  background-color: #f0f0f0;
+}
+
+.work-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/*  ------ Testimonials*/
+.testimonials {
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.testimonials-header h1 {
+  color: #115e59;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.testimonials-card {
+  background-color: #115e59;
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.testimonial {
+  display: flex;
+  gap: 1rem;
+  color: white;
+}
+
+.testimonial-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  flex-shrink: 0;
+}
+
+.testimonial-content {
+  flex-grow: 1;
+}
+
+.testimonial-text {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.testimonial-text strong {
+  color: #4ade80;
+}
+
+.testimonial-author {
+  color: #4ade80;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.testimonial-author::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+}
+
+/*------------About Me*/
+.aboutMe {
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+.about-me-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-me-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-me-header h1 {
+  color: #115e59;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.aboutme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.aboutme-card {
+  padding: 2rem;
+  border-radius: 1rem;
+  height: 100%;
+}
+
+.intro-card {
+  background-color: #115e59;
+  color: white;
+  grid-row: span 2;
+}
+
+.intro-card h2 {
+  color: #4ade80;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-card {
+  background-color: #bae6fd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.stats-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #0c4a6e;
+  margin-bottom: 0.5rem;
+}
+
+.stats-text {
+  color: #0c4a6e;
+  font-size: 0.9rem;
+}
+
+.experience-card {
+  background-color: #fcd34d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.vision-card {
+  background-color: #fecdd3;
+  padding: 2.5rem;
+  grid-column: 1 / -1;
+}
+
+.vision-card em {
+  font-style: italic;
+  color: #be185d;
+}
+
+.portfolio-card {
+  background-color: #bae6fd;
+  padding: 2rem;
+}
+
+.portfolio-card em {
+  font-style: italic;
+}
+
+.views-card {
+  background-color: #115e59;
+  color: #4ade80;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.views-number {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/*------------------Brands*/
+.brands {
+  padding: 2rem 1rem;
+  background-color: #fcfcd2;
+}
+.brands-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brands-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.brands-header h1 {
+  color: #0f766e;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.brands-header p {
+  color: #374151;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.brands-card {
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.brands-card-image {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brands-card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.brands-card-title {
+  font-size: 1.25rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+/*------------------ Logo Store*/
+.logo-store-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #fffaf5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.logo-icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.store-heading {
+  font-size: 2.5rem;
+  color: #065f46;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.store-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #065f46;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.explore-button {
+  background-color: #065f46;
+  color: #fffaf5;
+  font-size: 1.25rem;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.explore-button:hover {
+  color: #9dff91;
+}
+
+/*--------------Brand Guide*/
+
+.brandGuide {
+  background-color: #fcfcd2;
+  padding: 2rem;
+}
+
+.brand-guide-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brand-guide-logo {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.5rem;
+}
+
+.brand-guide-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-guide-title {
+  color: rgb(0, 87, 63);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.brand-guide-description {
+  color: rgb(0, 87, 63);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+.brand-guide-cta-button {
+  display: inline-block;
+  background-color: rgb(0, 87, 63);
+  color: #fcfcd2;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+.brand-guide-cta-button:hover {
+  color: #9dff91;
+}
+
+.brand-guide-template-preview {
+  width: 100%;
+  height: 500px;
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*-----------------Contact me*/
+.contactMe {
+  background-color: #fffdf4;
+  padding: 2rem;
+}
+
+.contact-me-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-me-header-logo {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.contact-me-header-title {
+  color: #005940;
+  font-size: 2rem;
+}
+
+.contact-me-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background-color: #005940;
+  padding: 3rem;
+  border-radius: 1.5rem;
+}
+
+.project-title {
+  font-size: 3rem;
+  color: #9dff91;
+  margin-bottom: 2rem;
+}
+
+.project-description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #fffdf4;
+}
+
+.form-card {
+  background-color: #9dff91;
+  padding: 3rem;
+  border-radius: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.message-field {
+  width: 100%;
+  height: 150px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: rgb(255, 253, 244);
+}
+
+.submit-button {
+  background-color: #005940;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.submit-button:hover {
+  background-color: #002b1d;
+}
+
+/*---------Footer*/
+.footer {
+  background-color: #fcfcd7;
+  padding: 2rem;
+}
+.footer-container {
+  background-color: #002b1d;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.social-link {
+  color: white;
+  text-decoration: none;
+}

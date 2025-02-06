@@ -1,0 +1,10 @@
+:root {
+  --fontFamily: sans-serif;
+  --bgColor: #ffffef;
+  --footerBgColor: #fcfcd7;
+}
+
+.components-container {
+  font-family: var(--fontFamily);
+  background-color: #ffffef;
+}
