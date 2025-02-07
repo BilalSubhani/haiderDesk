@@ -2,80 +2,16 @@
   font-family: "Inter", sans-serif;
 }
 
-.navbar {
-  margin: 0;
-  padding: 0px 120px;
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: all 1s ease;
-  background-color: #ffffef;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
-}
-
-.navbar.expand {
-  box-shadow: none;
-}
-
-.navbar-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 77px;
-  padding: 0 35px 0 0;
-}
-
-.navbar-left img {
-  max-height: 43px;
-  cursor: pointer;
-  margin-left: 35px;
-  anchor-name: --my-anchor;
-}
-.navbar-left a {
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 500;
-  color: #005840;
-  transition: color 0.3s ease;
-  cursor: pointer;
-  margin-left: 10px;
-  transform: translateY(13px);
-  position: absolute;
-  position-anchor: --my-anchor;
-}
-
-.navbar-right ul {
-  display: flex;
-  flex-flow: row wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 42px;
-}
-
-.navbar-right ul li {
-  margin-left: 7px;
-}
-
-.navbar-right ul li a {
-  text-decoration: none;
-  font-size: 16px;
-  color: #005840;
-  transition: color 0.3s ease;
-  padding-bottom: 5px;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.navbar-right ul li a:hover {
-  color: #005840;
-  border-bottom: 2px solid #005840;
-}
-
 .cta-button:hover {
   color: rgb(157, 255, 145);
+}
+
+.hero-section,
+.features,
+.selectedWork,
+.testimonials,
+.aboutMe {
+  background-color: #ffffef;
 }
 
 .main-content {
@@ -355,6 +291,10 @@
 .testimonial-image img {
   border-radius: 10px;
   flex-shrink: 0;
+}
+
+.testimonial-image img:hover {
+  cursor: zoom-in;
 }
 
 .testimonial-content {
@@ -692,6 +632,10 @@
   border-radius: 1rem;
 }
 
+.brands-card-image img:hover {
+  cursor: zoom-in;
+}
+
 .brands-card-title {
   font-size: 18px;
   font-weight: 500;
@@ -834,6 +778,7 @@
   transition: background-color 0.3s;
   transform: translateY(100px);
   transition: 2s;
+  text-decoration: none;
   opacity: 0;
 }
 .brand-guide-cta-button:hover {
@@ -990,6 +935,7 @@
   background-color: #fcfcd7;
   padding: 0.1rem 5rem 1rem;
 }
+
 .footer-container {
   background-color: #002b1d;
   padding: 7.5rem 5rem;

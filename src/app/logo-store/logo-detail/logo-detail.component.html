@@ -1,0 +1,18 @@
+<div class="logo-detail-container">
+  <div class="logo-image-container">
+    <img [src]="logoDetail.image" [alt]="logoDetail.name" class="logo-image" />
+  </div>
+
+  <div class="logo-info">
+    <h1 class="logo-title">{{ logoDetail.name }}</h1>
+
+    <div class="price-container">
+      <span class="original-price" *ngIf="logoDetail.originalPrice">
+        ${{ logoDetail.originalPrice.toFixed(2) }}
+      </span>
+      <span class="sale-price">${{ logoDetail.salePrice.toFixed(2) }}</span>
+    </div>
+
+    <p class="logo-description">{{ logoDetail.description }}</p>
+  </div>
+</div>

@@ -1,25 +1,32 @@
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   Inject,
+  Input,
+  Output,
   PLATFORM_ID,
   Renderer2,
-  viewChild,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-hero-section',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css',
+  standalone: true,
 })
 export class HeroSectionComponent implements AfterViewInit {
   constructor(
     private renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router,
+    private sharedService: SharedService
   ) {}
 
   // Herosection
@@ -143,7 +150,6 @@ export class HeroSectionComponent implements AfterViewInit {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.navbar.nativeElement, 'expand');
-              console.log(action);
             });
           },
           { threshold: 0.8 }
@@ -653,5 +659,73 @@ export class HeroSectionComponent implements AfterViewInit {
         );
       }
     }
+  }
+
+  sectionString: any;
+  sectionViewChild() {
+    let targetElement: ElementRef | undefined;
+
+    switch (this.sectionString) {
+      case 'work':
+        targetElement = this.selectedWorkContainer;
+        break;
+      case 'testimonial':
+        targetElement = this.testimonialsContainer;
+        break;
+      case 'about':
+        targetElement = this.aboutMeContainer;
+        break;
+      case 'contact':
+        targetElement = this.contactContainer;
+        break;
+      default:
+        console.warn('Invalid section:', this.sectionString);
+        return;
+    }
+
+    if (targetElement) {
+      this.smoothScroll(targetElement!.nativeElement);
+    }
+  }
+
+  smoothScroll(target: HTMLElement) {
+    const startPosition = window.scrollY;
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+    const distance = targetPosition - startPosition;
+
+    const speed = 0.8;
+    const duration = Math.min(Math.abs(distance) * speed, 2500);
+
+    let startTime: number | null = null;
+
+    function animationStep(timestamp: number) {
+      if (!startTime) startTime = timestamp;
+      const elapsedTime = timestamp - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+
+      const easeInOutQuad =
+        progress < 0.5
+          ? 2 * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+      window.scrollTo(0, startPosition + distance * easeInOutQuad);
+
+      if (elapsedTime < duration) {
+        requestAnimationFrame(animationStep);
+      }
+    }
+
+    requestAnimationFrame(animationStep);
+  }
+
+  ngOnInit() {
+    this.sharedService.section$.subscribe((sec) => {
+      this.sectionString = sec;
+      if (this.sectionString) this.sectionViewChild();
+    });
+  }
+
+  emitImageSrc(src: any) {
+    this.sharedService.updateImage(src);
   }
 }

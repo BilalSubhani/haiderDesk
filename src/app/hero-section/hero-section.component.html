@@ -1,22 +1,4 @@
 <main class="landing-page">
-  <nav class="navbar" #navbar>
-    <div class="navbar-content">
-      <div class="navbar-left">
-        <img src="/Images/navbar-logo.avif" alt="Logo" />
-        <a href="#">Haider Desk</a>
-      </div>
-      <div class="navbar-right">
-        <ul>
-          <li><a href="#home">Work</a></li>
-          <li><a href="#about">Testimonials</a></li>
-          <li><a href="#services">About</a></li>
-          <li><a href="#portfolio">Contact</a></li>
-          <li><a href="#contact">Logo Store</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <section class="hero-section">
     <main class="main-content" #heroSection>
       <h1 class="headline" #headline>
@@ -28,7 +10,9 @@
         complexities into compelling brand identities that resonate with your
         audience.
       </p>
-      <a href="#" class="cta-button">Get in touch</a>
+      <a href="mailto:bilalsubhanii@outlook.com" class="cta-button"
+        >Get in touch</a
+      >
       <p class="spots-text">3 available spot</p>
     </main>
   </section>
@@ -37,7 +21,7 @@
     <div class="feature-container">
       <div class="feature-section" #featureSection1>
         <div class="feature-image-container brand-guide" #featureGif>
-          <img src="gifs/heroGif1.gif" />
+          <img src="gifs/heroGif1.gif" alt="Brand identity design collection" />
         </div>
         <div class="feature-text" #featureText1>
           Let's tell your brand story!
@@ -46,7 +30,10 @@
 
       <div class="feature-section" #featureSection2>
         <div class="feature-image-container homes-logo" #featureGif1>
-          <img src="gifs/heroGif2.gif" />
+          <img
+            src="gifs/heroGif2.gif"
+            alt="Brand visual identity design for Homes"
+          />
         </div>
         <div class="feature-text" #featureText2>
           Ready to make some magic happen?
@@ -55,13 +42,16 @@
 
       <div class="feature-section" #featureSection3>
         <div class="feature-image-container homes-logo" #featureGif2>
-          <img src="gifs/heroGif3.gif" />
+          <img
+            src="gifs/heroGif3.gif"
+            alt="Brand visual identity design for a fintech payment app"
+          />
         </div>
       </div>
     </div>
   </section>
 
-  <section class="selectedWork">
+  <section class="selectedWork" id="work">
     <div class="selected-work-container" #selectedWorkContainer>
       <header class="selected-work-header">
         <div>
@@ -73,7 +63,7 @@
       <div class="works-grid">
         <div class="work-item">
           <div class="work-overlay" #work1>
-            <img src="Images/zoox.avif" />
+            <img src="Images/zoox.avif" alt="Rebranding concept for Zoox" />
           </div>
         </div>
 
@@ -92,7 +82,12 @@
         </div>
 
         <div class="work-item" #selectedWork56Container>
-          <div class="work-overlay" #work5><img src="gifs/sophony.gif" /></div>
+          <div class="work-overlay" #work5>
+            <img
+              src="gifs/sophony.gif"
+              alt="Brand sprint design for a fintech startup"
+            />
+          </div>
         </div>
 
         <div class="work-item">
@@ -104,7 +99,7 @@
     </div>
   </section>
 
-  <section class="testimonials">
+  <section class="testimonials" id="testimonial">
     <div class="testimonials-container" #testimonialsContainer>
       <header class="testimonials-header">
         <div>
@@ -117,7 +112,10 @@
         <div class="testimonials-grid" #testGrid>
           <div class="testimonial" #test1>
             <div class="testimonial-image">
-              <img src="clients/client1.png" />
+              <img
+                src="clients/client1.png"
+                (click)="emitImageSrc('clients/client1.png')"
+              />
             </div>
             <div class="testimonial-content">
               <p class="testimonial-text">
@@ -133,7 +131,10 @@
 
           <div class="testimonial" #test2>
             <div class="testimonial-image">
-              <img src="clients/client2.png" />
+              <img
+                src="clients/client2.png"
+                (click)="emitImageSrc('clients/client2.png')"
+              />
             </div>
             <div class="testimonial-content">
               <p class="testimonial-text">
@@ -148,7 +149,10 @@
 
           <div class="testimonial" #test3>
             <div class="testimonial-image">
-              <img src="clients/client3.png" />
+              <img
+                src="clients/client3.png"
+                (click)="emitImageSrc('clients/client3.png')"
+              />
             </div>
             <div class="testimonial-content">
               <p class="testimonial-text">
@@ -164,7 +168,10 @@
 
           <div class="testimonial" #test4>
             <div class="testimonial-image">
-              <img src="clients/client4.jpg" />
+              <img
+                src="clients/client4.jpg"
+                (click)="emitImageSrc('clients/client4.jpg')"
+              />
             </div>
             <div class="testimonial-content">
               <p class="testimonial-text">
@@ -181,7 +188,7 @@
     </div>
   </section>
 
-  <section class="aboutMe">
+  <section class="aboutMe" id="about">
     <div class="about-me-container" #aboutMeContainer>
       <header class="about-me-header">
         <div>
@@ -274,7 +281,10 @@
       <div class="brands-grid" #brandsGridContainer>
         <div class="brands-card" #brand1>
           <div class="brands-card-image">
-            <img src="Images/brandSprint1.png" />
+            <img
+              src="Images/brandSprint1.png"
+              (click)="emitImageSrc('Images/brandSprint1.png')"
+            />
           </div>
           <div class="brands-card-content">
             <h3 class="brands-card-title">Grow Brand Sprint</h3>
@@ -283,7 +293,10 @@
 
         <div class="brands-card" #brand2>
           <div class="brands-card-image">
-            <img src="Images/brandSprint2.png" />
+            <img
+              src="Images/brandSprint2.png"
+              (click)="emitImageSrc('Images/brandSprint2.png')"
+            />
           </div>
           <div class="brands-card-content">
             <h3 class="brands-card-title">Noblecare Brand Sprint</h3>
@@ -292,7 +305,10 @@
 
         <div class="brands-card" #brand3>
           <div class="brands-card-image">
-            <img src="Images/brandSprint3.png" />
+            <img
+              src="Images/brandSprint3.png"
+              (click)="emitImageSrc('Images/brandSprint3.png')"
+            />
           </div>
           <div class="brands-card-content">
             <h3 class="brands-card-title">Proplus Brand Sprint</h3>
@@ -301,7 +317,10 @@
 
         <div class="brands-card" #brand4>
           <div class="brands-card-image">
-            <img src="Images/brandSprint4.png" />
+            <img
+              src="Images/brandSprint4.png"
+              (click)="emitImageSrc('Images/brandSprint4.png')"
+            />
           </div>
           <div class="brands-card-content">
             <h3 class="brands-card-title">Sophony Brand Sprint</h3>
@@ -310,7 +329,10 @@
 
         <div class="brands-card" #brand5>
           <div class="brands-card-image">
-            <img src="Images/brandSprint5.png" />
+            <img
+              src="Images/brandSprint5.png"
+              (click)="emitImageSrc('Images/brandSprint5.png')"
+            />
           </div>
           <div class="brands-card-content">
             <h3 class="brands-card-title">Deposit Brand Sprint</h3>
@@ -319,7 +341,10 @@
 
         <div class="brands-card" #brand6>
           <div class="brands-card-image">
-            <img src="Images/brandSprint6.png" />
+            <img
+              src="Images/brandSprint6.png"
+              (click)="emitImageSrc('Images/brandSprint6.png')"
+            />
           </div>
           <div class="brands-card-content">
             <h3 class="brands-card-title">Highradius Brand Sprint</h3>
@@ -372,7 +397,7 @@
     </div>
   </section>
 
-  <section class="contactMe" #contactContainer>
+  <section class="contactMe" #contactContainer id="contact">
     <header class="contact-me-header">
       <img class="contact-me-header-logo" src="Images/logo.png" #contactLogo />
       <h1 class="contact-me-header-title" #contactHeadline>Work with me</h1>

@@ -1,0 +1,50 @@
+<section class="logoStore">
+  <div class="logo-marketplace">
+    <div class="logo-grid">
+      <div class="logo-card" *ngFor="let logo of displayedLogos">
+        <div class="logo-image">
+          <img [src]="logo.image" [alt]="logo.name" (click)="openLogo(logo)" />
+        </div>
+        <h2 (click)="openLogo(logo)">{{ logo.name }}</h2>
+        <div class="price">
+          <span class="original-price" *ngIf="logo.originalPrice">
+            ${{ logo.originalPrice.toFixed(2) }}
+          </span>
+          <span class="sale-price">${{ logo.salePrice.toFixed(2) }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination" *ngIf="totalPages > 1">
+      <button
+        class="prev-btn"
+        [disabled]="currentPage === 1"
+        (click)="changePage('prev')"
+      >
+        &lt;
+      </button>
+      <div class="page-numbers">
+        <span
+          *ngFor="let page of getPagesArray()"
+          [class.active]="page === currentPage"
+          (click)="goToPage(page)"
+        >
+          {{ page }}
+        </span>
+      </div>
+      <button
+        class="next-btn"
+        [disabled]="currentPage === totalPages"
+        (click)="changePage('next')"
+      >
+        &gt;
+      </button>
+    </div>
+  </div>
+  <div class="cta-section">
+    <div class="cta-content">
+      <h2>Have you found a logo that matches your brand?</h2>
+      <button class="buy-btn" (click)="handlePurchase()">Buy a Logo</button>
+    </div>
+  </div>
+</section>

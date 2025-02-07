@@ -1,4 +1,38 @@
 <div class="components-container">
-  <app-hero-section />
+  <nav class="navbar" #navbar>
+    <div class="navbar-content">
+      <div class="navbar-left">
+        <img
+          src="/Images/navbar-logo.avif"
+          alt="Logo"
+          (click)="scrollToTop()"
+        />
+        <a href="/">Haider Desk</a>
+      </div>
+      <div class="navbar-right">
+        <ul>
+          <li><a href="#work" (click)="scrollToSection('work')">Work</a></li>
+          <li>
+            <a href="#testimonial" (click)="scrollToSection('testimonial')"
+              >Testimonials</a
+            >
+          </li>
+          <li>
+            <a href="#about" (click)="scrollToSection('about')">About</a>
+          </li>
+          <li>
+            <a href="#contact" (click)="scrollToSection('contact')">Contact</a>
+          </li>
+          <li><a href="/logo-store">Logo Store</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <app-lightbox
+    [imageSrc]="selectedImage"
+    [isOpen]="lightboxOpen"
+    (lightBoxEvent)="receiveLightBoxEvent($event)"
+  ></app-lightbox>
 </div>
 <router-outlet></router-outlet>
