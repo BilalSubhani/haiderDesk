@@ -6,5 +6,5 @@ import { LogoDetailComponent } from './logo-store/logo-detail/logo-detail.compon
 export const routes: Routes = [
   { path: '', component: HeroSectionComponent, pathMatch: 'full' },
   { path: 'logo-store', component: LogoStoreComponent },
-  { path: 'logo-detail', component: LogoDetailComponent },
+  { path: ':logoName', component: LogoDetailComponent },
 ];

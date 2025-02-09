@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SharedService } from '../shared.service';
+import { Router } from '@angular/router';
 
 interface Logo {
   id: number;
@@ -707,7 +708,7 @@ export class LogoStoreComponent {
     },
   ];
 
-  constructor(private sharedService: SharedService) {
+  constructor(private sharedService: SharedService, private router: Router) {
     this.updatePagination();
     this.displayLogosForCurrentPage();
   }
@@ -769,5 +770,6 @@ export class LogoStoreComponent {
 
   openLogo(logo: Logo) {
     this.sharedService.setLogoDetail(logo);
+    this.router.navigate(['/', logo.name]);
   }
 }

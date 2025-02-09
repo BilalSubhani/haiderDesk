@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { SharedService } from '../../shared.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 interface LogoDetail {
   id: number;
@@ -19,7 +20,10 @@ interface LogoDetail {
   imports: [CommonModule],
 })
 export class LogoDetailComponent {
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private route: ActivatedRoute
+  ) {}
   private subscription: Subscription = new Subscription();
 
   logoDetail!: LogoDetail;
@@ -27,6 +31,8 @@ export class LogoDetailComponent {
   ngOnInit() {
     this.subscription = this.sharedService.logoDetail$.subscribe((logo) => {
       this.logoDetail = logo;
+
+      const logoName = this.route.snapshot.paramMap.get('logoName');
     });
   }
 

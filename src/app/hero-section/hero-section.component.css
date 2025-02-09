@@ -24,7 +24,7 @@
 .headline {
   font-size: 64px;
   font-weight: 400;
-  color: rgb(0, 87, 63);
+  color: #005840;
   line-height: 1.2;
   margin-bottom: 1rem;
   transform: translateY(100px);
@@ -45,7 +45,7 @@
 }
 
 .cta-button {
-  color: rgba(252, 252, 210, 0.88);
+  color: #fcfcd2;
   background-color: #005840;
   padding: 25px 5.4rem;
   border-radius: 2rem;
@@ -108,7 +108,7 @@
 
 .feature-text {
   text-align: center;
-  color: #006655;
+  color: #005840;
   font-size: 3rem;
   padding-top: 45px;
   padding-bottom: 22px;
@@ -135,7 +135,7 @@
 }
 
 .selected-work-header h1 {
-  color: #115e59;
+  color: #005840;
   font-size: 30px;
   font-weight: 400;
   transform: translateY(100px);
@@ -249,7 +249,7 @@
 }
 
 .testimonials-header h1 {
-  color: #005940;
+  color: #005840;
   font-size: 30px;
   font-weight: 400;
   transform: translateY(100px);
@@ -258,7 +258,7 @@
 }
 
 .testimonials-card {
-  background-color: #005940;
+  background-color: #005840;
   border-radius: 1rem;
   padding: 5rem 2rem;
 }
@@ -349,7 +349,7 @@
 }
 
 .about-me-header h1 {
-  color: #005940;
+  color: #005840;
   font-size: 30px;
   font-weight: 400;
   transform: translateY(100px);
@@ -405,7 +405,7 @@
 }
 
 .intro-card {
-  background-color: #005940;
+  background-color: #005840;
   color: white;
   height: 535px;
   width: 610px;
