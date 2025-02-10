@@ -768,8 +768,12 @@ export class LogoStoreComponent {
     this.addNewLogo(newLogo);
   }
 
+  replaceSpaces(str: string) {
+    return str.replace(/ /g, '_');
+  }
+
   openLogo(logo: Logo) {
     this.sharedService.setLogoDetail(logo);
-    this.router.navigate(['/', logo.name]);
+    this.router.navigate(['/', this.replaceSpaces(logo.name)]);
   }
 }
