@@ -29,7 +29,6 @@ export class LogoStoreComponent {
     {
       id: 1,
       name: 'H for home',
-      originalPrice: 900.0,
       salePrice: 750.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -61,7 +60,6 @@ export class LogoStoreComponent {
     {
       id: 5,
       name: 'Luxury Living',
-      originalPrice: 1500.0,
       salePrice: 1200.0,
       image: 'Logos/logo.jpg',
       description: 'Elegant and luxurious interior decor',
@@ -77,7 +75,6 @@ export class LogoStoreComponent {
     {
       id: 7,
       name: 'Urban Living',
-      originalPrice: 1100.0,
       salePrice: 950.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -93,7 +90,6 @@ export class LogoStoreComponent {
     {
       id: 9,
       name: 'Cozy Nest',
-      originalPrice: 750.0,
       salePrice: 600.0,
       image: 'Logos/logo.jpg',
       description: 'Warm and cozy living solutions',
@@ -101,7 +97,6 @@ export class LogoStoreComponent {
     {
       id: 10,
       name: 'Home Haven',
-      originalPrice: 1000.0,
       salePrice: 850.0,
       image: 'Logos/logo.jpg',
       description: 'Create your dream space',
@@ -109,7 +104,6 @@ export class LogoStoreComponent {
     {
       id: 11,
       name: 'Furniture World',
-      originalPrice: 1100.0,
       salePrice: 900.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -125,7 +119,6 @@ export class LogoStoreComponent {
     {
       id: 13,
       name: 'Chic Interiors',
-      originalPrice: 1200.0,
       salePrice: 1000.0,
       image: 'Logos/logo.jpg',
       description: 'A touch of class for your home',
@@ -133,7 +126,6 @@ export class LogoStoreComponent {
     {
       id: 14,
       name: 'Fresh Interiors',
-      originalPrice: 900.0,
       salePrice: 750.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -141,7 +133,6 @@ export class LogoStoreComponent {
     {
       id: 15,
       name: 'Sleek Spaces',
-      originalPrice: 950.0,
       salePrice: 800.0,
       image: 'Logos/logo.jpg',
       description: 'Minimalistic designs for modern homes',
@@ -149,7 +140,6 @@ export class LogoStoreComponent {
     {
       id: 16,
       name: 'Elegance Living',
-      originalPrice: 1300.0,
       salePrice: 1100.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -157,7 +147,6 @@ export class LogoStoreComponent {
     {
       id: 17,
       name: 'Home Magic',
-      originalPrice: 1400.0,
       salePrice: 1150.0,
       image: 'Logos/logo.jpg',
       description: 'Magical transformations for your space',
@@ -165,7 +154,6 @@ export class LogoStoreComponent {
     {
       id: 18,
       name: 'Modern Essentials',
-      originalPrice: 1000.0,
       salePrice: 850.0,
       image: 'Logos/logo.jpg',
       description: 'Functional and trendy designs',
@@ -173,7 +161,6 @@ export class LogoStoreComponent {
     {
       id: 19,
       name: 'Urban Zen',
-      originalPrice: 850.0,
       salePrice: 700.0,
       image: 'Logos/logo.jpg',
       description: 'A zen atmosphere for your home',
@@ -189,7 +176,6 @@ export class LogoStoreComponent {
     {
       id: 21,
       name: 'Vibrant Vibes',
-      originalPrice: 1050.0,
       salePrice: 850.0,
       image: 'Logos/logo.jpg',
       description: 'Brighten up your living space',
@@ -197,7 +183,6 @@ export class LogoStoreComponent {
     {
       id: 22,
       name: 'Sleek Living',
-      originalPrice: 1100.0,
       salePrice: 950.0,
       image: 'Logos/logo.jpg',
       description: 'Streamlined, modern furniture',
@@ -213,7 +198,6 @@ export class LogoStoreComponent {
     {
       id: 24,
       name: 'Zen Home',
-      originalPrice: 1000.0,
       salePrice: 800.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -221,7 +205,6 @@ export class LogoStoreComponent {
     {
       id: 25,
       name: 'Timeless Designs',
-      originalPrice: 950.0,
       salePrice: 850.0,
       image: 'Logos/logo.jpg',
       description: 'Elegance that lasts forever',
@@ -229,7 +212,6 @@ export class LogoStoreComponent {
     {
       id: 26,
       name: 'Classic Home',
-      originalPrice: 1100.0,
       salePrice: 900.0,
       image: 'Logos/logo.jpg',
       description: 'Traditional and classic designs',
@@ -237,7 +219,6 @@ export class LogoStoreComponent {
     {
       id: 27,
       name: 'Urban Oasis',
-      originalPrice: 1200.0,
       salePrice: 950.0,
       image: 'Logos/logo.jpg',
       description: 'Create your own urban retreat',
@@ -245,7 +226,6 @@ export class LogoStoreComponent {
     {
       id: 28,
       name: 'Ethereal Interiors',
-      originalPrice: 1300.0,
       salePrice: 1000.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -253,7 +233,6 @@ export class LogoStoreComponent {
     {
       id: 29,
       name: 'Cosmic Comfort',
-      originalPrice: 900.0,
       salePrice: 750.0,
       image: 'Logos/logo.jpg',
       description: 'Futuristic yet comfortable designs',
@@ -269,7 +248,6 @@ export class LogoStoreComponent {
     {
       id: 31,
       name: 'Timeless Interiors',
-      originalPrice: 1050.0,
       salePrice: 900.0,
       image: 'Logos/logo.jpg',
       description: 'Elegant and everlasting designs',
@@ -277,7 +255,6 @@ export class LogoStoreComponent {
     {
       id: 32,
       name: 'Simplified Spaces',
-      originalPrice: 800.0,
       salePrice: 650.0,
       image: 'Logos/logo.jpg',
       description: 'Clean and simple designs',
@@ -285,7 +262,6 @@ export class LogoStoreComponent {
     {
       id: 33,
       name: 'The Living Room',
-      originalPrice: 1200.0,
       salePrice: 1000.0,
       image: 'Logos/logo.jpg',
       description: '',
@@ -293,7 +269,6 @@ export class LogoStoreComponent {
     {
       id: 34,
       name: 'Creative Corners',
-      originalPrice: 950.0,
       salePrice: 800.0,
       image: 'Logos/logo.jpg',
       description: 'Bringing creativity into your home',
@@ -737,6 +712,7 @@ export class LogoStoreComponent {
     } else if (direction === 'next' && this.currentPage < this.totalPages) {
       this.goToPage(this.currentPage + 1);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   public goToPage(page: number): void {
