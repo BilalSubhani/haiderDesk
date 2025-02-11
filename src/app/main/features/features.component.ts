@@ -38,49 +38,60 @@ export class FeaturesComponent implements AfterViewInit {
       if ('IntersectionObserver' in window) {
         // Features
         const observerText1 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.featureText1.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.featureText1.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
+
         const observerText2 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.featureText2.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.featureText2.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
 
         const observerGif = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.featureGif.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.featureGif.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
 
         const observerGif1 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.featureGif1.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.featureGif1.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
 
         const observerGif2 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.featureGif2.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.featureGif2.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }

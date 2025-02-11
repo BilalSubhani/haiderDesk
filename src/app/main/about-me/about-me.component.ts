@@ -52,29 +52,46 @@ export class AboutMeComponent {
       if ('IntersectionObserver' in window) {
         // About Me
         const observerAMHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
+            let triggered = false;
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.aboutMeHeadline.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                triggered = true;
+              }
             });
+
+            if (triggered) {
+              obs.disconnect();
+            }
           },
           { threshold: 0.1 }
         );
 
         const observerAMCont12 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
+            let triggered = false;
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.introContainer.nativeElement, 'show');
               this.renderer[action](this.statsContainer.nativeElement, 'show');
               this.renderer[action](this.introHeading.nativeElement, 'show');
               this.renderer[action](this.statsNumber.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                triggered = true;
+              }
             });
+
+            if (triggered) {
+              obs.disconnect();
+            }
           },
           { threshold: 0.2 }
         );
         const observerIntroText = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
+            let triggered = false;
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.introText.nativeElement, 'show');
@@ -84,13 +101,21 @@ export class AboutMeComponent {
                 'show'
               );
               this.renderer[action](this.visionContainer.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                triggered = true;
+              }
             });
+
+            if (triggered) {
+              obs.disconnect();
+            }
           },
           { threshold: 0.4 }
         );
 
         const observerExperience = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
+            let triggered = false;
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.experienceText.nativeElement, 'show');
@@ -98,23 +123,39 @@ export class AboutMeComponent {
                 this.experienceNumber.nativeElement,
                 'show'
               );
+              if (entry.isIntersecting) {
+                triggered = true;
+              }
             });
+
+            if (triggered) {
+              obs.disconnect();
+            }
           },
           { threshold: 0.1 }
         );
 
         const observerVisionCont = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
+            let triggered = false;
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.visionContainer.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                triggered = true;
+              }
             });
+
+            if (triggered) {
+              obs.disconnect();
+            }
           },
           { threshold: 0.1 }
         );
 
         const observerVisionText = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
+            let triggered = false;
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.visionText.nativeElement, 'show');
@@ -123,19 +164,37 @@ export class AboutMeComponent {
                 'show'
               );
               this.renderer[action](this.viewsContainer.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                triggered = true;
+              }
             });
+
+            if (triggered) {
+              obs.disconnect();
+            }
           },
           { threshold: 0.1 }
         );
 
         const observerPVText = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
+            let triggered = false;
+
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.viewsText.nativeElement, 'show');
               this.renderer[action](this.portfolioText.nativeElement, 'show');
               this.renderer[action](this.viewsNumber.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                triggered = true;
+              }
             });
+
+            if (triggered) {
+              obs.disconnect();
+            }
           },
           { threshold: 0.3 }
         );

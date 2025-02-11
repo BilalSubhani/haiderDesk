@@ -44,44 +44,60 @@ export class SelectedWorkComponent {
       if ('IntersectionObserver' in window) {
         // Selected Work
         const observerSWHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](
                 this.selectedWorkHeadline.nativeElement,
                 'show'
               );
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
 
         const observerSW1 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.work1.nativeElement, 'show');
               this.renderer[action](this.work2.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.2 }
         );
         const observerSW2 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.work3.nativeElement, 'show');
               this.renderer[action](this.work4.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.5 }
         );
         const observerSW3 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.work5.nativeElement, 'show');
               this.renderer[action](this.work6.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.2 }

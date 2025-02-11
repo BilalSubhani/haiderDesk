@@ -30,20 +30,28 @@ export class HeroComponent {
     if (isPlatformBrowser(this.platformId)) {
       if ('IntersectionObserver' in window) {
         const observerNavbar = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.navbar.nativeElement, 'expand');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
 
         const observerHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.headline.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }

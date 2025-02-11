@@ -37,59 +37,84 @@ export class ContactMeComponent {
       if ('IntersectionObserver' in window) {
         // Contact Me
         const observerContactLogo = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.contactLogo.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.contactLogo.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
+
         const observerContactHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.contactHeadline.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(
+                  this.contactHeadline.nativeElement,
+                  'show'
+                );
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.2 }
         );
+
         const observerProjectContainer = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](
-                this.projectContainer.nativeElement,
-                'show'
-              );
+              if (entry.isIntersecting) {
+                this.renderer.addClass(
+                  this.projectContainer.nativeElement,
+                  'show'
+                );
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }
         );
+
         const observerProjectHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.projectHeadline.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(
+                  this.projectHeadline.nativeElement,
+                  'show'
+                );
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
+
         const observerProjectText = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.projectText.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.projectText.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }
         );
 
         const observerForm = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.formContainer.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(
+                  this.formContainer.nativeElement,
+                  'show'
+                );
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }

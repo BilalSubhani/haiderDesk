@@ -39,32 +39,44 @@ export class TestimonialsComponent {
       if ('IntersectionObserver' in window) {
         // Testimonials
         const observerTestHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.testHeadline.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
 
         const observerTest12 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.test1.nativeElement, 'show');
               this.renderer[action](this.test2.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.2 }
         );
 
         const observerTest34 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.test3.nativeElement, 'show');
               this.renderer[action](this.test4.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.4 }

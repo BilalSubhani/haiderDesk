@@ -31,10 +31,14 @@ export class FooterComponent {
       if ('IntersectionObserver' in window) {
         // Footer
         const observerFooter = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.footerData.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }

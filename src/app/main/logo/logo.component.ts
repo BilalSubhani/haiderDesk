@@ -35,37 +35,53 @@ export class LogoComponent {
       if ('IntersectionObserver' in window) {
         // Logo Store
         const observerStoreLogo = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.storeLogo.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
         const observerStoreHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.storeHeadline.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.2 }
         );
         const observerStoreText = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.storeText.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }
         );
         const observerStoreButton = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
               const action = entry.isIntersecting ? 'addClass' : 'removeClass';
               this.renderer[action](this.storeButton.nativeElement, 'show');
+
+              if (entry.isIntersecting) {
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.4 }

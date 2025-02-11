@@ -46,60 +46,79 @@ export class BrandsComponent {
       if ('IntersectionObserver' in window) {
         // Brands
         const observerBrandLogo = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.brandsLogo.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.brandsLogo.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
+
         const observerBrandHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.brandsheadline.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(
+                  this.brandsheadline.nativeElement,
+                  'show'
+                );
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.2 }
         );
+
         const observerBrandText = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.brandsText.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.brandsText.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }
         );
+
         const observerBrandButton = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.brandsButton.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.brandsButton.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
 
         const observerBrandRow1 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.brand1.nativeElement, 'show');
-              this.renderer[action](this.brand2.nativeElement, 'show');
-              this.renderer[action](this.brand3.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.brand1.nativeElement, 'show');
+                this.renderer.addClass(this.brand2.nativeElement, 'show');
+                this.renderer.addClass(this.brand3.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
+
         const observerBrandRow2 = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.brand4.nativeElement, 'show');
-              this.renderer[action](this.brand5.nativeElement, 'show');
-              this.renderer[action](this.brand6.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.brand4.nativeElement, 'show');
+                this.renderer.addClass(this.brand5.nativeElement, 'show');
+                this.renderer.addClass(this.brand6.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }

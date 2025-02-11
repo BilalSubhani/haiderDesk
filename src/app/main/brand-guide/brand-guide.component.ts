@@ -38,46 +38,63 @@ export class BrandGuideComponent {
       if ('IntersectionObserver' in window) {
         // Brands Guidelines
         const observerGuideLogo = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.guideLogo.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.guideLogo.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.1 }
         );
+
         const observerGuideHeadline = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.guideHeadline.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(
+                  this.guideHeadline.nativeElement,
+                  'show'
+                );
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.2 }
         );
+
         const observerGuideText = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.guideText.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.guideText.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }
         );
+
         const observerGuideButton = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.guideButton.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.guideButton.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.4 }
         );
+
         const observerGuideImage = new IntersectionObserver(
-          (entries) => {
+          (entries, obs) => {
             entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.guideImage.nativeElement, 'show');
+              if (entry.isIntersecting) {
+                this.renderer.addClass(this.guideImage.nativeElement, 'show');
+                obs.disconnect();
+              }
             });
           },
           { threshold: 0.3 }
