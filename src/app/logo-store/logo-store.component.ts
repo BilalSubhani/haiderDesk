@@ -21,7 +21,7 @@ interface Logo {
 })
 export class LogoStoreComponent {
   currentPage: number = 1;
-  private logosPerPage: number = 50;
+  private logosPerPage: number = 30;
   public displayedLogos: Logo[] = [];
   public totalPages: number = 1;
 
@@ -712,6 +712,7 @@ export class LogoStoreComponent {
     } else if (direction === 'next' && this.currentPage < this.totalPages) {
       this.goToPage(this.currentPage + 1);
     }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -719,6 +720,7 @@ export class LogoStoreComponent {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
       this.displayLogosForCurrentPage();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 

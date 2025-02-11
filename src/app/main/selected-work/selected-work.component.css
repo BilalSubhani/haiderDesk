@@ -1,8 +1,11 @@
+.space {
+  height: 55px;
+}
+
 .selectedWork {
   font-family: "Inter", sans-serif;
   background-color: #ffffef;
   padding: 0;
-  transform: translateY(-50px);
 }
 
 .selected-work-container {
