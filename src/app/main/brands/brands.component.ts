@@ -79,7 +79,7 @@ export class BrandsComponent {
               this.renderer[action](this.brandsButton.nativeElement, 'show');
             });
           },
-          { threshold: 0.4 }
+          { threshold: 0.1 }
         );
 
         const observerBrandRow1 = new IntersectionObserver(

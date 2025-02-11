@@ -202,3 +202,69 @@
   transition: 1.5s;
   opacity: 0;
 }
+
+@media screen and (max-width: 920px) {
+  .aboutMe {
+    padding: 1rem 0 0;
+  }
+
+  .about-me-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-me-header h1 {
+    font-size: 24px;
+  }
+
+  .aboutme-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .intro-card {
+    width: 92%;
+    height: auto;
+    padding: 2rem;
+    grid-row: auto;
+  }
+
+  .intro-card h2 {
+    font-size: 32px;
+    margin-bottom: 2rem;
+    margin-left: 0;
+  }
+
+  .intro-card p {
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  .stats-card,
+  .experience-card {
+    height: 200px;
+  }
+
+  .stats-number {
+    font-size: 80px;
+  }
+
+  .vision-card {
+    height: auto;
+    padding: 2rem;
+    font-size: 32px;
+  }
+
+  .portfolio-card {
+    padding: 2rem;
+    font-size: 24px;
+    transform: none;
+  }
+
+  .views-card {
+    transform: none;
+  }
+
+  .views-number {
+    font-size: 56px;
+  }
+}

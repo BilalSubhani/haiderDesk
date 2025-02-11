@@ -5,35 +5,44 @@
   padding: 0;
   box-sizing: border-box;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 .feature-container {
   max-width: 1224px;
   margin: 0 auto;
   transform: translateY(-50px);
+  padding: 0 1rem;
 }
 
 .feature-section {
   margin-bottom: 4rem;
+  position: relative;
 }
 
 .feature-image-container {
   width: 100%;
   height: 655px;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
+  position: relative;
 }
-
 .feature-image-container.brand-guide {
-  transform: translateY(100px);
-  transition: 1s;
-  opacity: 0;
+  margin-top: 50px;
 }
 
+.feature-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-image-container.brand-guide,
 .feature-image-container.homes-logo {
   transform: translateY(100px);
-  transition: 1s;
+  transition: transform 1s ease, opacity 1s ease;
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 .feature-image-container.brand-guide.show,
@@ -46,10 +55,36 @@
 .feature-text {
   text-align: center;
   color: #005840;
-  font-size: 3rem;
-  padding-top: 45px;
-  padding-bottom: 22px;
+  font-size: clamp(20px, 5vw, 3rem);
+  padding: 45px 1rem 22px;
   transform: translateY(100px);
-  transition: 1s;
+  transition: transform 1s ease, opacity 1s ease;
   opacity: 0;
+  will-change: transform, opacity;
+}
+
+@media screen and (max-width: 920px) {
+  .feature-container {
+    transform: translateY(-30px);
+  }
+
+  .feature-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .feature-image-container {
+    height: 30vh;
+    min-height: 250px;
+    border-radius: 8px;
+  }
+
+  .feature-image-container.brand-guide,
+  .feature-image-container.homes-logo {
+    object-fit: contain;
+  }
+
+  .feature-text {
+    font-size: 20px;
+    padding: 25px 1rem 0;
+  }
 }

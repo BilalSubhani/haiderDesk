@@ -56,7 +56,7 @@ export class TestimonialsComponent {
               this.renderer[action](this.test2.nativeElement, 'show');
             });
           },
-          { threshold: 0.3 }
+          { threshold: 0.2 }
         );
 
         const observerTest34 = new IntersectionObserver(
@@ -67,7 +67,7 @@ export class TestimonialsComponent {
               this.renderer[action](this.test4.nativeElement, 'show');
             });
           },
-          { threshold: 0.5 }
+          { threshold: 0.4 }
         );
         observerTestHeadline.observe(this.testimonialsContainer.nativeElement);
         observerTest12.observe(this.testimonialsContainer.nativeElement);

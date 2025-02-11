@@ -36,7 +36,7 @@ export class HeroComponent {
               this.renderer[action](this.navbar.nativeElement, 'expand');
             });
           },
-          { threshold: 0.8 }
+          { threshold: 0.1 }
         );
 
         const observerHeadline = new IntersectionObserver(

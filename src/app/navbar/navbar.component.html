@@ -1,0 +1,36 @@
+<nav class="navbar" #navbar>
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <img src="/Images/navbar-logo.avif" alt="Logo" (click)="scrollToTop()" />
+      <a href="/">Haider Desk</a>
+    </div>
+    <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+    <div class="navbar-right" [ngClass]="{ 'show-menu': isMenuOpen }">
+      <ul>
+        <li>
+          <a href="#work" (click)="scrollToSection('work'); closeMenu()"
+            >Work</a
+          >
+        </li>
+        <li>
+          <a
+            href="#testimonial"
+            (click)="scrollToSection('testimonial'); closeMenu()"
+            >Testimonials</a
+          >
+        </li>
+        <li>
+          <a href="#about" (click)="scrollToSection('about'); closeMenu()"
+            >About</a
+          >
+        </li>
+        <li>
+          <a href="#contact" (click)="scrollToSection('contact'); closeMenu()"
+            >Contact</a
+          >
+        </li>
+        <li><a href="/logo-store" (click)="closeMenu()">Logo Store</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

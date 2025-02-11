@@ -73,3 +73,35 @@
   transform: translateY(0);
   opacity: 1;
 }
+
+@media screen and (max-width: 920px) {
+  .logo-store-container {
+    padding: 2rem 1rem;
+  }
+
+  .store-heading {
+    font-size: 24px;
+    margin-bottom: 1rem;
+  }
+
+  .store-description {
+    font-size: 16px;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .explore-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 30px;
+  }
+
+  .logo-icon svg {
+    width: 32px;
+    height: 30px;
+  }
+}

@@ -127,3 +127,54 @@
 .submit-button:hover {
   background-color: #002b1d;
 }
+
+@media screen and (max-width: 920px) {
+  .contactMe {
+    padding: 1rem;
+  }
+
+  .contact-me-header {
+    margin-bottom: 2rem;
+  }
+
+  .contact-me-header-title {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  .contact-me-content-wrapper {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .project-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-title {
+    font-size: 40px;
+    margin-bottom: 5rem;
+    margin-left: 20px;
+  }
+
+  .project-description {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .input-field {
+    padding: 12px;
+    margin-bottom: 20px;
+    width: 90%;
+  }
+
+  .message-field {
+    margin-bottom: 20px;
+    width: 90%;
+  }
+}

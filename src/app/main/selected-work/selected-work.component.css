@@ -113,3 +113,38 @@
   transition: 1.5s;
   opacity: 0;
 }
+
+@media screen and (max-width: 920px) {
+  .selectedWork {
+    transform: translateY(-30px);
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .work-item {
+    grid-column: 1 !important;
+    height: auto !important;
+    transform: none !important;
+  }
+
+  .work-item:nth-child(n) {
+    grid-row: auto;
+  }
+
+  .selected-work-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .work-overlay {
+    font-size: 1.25rem;
+    overflow: hidden;
+  }
+  .work-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

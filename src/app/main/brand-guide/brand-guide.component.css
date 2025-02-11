@@ -75,3 +75,32 @@
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 920px) {
+  .brandGuide {
+    padding: 1rem;
+  }
+
+  .brand-guide-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .brand-guide-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto 30px;
+    padding: 0 1rem;
+  }
+
+  .brand-guide-cta-button {
+    font-size: 1rem;
+    padding: 14px 35px;
+  }
+
+  .brand-guide-template-preview {
+    height: 400px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
+}

@@ -1,24 +1,27 @@
 .hero-section {
   font-family: "Inter", sans-serif;
   background-color: #ffffef;
+  width: 100%;
 }
 
 .main-content {
   text-align: center;
-  padding: 78px 78px;
+  padding: 78px 24px;
   max-width: 1223px;
   margin: 0 auto;
 }
 
 .headline {
-  font-size: 64px;
+  font-size: clamp(36px, 6vw, 64px);
   font-weight: 400;
   color: #005840;
   line-height: 1.2;
   margin-bottom: 1rem;
   transform: translateY(100px);
-  transition: 1s;
+  transition: transform 1s ease, opacity 1s ease;
   opacity: 0;
+  padding: 0 1rem;
+  will-change: transform, opacity;
 }
 
 .headline-brands {
@@ -30,28 +33,64 @@
   color: #005840;
   line-height: 1.6;
   max-width: 565px;
-  margin: 40px auto 2.5rem auto;
+  margin: 40px auto 2.5rem;
+  padding: 0 1rem;
 }
 
 .cta-button {
   color: #fcfcd2;
   background-color: #005840;
-  padding: 25px 5.4rem;
+  padding: 20px min(5.4rem, 15vw);
   border-radius: 2rem;
   text-decoration: none;
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.1rem);
   margin-top: 5px;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.cta-button:hover {
+  color: #9dff91;
 }
 
 .spots-text {
   color: #005840;
   font-size: 0.9rem;
   transform: translateY(-10px);
+  margin-top: 1.5rem;
 }
 
 .headline.show {
   transform: translateY(0);
   opacity: 1;
+}
+
+@media screen and (max-width: 920px) {
+  .main-content {
+    padding: 60px 16px;
+  }
+
+  .headline {
+    font-size: clamp(28px, 5vw, 36px);
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .subheadline {
+    font-size: 13px;
+    margin: 25px auto 2rem;
+    padding: 0;
+    max-width: 90%;
+  }
+
+  .cta-button {
+    padding: 16px min(4rem, 12vw);
+    font-size: 0.95rem;
+  }
+
+  .spots-text {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
 }
