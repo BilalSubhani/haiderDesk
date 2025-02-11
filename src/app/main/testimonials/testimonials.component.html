@@ -1,1 +1,87 @@
-<p>testimonials works!</p>
+<section class="testimonials" id="testimonial">
+  <div class="testimonials-container" #testimonialsContainer>
+    <header class="testimonials-header">
+      <div>
+        <img class="contact-me-header-logo" src="Images/logo.png" />
+      </div>
+      <h1 #testHeadline>What my clients say</h1>
+    </header>
+
+    <div class="testimonials-card">
+      <div class="testimonials-grid" #testGrid>
+        <div class="testimonial" #test1>
+          <div class="testimonial-image">
+            <img
+              src="clients/client1.png"
+              (click)="emitImageSrc('clients/client1.png')"
+            />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              "Ahmad's design for our firm was better than expected. He listened
+              to what we wanted and created numerous versions of the logo that
+              we use each day. I strongly recommend Ahmad enough for any
+              branding needs - you will not be disappointed with the final."
+            </p>
+            <div class="testimonial-author">Jordan S. Cohen</div>
+          </div>
+        </div>
+
+        <div class="testimonial" #test2>
+          <div class="testimonial-image">
+            <img
+              src="clients/client2.png"
+              (click)="emitImageSrc('clients/client2.png')"
+            />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              "The artwork was incredible and unique. I cannot recommend Ahmad
+              enough. He was quick, responsive, and extremely professional. He
+              is a true artist with a big heart. It's great to collaborate with
+              him again!"
+            </p>
+            <div class="testimonial-author">Danny Kevin Ryan</div>
+          </div>
+        </div>
+
+        <div class="testimonial" #test3>
+          <div class="testimonial-image">
+            <img
+              src="clients/client3.png"
+              (click)="emitImageSrc('clients/client3.png')"
+            />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              "We needed a memorable logo for a lifestyle, fitness and couples
+              therapy company, reflecting everything that distinguishes our
+              company claim to be well established and appear trustworthy. Ahmad
+              listened and delivered a timeless, beautiful logo that still
+              anchors our clients identity."
+            </p>
+            <div class="testimonial-author">Hendrik Stirke</div>
+          </div>
+        </div>
+
+        <div class="testimonial" #test4>
+          <div class="testimonial-image">
+            <img
+              src="clients/client4.jpg"
+              (click)="emitImageSrc('clients/client4.jpg')"
+            />
+          </div>
+          <div class="testimonial-content">
+            <p class="testimonial-text">
+              I recently had the pleasure of collaborating with Ahmad and his
+              designs were precisely what we were hoping to receive. As an added
+              bonus, Ahmad is a consummate professional who took the time to
+              show us a clear path of logic around his design process.
+            </p>
+            <div class="testimonial-author">Jerrisa Williams</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

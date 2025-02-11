@@ -1,0 +1,77 @@
+.brandGuide {
+  background-color: #fcfcd2;
+  padding: 2rem;
+  margin-top: 8px;
+  font-family: "Inter", sans-serif;
+}
+
+.brand-guide-container {
+  max-width: 1223px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brand-guide-container .contact-me-header-logo,
+.brand-guide-title,
+.brand-guide-description,
+.brand-guide-template-preview img {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.brand-guide-container .contact-me-header-logo.show,
+.brand-guide-title.show,
+.brand-guide-description.show,
+.brand-guide-cta-button.show,
+.brand-guide-template-preview img.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.brand-guide-title {
+  font-size: 32px;
+  color: #005840;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.brand-guide-description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #005840;
+  max-width: 810px;
+  margin: 0 auto 40px;
+}
+
+.brand-guide-cta-button {
+  background-color: #065f46;
+  color: #ffffef;
+  font-size: 1.25rem;
+  padding: 18px 45px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transform: translateY(100px);
+  transition: 2s;
+  text-decoration: none;
+  opacity: 0;
+}
+.brand-guide-cta-button:hover {
+  color: #9dff91;
+}
+
+.brand-guide-template-preview {
+  width: 100%;
+  height: 575px;
+  margin-top: 90px;
+  margin-bottom: 80px;
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

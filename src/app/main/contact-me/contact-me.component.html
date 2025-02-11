@@ -1,1 +1,35 @@
-<p>contact-me works!</p>
+<section class="contactMe" #contactContainer id="contact">
+  <header class="contact-me-header">
+    <img class="contact-me-header-logo" src="Images/logo.png" #contactLogo />
+    <h1 class="contact-me-header-title" #contactHeadline>Work with me</h1>
+  </header>
+
+  <div class="contact-me-content-wrapper">
+    <div class="project-card" #projectContainer>
+      <h2 class="project-title" #projectHeadline>Have a project?</h2>
+      <p class="project-description" #projectText>
+        If you have an interesting project in mind, don't hesitate to contact me
+        and figure out how I can help.
+      </p>
+    </div>
+
+    <div class="form-card" #formContainer>
+      <form>
+        <input type="text" class="input-field" placeholder="Name" required />
+        <input type="text" class="input-field" placeholder="Budget" required />
+        <input
+          type="email"
+          class="input-field"
+          placeholder="Email address"
+          required
+        />
+        <textarea
+          class="message-field"
+          placeholder="Enter your message"
+          required
+        ></textarea>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>

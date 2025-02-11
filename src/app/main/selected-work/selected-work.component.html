@@ -1,1 +1,47 @@
-<p>selected-work works!</p>
+<section class="selectedWork" id="work">
+  <div class="selected-work-container" #selectedWorkContainer>
+    <header class="selected-work-header">
+      <div>
+        <img class="contact-me-header-logo" src="Images/logo.png" />
+      </div>
+      <h1 #selectedWorkHeadline>Selected works</h1>
+    </header>
+
+    <div class="works-grid">
+      <div class="work-item">
+        <div class="work-overlay" #work1>
+          <img src="Images/zoox.avif" alt="Rebranding concept for Zoox" />
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-overlay" #work2><img src="Images/homes.avif" /></div>
+      </div>
+
+      <div class="work-item" #selectedWork34Container>
+        <div class="work-overlay" #work3>
+          <img src="Images/elephant.avif" />
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-overlay" #work4><img src="gifs/evolve.gif" /></div>
+      </div>
+
+      <div class="work-item" #selectedWork56Container>
+        <div class="work-overlay" #work5>
+          <img
+            src="gifs/sophony.gif"
+            alt="Brand sprint design for a fintech startup"
+          />
+        </div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-overlay" #work6>
+          <img src="Images/baytai.avif" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

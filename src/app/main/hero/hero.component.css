@@ -1,0 +1,57 @@
+.hero-section {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffef;
+}
+
+.main-content {
+  text-align: center;
+  padding: 78px 78px;
+  max-width: 1223px;
+  margin: 0 auto;
+}
+
+.headline {
+  font-size: 64px;
+  font-weight: 400;
+  color: #005840;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
+}
+
+.headline-brands {
+  font-style: italic;
+}
+
+.subheadline {
+  font-size: 14px;
+  color: #005840;
+  line-height: 1.6;
+  max-width: 565px;
+  margin: 40px auto 2.5rem auto;
+}
+
+.cta-button {
+  color: #fcfcd2;
+  background-color: #005840;
+  padding: 25px 5.4rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.spots-text {
+  color: #005840;
+  font-size: 0.9rem;
+  transform: translateY(-10px);
+}
+
+.headline.show {
+  transform: translateY(0);
+  opacity: 1;
+}

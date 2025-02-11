@@ -1,1 +1,91 @@
-<p>brands works!</p>
+<section class="brands">
+  <div class="brands-container" #brandsContainer>
+    <div class="brands-header">
+      <div>
+        <img class="contact-me-header-logo" src="Images/logo.png" #brandsLogo />
+      </div>
+      <h1 #brandsheadline>Brand sprints for startups</h1>
+      <p #brandsText>
+        Do you need a brand that stands out from the crowd and resonates with
+        your target audience? Do you want to avoid wasting time and money on
+        endless revisions and feedback loops? Do you want to launch your brand
+        in just two weeks?
+      </p>
+      <a href="#" class="brands-cta-button" #brandsButton>Try Brand Sprint</a>
+    </div>
+
+    <div class="brands-grid" #brandsGridContainer>
+      <div class="brands-card" #brand1>
+        <div class="brands-card-image">
+          <img
+            src="Images/brandSprint1.png"
+            (click)="emitImageSrc('Images/brandSprint1.png')"
+          />
+        </div>
+        <div class="brands-card-content">
+          <h3 class="brands-card-title">Grow Brand Sprint</h3>
+        </div>
+      </div>
+
+      <div class="brands-card" #brand2>
+        <div class="brands-card-image">
+          <img
+            src="Images/brandSprint2.png"
+            (click)="emitImageSrc('Images/brandSprint2.png')"
+          />
+        </div>
+        <div class="brands-card-content">
+          <h3 class="brands-card-title">Noblecare Brand Sprint</h3>
+        </div>
+      </div>
+
+      <div class="brands-card" #brand3>
+        <div class="brands-card-image">
+          <img
+            src="Images/brandSprint3.png"
+            (click)="emitImageSrc('Images/brandSprint3.png')"
+          />
+        </div>
+        <div class="brands-card-content">
+          <h3 class="brands-card-title">Proplus Brand Sprint</h3>
+        </div>
+      </div>
+
+      <div class="brands-card" #brand4>
+        <div class="brands-card-image">
+          <img
+            src="Images/brandSprint4.png"
+            (click)="emitImageSrc('Images/brandSprint4.png')"
+          />
+        </div>
+        <div class="brands-card-content">
+          <h3 class="brands-card-title">Sophony Brand Sprint</h3>
+        </div>
+      </div>
+
+      <div class="brands-card" #brand5>
+        <div class="brands-card-image">
+          <img
+            src="Images/brandSprint5.png"
+            (click)="emitImageSrc('Images/brandSprint5.png')"
+          />
+        </div>
+        <div class="brands-card-content">
+          <h3 class="brands-card-title">Deposit Brand Sprint</h3>
+        </div>
+      </div>
+
+      <div class="brands-card" #brand6>
+        <div class="brands-card-image">
+          <img
+            src="Images/brandSprint6.png"
+            (click)="emitImageSrc('Images/brandSprint6.png')"
+          />
+        </div>
+        <div class="brands-card-content">
+          <h3 class="brands-card-title">Highradius Brand Sprint</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

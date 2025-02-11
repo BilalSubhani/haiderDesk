@@ -1,0 +1,129 @@
+.contactMe {
+  background-color: #fffdf4;
+  padding: 2rem 2rem 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.contact-me-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-me-header-logo {
+  width: 40px;
+  height: 37px;
+}
+
+.contact-me-header-title {
+  color: #005940;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 65px;
+}
+
+.contact-me-content-wrapper {
+  max-width: 1223px;
+  height: 540px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.project-card {
+  background-color: #005940;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
+
+.project-title {
+  font-size: 64px;
+  color: #9dff91;
+  font-weight: 400;
+  margin-bottom: 15rem;
+  margin-left: 44px;
+}
+
+.project-description {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-left: 47px;
+  font-weight: normal;
+  color: #fffdf4;
+}
+
+.form-card {
+  background-color: #9dff91;
+  padding: 3.3rem 3.9rem 2.5rem 1.8rem;
+  border-radius: 1.5rem;
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.contact-me-header-logo,
+.contact-me-header-title,
+.project-card,
+.project-title,
+.project-description {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.contact-me-header-logo.show,
+.contact-me-header-title.show,
+.project-card.show,
+.project-title.show,
+.project-description.show,
+.form-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.input-field {
+  width: 100%;
+  padding: 17px;
+  margin-bottom: 40px;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  background-color: #ffffef;
+  font-family: "Inter", sans-serif;
+}
+
+.input-field:hover,
+.message-field:hover {
+  background-color: #fcfcd2;
+}
+
+.input-field:focus,
+.message-field:focus {
+  background-color: #fcfcd2;
+}
+
+.message-field {
+  width: 100%;
+  height: 62px;
+  padding: 1rem;
+  margin-top: 5px;
+  margin-bottom: 26px;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  resize: vertical;
+  background-color: #ffffef;
+}
+
+.submit-button {
+  background-color: #005940;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.submit-button:hover {
+  background-color: #002b1d;
+}

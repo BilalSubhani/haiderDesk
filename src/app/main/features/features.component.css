@@ -1,0 +1,55 @@
+.features {
+  font-family: "Inter", sans-serif;
+  background-color: #ffffef;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.feature-container {
+  max-width: 1224px;
+  margin: 0 auto;
+  transform: translateY(-50px);
+}
+
+.feature-section {
+  margin-bottom: 4rem;
+}
+
+.feature-image-container {
+  width: 100%;
+  height: 655px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.feature-image-container.brand-guide {
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
+}
+
+.feature-image-container.homes-logo {
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
+}
+
+.feature-image-container.brand-guide.show,
+.feature-image-container.homes-logo.show,
+.feature-text.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.feature-text {
+  text-align: center;
+  color: #005840;
+  font-size: 3rem;
+  padding-top: 45px;
+  padding-bottom: 22px;
+  transform: translateY(100px);
+  transition: 1s;
+  opacity: 0;
+}

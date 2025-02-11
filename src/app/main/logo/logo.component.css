@@ -1,0 +1,75 @@
+.logo-store-container {
+  max-width: 1223px;
+  margin: 0 auto;
+  padding: 45px 20px;
+  text-align: center;
+  background-color: #ffffef;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 37px;
+  background-color: #4ade80;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.logo-icon svg {
+  width: 40px;
+  height: 37px;
+}
+
+.store-heading {
+  font-size: 32px;
+  color: #005840;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.store-description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #005840;
+  max-width: 810px;
+  margin: 0 auto 40px;
+}
+
+.explore-button {
+  background-color: #065f46;
+  color: #ffffef;
+  font-size: 1.25rem;
+  padding: 18px 45px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.explore-button:hover {
+  color: #9dff91;
+}
+
+.contact-me-header-logo,
+.store-heading,
+.store-description,
+.explore-button {
+  transform: translateY(100px);
+  transition: 1.5s;
+  opacity: 0;
+}
+
+.contact-me-header-logo.show,
+.store-heading.show,
+.store-description.show,
+.explore-button.show {
+  transform: translateY(0);
+  opacity: 1;
+}

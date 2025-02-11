@@ -3,7 +3,6 @@ import {
   ElementRef,
   Inject,
   PLATFORM_ID,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -73,9 +72,17 @@ export class AppComponent {
 
   scrollToSection(comp: string) {
     this.sharedService.updateSection(comp);
+    // if (comp === 'work') this.scrollToPosition(2800);
+    // else if (comp === 'testimonial') this.scrollToPosition(4600);
+    // else if (comp === 'about') this.scrollToPosition(5350);
+    // else if (comp === 'contact') this.scrollToPosition(9750);
   }
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  scrollToPosition(px: number) {
+    window.scrollTo({ top: px, behavior: 'smooth' });
   }
 }
