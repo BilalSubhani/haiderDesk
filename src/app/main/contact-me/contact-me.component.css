@@ -53,12 +53,13 @@
 }
 
 .form-card {
-  background-color: #9dff91;
+  background-color: #fffdf4;
   padding: 3.3rem 3.9rem 2.5rem 1.8rem;
   border-radius: 1.5rem;
   transform: translateY(100px);
   transition: 1.5s;
   opacity: 0;
+  border: 1px solid #005940;
 }
 
 .contact-me-header-logo,
@@ -88,22 +89,30 @@
   border: none;
   border-radius: 0.5rem;
   font-size: 14px;
-  background-color: #ffffef;
+  background-color: #005940;
   font-family: "Inter", sans-serif;
 }
 
 .input-field:hover,
 .message-field:hover {
-  background-color: #fcfcd2;
+  background-color: #ffffff;
+  border: 1px solid #005940;
 }
 
 .input-field:focus,
 .message-field:focus {
-  background-color: #fcfcd2;
-  border: none;
-  outline: none;
+  background-color: #ffffff;
+  border: 1px solid #005940;
 }
 
+::placeholder {
+  color: #ffffff;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: black;
+}
 .message-field {
   width: 100%;
   height: 62px;
@@ -114,7 +123,7 @@
   border-radius: 0.5rem;
   font-size: 14px;
   resize: vertical;
-  background-color: #ffffef;
+  background-color: #005940;
 }
 
 .submit-button {
