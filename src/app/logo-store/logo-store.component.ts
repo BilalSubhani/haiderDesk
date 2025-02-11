@@ -722,10 +722,6 @@ export class LogoStoreComponent {
     }
   }
 
-  public handlePurchase(): void {
-    console.log('Purchase button clicked');
-  }
-
   public addNewLogo(logo: Logo): void {
     this.allLogos.push(logo);
     this.updatePagination();

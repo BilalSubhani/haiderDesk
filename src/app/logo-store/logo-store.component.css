@@ -145,6 +145,7 @@ h2 {
   cursor: pointer;
   transition: background-color 0.2s;
   transform: translateY(-2px);
+  text-decoration: none;
 }
 
 .buy-btn:hover {
