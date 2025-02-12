@@ -761,6 +761,9 @@ export class LogoStoreComponent implements OnInit {
   navigateToCart() {
     this.router.navigate(['/cart']);
   }
+  customLogoRequest(){
+    this.router.navigate(['/custom-logo']);
+  }
 
   ngOnInit() {
     this.cartService.cartLength$.subscribe((length) => {

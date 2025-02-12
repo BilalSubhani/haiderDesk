@@ -55,18 +55,18 @@ export class CartPageComponent implements OnInit {
     });
 
     this.checkoutForm.statusChanges.subscribe((status) => {
-      console.log('Form Status:', status);
-      console.log('Form Errors:', this.checkoutForm.errors);
-      console.log('Form Valid:', this.checkoutForm.valid);
-      console.log('Form Values:', this.checkoutForm.value);
+      // console.log('Form Status:', status);
+      // console.log('Form Errors:', this.checkoutForm.errors);
+      // console.log('Form Valid:', this.checkoutForm.valid);
+      // console.log('Form Values:', this.checkoutForm.value);
       this.cdRef.detectChanges();
     });
 
     Object.keys(this.checkoutForm.controls).forEach((key) => {
       this.checkoutForm.get(key)?.valueChanges.subscribe((value) => {
-        console.log(`${key} value changed:`, value);
-        console.log(`${key} validity:`, this.checkoutForm.get(key)?.valid);
-        console.log(`${key} errors:`, this.checkoutForm.get(key)?.errors);
+        // console.log(`${key} value changed:`, value);
+        // console.log(`${key} validity:`, this.checkoutForm.get(key)?.valid);
+        // console.log(`${key} errors:`, this.checkoutForm.get(key)?.errors);
       });
     });
   }
@@ -134,17 +134,17 @@ export class CartPageComponent implements OnInit {
   }
 
   isFormValid(): boolean {
-    console.log('Form Valid State:', {
-      formValid: this.checkoutForm.valid,
-      formTouched: this.checkoutForm.touched,
-      formDirty: this.checkoutForm.dirty,
-      formErrors: this.checkoutForm.errors,
-      controls: Object.keys(this.checkoutForm.controls).map((key) => ({
-        key,
-        valid: this.checkoutForm.get(key)?.valid,
-        errors: this.checkoutForm.get(key)?.errors,
-      })),
-    });
+    // console.log('Form Valid State:', {
+    //   formValid: this.checkoutForm.valid,
+    //   formTouched: this.checkoutForm.touched,
+    //   formDirty: this.checkoutForm.dirty,
+    //   formErrors: this.checkoutForm.errors,
+    //   controls: Object.keys(this.checkoutForm.controls).map((key) => ({
+    //     key,
+    //     valid: this.checkoutForm.get(key)?.valid,
+    //     errors: this.checkoutForm.get(key)?.errors,
+    //   })),
+    // });
     return this.checkoutForm.valid;
   }
 
@@ -179,7 +179,12 @@ export class CartPageComponent implements OnInit {
 
   onSubmit(): void {
     if (this.checkoutForm.valid) {
-      console.log('Form submitted:', this.checkoutForm.value);
+      //console.log('Form submitted:', this.checkoutForm.value);
+      const emailData = {
+        userdata: this.checkoutForm.value,
+        cartData: this.cartItems,
+      };
+      // console.log(emailData);
     } else {
       Object.keys(this.checkoutForm.controls).forEach((key) => {
         const control = this.checkoutForm.get(key);

@@ -1,7 +1,7 @@
 .main-body {
   background-color: #ffffef;
   max-width: 100%;
-  height: 65vh;
+  height: 87vh;
   margin-top: 75px;
   padding-top: 20px;
 }
@@ -30,17 +30,18 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-left: 5rem;
+  margin-left: 7.5rem;
 }
 
 .store-btn:hover {
-  background-color: #004030;
+  color: #9dff91;
+  transform: translateY(-1px);
 }
 
 .logo-image-container {
   background-color: #ffffef;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 2rem 5rem;
   display: flex;
   justify-content: center;
   align-items: center;

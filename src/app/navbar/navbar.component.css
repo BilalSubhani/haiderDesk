@@ -116,12 +116,23 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1430px) {
+@media screen and (max-width: 1400px) {
   .navbar-right ul {
-    margin-left: 180px;
+    margin-left: 350px;
   }
 }
 
+@media screen and (max-width: 1300px) {
+  .navbar-right ul {
+    margin-left: 200px;
+  }
+  .navbar-right ul {
+    gap: 20px;
+  }
+  .navbar-right ul li a {
+    font-size: 14px;
+  }
+}
 @media screen and (max-width: 920px) {
   .navbar {
     padding: 0;

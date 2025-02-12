@@ -1,0 +1,33 @@
+<div class="custom-logo-container">
+  <div class="custom-logo-header">
+    <h1>Request a Custom Logo</h1>
+    <p>Share your vision and let us create the perfect logo for your brand</p>
+  </div>
+
+  <div class="logo-request-container">
+    <div class="form-card" #formContainer>
+      <form>
+        <input type="text" class="input-field" placeholder="Name" required />
+        <input
+          type="email"
+          class="input-field"
+          placeholder="Email address"
+          required
+        />
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Logo Name (Optional)"
+        />
+        <textarea
+          class="message-field"
+          placeholder="Enter your custom logo idea"
+          required
+        ></textarea>
+        <button type="submit" class="submit-button" (click)="onSubmit()">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
