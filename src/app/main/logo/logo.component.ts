@@ -97,4 +97,8 @@ export class LogoComponent {
       }
     }
   }
+
+  navigateTologoStore() {
+    this.router.navigate(['/logo-store']);
+  }
 }

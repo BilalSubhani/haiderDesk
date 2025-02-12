@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
@@ -687,7 +687,8 @@ export class LogoStoreComponent implements OnInit {
   constructor(
     private sharedService: SharedService,
     private router: Router,
-    private cartService: CartService
+    private cartService: CartService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.updatePagination();
     this.displayLogosForCurrentPage();
@@ -761,11 +762,15 @@ export class LogoStoreComponent implements OnInit {
   navigateToCart() {
     this.router.navigate(['/cart']);
   }
-  customLogoRequest(){
+
+  customLogoRequest() {
     this.router.navigate(['/custom-logo']);
   }
 
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     this.cartService.cartLength$.subscribe((length) => {
       this.cartSize = length;
     });

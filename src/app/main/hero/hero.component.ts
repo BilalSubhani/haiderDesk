@@ -8,6 +8,7 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
@@ -18,7 +19,8 @@ import {
 export class HeroComponent {
   constructor(
     private renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router
   ) {}
 
   // Herosection
@@ -65,5 +67,9 @@ export class HeroComponent {
         );
       }
     }
+  }
+
+  customLogoRequest() {
+    this.router.navigate(['/custom-logo']);
   }
 }
