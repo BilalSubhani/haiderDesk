@@ -1,14 +1,40 @@
+.main-body {
+  background-color: #ffffef;
+  max-width: 100%;
+  height: 65vh;
+  margin-top: 75px;
+  padding-top: 20px;
+}
+
 .logo-detail-container {
   display: flex;
   flex-direction: row;
-  max-width: 100%;
-  height: 69vh;
   margin: 0 auto;
-  padding: 5rem;
+  padding: 1rem 5rem;
   gap: 2rem;
-  margin-top: 75px;
   font-family: "Inter", sans-serif;
   background-color: #ffffef;
+}
+
+.back-to-store {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 2rem;
+}
+
+.store-btn {
+  background-color: #005840;
+  color: white;
+  border: none;
+  padding: 1rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 5rem;
+}
+
+.store-btn:hover {
+  background-color: #004030;
 }
 
 .logo-image-container {
@@ -66,6 +92,24 @@
   margin: 0;
 }
 
+.add-to-cart-button {
+  background-color: #005840;
+  color: #fcfcd7;
+  border: none;
+  padding: 20px 8px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 30%;
+  transition: background-color 0.2s;
+  margin-top: 150px;
+}
+
+.add-to-cart-button:hover {
+  color: #9dff91;
+}
+
 @media screen and (max-width: 920px) {
   .logo-detail-container {
     flex-direction: column;
@@ -82,6 +126,9 @@
   .logo-info {
     padding-top: 15px;
     padding-left: 22px;
+  }
+  .add-to-cart-button {
+    margin-top: 0px;
   }
 
   .logo-title {

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
+import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
 
 interface Logo {
@@ -19,7 +20,7 @@ interface Logo {
   styleUrl: './logo-store.component.css',
   standalone: true,
 })
-export class LogoStoreComponent {
+export class LogoStoreComponent implements OnInit {
   currentPage: number = 1;
   private logosPerPage: number = 30;
   public displayedLogos: Logo[] = [];
@@ -683,7 +684,11 @@ export class LogoStoreComponent {
     },
   ];
 
-  constructor(private sharedService: SharedService, private router: Router) {
+  constructor(
+    private sharedService: SharedService,
+    private router: Router,
+    private cartService: CartService
+  ) {
     this.updatePagination();
     this.displayLogosForCurrentPage();
   }
@@ -749,5 +754,17 @@ export class LogoStoreComponent {
   openLogo(logo: Logo) {
     this.sharedService.setLogoDetail(logo);
     this.router.navigate(['/', this.replaceSpaces(logo.name)]);
+  }
+
+  cartSize: number = 0;
+
+  navigateToCart() {
+    this.router.navigate(['/cart']);
+  }
+
+  ngOnInit() {
+    this.cartService.cartLength$.subscribe((length) => {
+      this.cartSize = length;
+    });
   }
 }

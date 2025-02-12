@@ -1,6 +1,12 @@
 <section class="logoStore">
   <div class="logo-marketplace">
-    <div class="logo-marketplace-header">Shop</div>
+    <div class="logo-marketplace-headline">
+      <div class="logo-marketplace-header">Shop</div>
+      <div class="cart-icon" (click)="navigateToCart()">
+        <div class="cart-count">{{ cartSize }}</div>
+        <img src="Images/shopping-bag.png" />
+      </div>
+    </div>
     <div class="logo-grid">
       <div class="logo-card" *ngFor="let logo of displayedLogos">
         <div class="logo-image">
@@ -45,7 +51,7 @@
   <div class="cta-section">
     <div class="cta-content">
       <h2>Have you found a logo that matches your brand?</h2>
-      <a href="mailto:bilalsubhanii@outlook.com" class="buy-btn">Buy a Logo</a>
+      <a (click)="navigateToCart()" class="buy-btn">View Your Cart</a>
     </div>
   </div>
 </section>

@@ -1,18 +1,31 @@
-<div class="logo-detail-container">
-  <div class="logo-image-container">
-    <img [src]="logoDetail.image" [alt]="logoDetail.name" class="logo-image" />
+<div class="main-body">
+  <div class="back-to-store">
+    <button (click)="navigateToStore()" class="store-btn">Back To Store</button>
   </div>
-
-  <div class="logo-info">
-    <h1 class="logo-title">{{ logoDetail.name }}</h1>
-
-    <div class="price-container">
-      <span class="original-price" *ngIf="logoDetail.originalPrice">
-        ${{ logoDetail.originalPrice.toFixed(2) }}
-      </span>
-      <span class="sale-price">${{ logoDetail.salePrice.toFixed(2) }}</span>
+  <div class="logo-detail-container">
+    <div class="logo-image-container">
+      <img
+        [src]="logoDetail.image"
+        [alt]="logoDetail.name"
+        class="logo-image"
+      />
     </div>
 
-    <p class="logo-description">{{ logoDetail.description }}</p>
+    <div class="logo-info">
+      <h1 class="logo-title">{{ logoDetail.name }}</h1>
+
+      <div class="price-container">
+        <span class="original-price" *ngIf="logoDetail.originalPrice">
+          ${{ logoDetail.originalPrice.toFixed(2) }}
+        </span>
+        <span class="sale-price">${{ logoDetail.salePrice.toFixed(2) }}</span>
+      </div>
+
+      <p class="logo-description">{{ logoDetail.description }}</p>
+
+      <button class="add-to-cart-button" (click)="addToCart(logoDetail)">
+        Add to Cart
+      </button>
+    </div>
   </div>
 </div>
