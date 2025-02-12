@@ -7,6 +7,8 @@ import {
 } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +19,9 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 export class NavbarComponent {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private router: Router,
+    private cartService: CartService
   ) {}
   @ViewChild('navbar', { static: true }) navbar!: ElementRef;
   private observer!: IntersectionObserver;
@@ -67,5 +71,17 @@ export class NavbarComponent {
 
   closeMenu() {
     this.isMenuOpen = false;
+  }
+
+  cartSize: number = 0;
+
+  navigateToCart() {
+    this.router.navigate(['/cart']);
+  }
+
+  ngOnInit() {
+    this.cartService.cartLength$.subscribe((length) => {
+      this.cartSize = length;
+    });
   }
 }

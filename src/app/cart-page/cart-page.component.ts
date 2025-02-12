@@ -95,7 +95,8 @@ export class CartPageComponent implements OnInit {
   }
 
   showCardDetails(): boolean {
-    return this.checkoutForm.get('paymentMethod')?.value === 'Other';
+    // return this.checkoutForm.get('paymentMethod')?.value === 'Other';
+    return false;
   }
 
   updateCardValidators(method: string): void {

@@ -222,7 +222,7 @@
   }
 
   .intro-card {
-    width: 92%;
+    width: calc(92% - 2rem);
     height: auto;
     padding: 2rem;
     grid-row: auto;

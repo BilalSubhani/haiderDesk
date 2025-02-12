@@ -1,6 +1,6 @@
 .navbar {
   margin: 0;
-  padding: 0px 120px;
+  padding: 0px 110px;
   z-index: 1000;
   position: fixed;
   top: 0;
@@ -23,9 +23,9 @@
   justify-content: space-between;
   align-items: center;
   min-height: 77px;
-  padding: 0 35px 0 0;
+  padding: 0 20px 0 0;
   width: 100%;
-  max-width: 1225px;
+  max-width: 1260px;
   margin: 0 auto;
 }
 
@@ -55,7 +55,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 42px;
+  margin-left: 550px;
+  gap: 37px;
 }
 
 .navbar-right ul li {
@@ -86,12 +87,47 @@
   color: #005840;
 }
 
-@media screen and (max-width: 1020px) {
+.cart-icon:hover {
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+  anchor-name: --cart;
+  transform: translateY(3px);
+  margin-left: 10px;
+}
+
+.cart-count {
+  position: absolute;
+  z-index: 1;
+  font-size: 10px;
+  background-color: #fcfcd7;
+  border-radius: 50%;
+  border: 1px solid #da012d;
+  width: 13px;
+  height: 13px;
+  color: #da012d;
+  font-weight: 800;
+  position-anchor: --cart;
+  transform: translateX(25px);
+  text-align: center;
+}
+
+@media screen and (max-width: 1430px) {
+  .navbar-right ul {
+    margin-left: 180px;
+  }
+}
+
+@media screen and (max-width: 920px) {
   .navbar {
     padding: 0;
     position: fixed;
     z-index: 1000;
-    max-width: 100vw;
+    max-width: 98vw;
     border: none;
     box-shadow: none;
   }
@@ -137,7 +173,7 @@
 
   .navbar-right ul li {
     margin: 0;
-    width: 100%;
+    width: calc(100% - 2rem);
     text-align: right;
   }
 
@@ -151,8 +187,8 @@
   .menu-toggle {
     display: block;
     padding: 0.75rem;
-    margin-right: -0.75rem;
     font-size: 32px;
+    margin-left: calc(99% - 120px);
   }
 
   .show-menu {
@@ -161,5 +197,11 @@
 
   .navbar-right ul li a:hover {
     border-bottom: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-right ul {
+    margin-left: 0;
   }
 }

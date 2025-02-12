@@ -2,7 +2,7 @@
   <div class="navbar-content">
     <div class="navbar-left">
       <img src="/Images/navbar-logo.avif" alt="Logo" (click)="scrollToTop()" />
-      <a href="/">Haider Desk</a>
+      <a href="/">Haiders Desk</a>
     </div>
     <button class="menu-toggle" (click)="toggleMenu()">☰</button>
     <div class="navbar-right" [ngClass]="{ 'show-menu': isMenuOpen }">
@@ -31,6 +31,14 @@
         </li>
         <li><a href="/logo-store" (click)="closeMenu()">Logo Store</a></li>
       </ul>
+    </div>
+    <div class="cart-icon-container">
+      <a href="/cart" (click)="closeMenu()">
+        <div class="cart-icon" (click)="navigateToCart()">
+          <div class="cart-count">{{ cartSize }}</div>
+          <img src="Images/shopping-bag.png" />
+        </div>
+      </a>
     </div>
   </div>
 </nav>
