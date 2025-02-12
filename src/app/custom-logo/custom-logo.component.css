@@ -29,10 +29,31 @@
 }
 
 .logo-request-container {
-  width: 100%;
-  max-width: 550px;
+  width: 80%;
+  height: auto;
+  max-width: 1225px;
   padding: 0 1rem;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.custom-logo-gif {
+  height: auto;
+  object-fit: fit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 180px;
+}
+
+.custom-logo-gif {
+  width: 35%;
+  height: 100%;
+  border-radius: 50px;
+  opacity: 0.5;
 }
 
 .form-card {
@@ -79,6 +100,7 @@
 
 ::placeholder {
   color: #005840;
+  opacity: 0.5;
 }
 
 .submit-button {
@@ -96,4 +118,50 @@
 .submit-button:hover {
   color: #9dff91;
   transform: translateY(-2px);
+}
+
+@media screen and (max-width: 920px) {
+  .custom-logo-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .custom-logo-header h1 {
+    font-size: 28px;
+  }
+
+  .custom-logo-header p {
+    font-size: 16px;
+    max-width: 90%;
+  }
+
+  .logo-request-container {
+    width: 95%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .custom-logo-gif {
+    width: calc(70% - 100px);
+    margin-right: 0;
+  }
+
+  .form-card {
+    width: 85%;
+    padding: 1.5rem;
+  }
+
+  .input-field,
+  .message-field {
+    width: 94%;
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
 }
