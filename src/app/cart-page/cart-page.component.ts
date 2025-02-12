@@ -20,6 +20,7 @@ export class CartPageComponent implements OnInit {
   total: number = 0;
   checkoutForm!: FormGroup;
   paymentMethods = ['PayPal', 'Stripe', 'Other'];
+  buttonDetails: string = 'Add Your First Logo';
 
   constructor(
     private cartService: CartService,
@@ -29,6 +30,11 @@ export class CartPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.cartService.cartLength$.subscribe((length) => {
+      this.buttonDetails =
+        length === 0 ? 'Add Your First Logo' : 'Add More Logos';
+    });
+
     this.checkoutForm = this.fb.group(
       {
         name: ['', [Validators.required]],

@@ -3,7 +3,7 @@
     <h2>Your Cart</h2>
     <div class="header-buttons">
       <button (click)="navigateToStore()" class="store-btn">
-        Add More Logos
+        {{ buttonDetails }}
       </button>
       <button
         *ngIf="cartItems.length > 0"
@@ -59,6 +59,7 @@
             id="name"
             type="text"
             formControlName="name"
+            placeholder="Your full name"
             [ngClass]="{ invalid: isFieldInvalid('name') }"
           />
           <div class="error-message" *ngIf="isFieldInvalid('name')">
@@ -72,6 +73,7 @@
             id="email"
             type="email"
             formControlName="email"
+            placeholder="Your email"
             [ngClass]="{ invalid: isFieldInvalid('email') }"
           />
           <div class="error-message" *ngIf="isFieldInvalid('email')">
@@ -85,6 +87,7 @@
             id="phone"
             type="tel"
             formControlName="phone"
+            placeholder="Contact number"
             [ngClass]="{ invalid: isFieldInvalid('phone') }"
           />
           <div class="error-message" *ngIf="isFieldInvalid('phone')">
@@ -116,6 +119,7 @@
               id="cardNumber"
               type="text"
               formControlName="cardNumber"
+              placeholder="Card Details"
               [ngClass]="{ invalid: isFieldInvalid('cardNumber') }"
             />
             <div class="error-message" *ngIf="isFieldInvalid('cardNumber')">
@@ -144,6 +148,7 @@
                 id="cardCVC"
                 type="text"
                 formControlName="cardCVC"
+                placeholder="CVC"
                 [ngClass]="{ invalid: isFieldInvalid('cardCVC') }"
               />
               <div class="error-message" *ngIf="isFieldInvalid('cardCVC')">
@@ -154,7 +159,7 @@
         </div>
 
         <button type="submit" class="checkout-btn" [disabled]="!isFormValid()">
-          Proceed to Payment
+          Checkout
         </button>
       </form>
     </div>

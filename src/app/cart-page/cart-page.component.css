@@ -5,6 +5,7 @@
   margin-top: 2.5em;
   margin-left: auto;
   margin-right: auto;
+  font-family: "Inter", sans-serif;
 }
 
 .cart-header {
@@ -79,11 +80,12 @@
 .cart-item {
   display: flex;
   align-items: center;
-  background-color: #fcfcd2;
+  background-color: #ffffef;
   padding: 1rem;
   border-radius: 8px;
+  border: 1px solid #005840;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 95%;
   max-width: 800px;
 }
 
@@ -91,6 +93,7 @@
   width: 80px;
   height: 80px;
   margin-right: 1rem;
+  border: 1px solid #005840;
 }
 
 .item-image img {
@@ -106,7 +109,9 @@
 
 .item-details h3 {
   margin: 0 0 0.5rem 0;
-  color: #333;
+  color: #005840;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .price-info {
@@ -117,7 +122,7 @@
 
 .sale-price {
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
   color: #005840;
 }
 
@@ -193,10 +198,29 @@
   border-radius: 4px;
   font-size: 1rem;
   color: #005840;
+  anchor-name: --inputField;
 }
 .form-group select {
   width: 100%;
   color: #005840;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #005840;
+  color: #005840;
+  outline: none;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  background-color: #fcfcd2;
+}
+
+::placeholder {
+  color: #005840;
+  opacity: 0.5;
+  font-size: 0.9rem;
 }
 
 .form-row {
@@ -217,8 +241,8 @@
   color: #dc3545;
   font-size: 0.875rem;
   margin-top: 0.25rem;
-  position: absolute;
-  bottom: -20px;
+  margin-bottom: 0;
+  position-anchor: --inputField;
 }
 
 .card-details {
@@ -247,7 +271,11 @@
 
 .checkout-btn:disabled {
   background-color: #ccc;
+  color: #005840;
   cursor: not-allowed;
+}
+.checkout-btn:disabled:hover {
+  transform: translateY(-1px);
 }
 
 @media (max-width: 920px) {

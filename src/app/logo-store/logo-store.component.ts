@@ -753,7 +753,7 @@ export class LogoStoreComponent implements OnInit {
 
   openLogo(logo: Logo) {
     this.sharedService.setLogoDetail(logo);
-    this.router.navigate(['/', this.replaceSpaces(logo.name)]);
+    this.router.navigate(['/logo-store/', this.replaceSpaces(logo.name)]);
   }
 
   cartSize: number = 0;

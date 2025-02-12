@@ -8,7 +8,7 @@ export const routes: Routes = [
   { path: 'logo-store', component: LogoStoreComponent },
   { path: 'cart', component: CartPageComponent },
   {
-    path: ':logoName',
+    path: 'logo-store/:logoName',
     component: LogoDetailComponent,
     data: { renderMode: 'ssr' },
   },
