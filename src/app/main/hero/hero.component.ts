@@ -24,27 +24,12 @@ export class HeroComponent {
   ) {}
 
   // Herosection
-  @ViewChild('navbar', { static: false }) navbar!: ElementRef;
   @ViewChild('heroSection', { static: false }) heroSection!: ElementRef;
   @ViewChild('headline', { static: false }) headline!: ElementRef;
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       if ('IntersectionObserver' in window) {
-        const observerNavbar = new IntersectionObserver(
-          (entries, obs) => {
-            entries.forEach((entry) => {
-              const action = entry.isIntersecting ? 'addClass' : 'removeClass';
-              this.renderer[action](this.navbar.nativeElement, 'expand');
-
-              if (entry.isIntersecting) {
-                obs.disconnect();
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
         const observerHeadline = new IntersectionObserver(
           (entries, obs) => {
             entries.forEach((entry) => {
@@ -59,7 +44,6 @@ export class HeroComponent {
           { threshold: 0.1 }
         );
 
-        observerNavbar.observe(this.heroSection.nativeElement);
         observerHeadline.observe(this.heroSection.nativeElement);
       } else {
         console.warn(
