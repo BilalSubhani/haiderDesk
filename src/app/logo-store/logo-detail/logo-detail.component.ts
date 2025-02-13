@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../../cart.service';
 
 import { ToastrService } from 'ngx-toastr';
+import { NavbarComponent } from '../../navbar/navbar.component';
 
 interface LogoDetail {
   id: number;
@@ -20,7 +21,7 @@ interface LogoDetail {
   selector: 'app-logo-detail',
   templateUrl: './logo-detail.component.html',
   styleUrls: ['./logo-detail.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarComponent],
   providers: [ToastrService],
   standalone: true,
 })

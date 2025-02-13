@@ -14,10 +14,12 @@ import { FooterComponent } from './footer/footer.component';
 
 // Service
 import { SharedService } from '../shared.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-main',
   imports: [
+    NavbarComponent,
     TestimonialsComponent,
     HeroComponent,
     FeaturesComponent,
@@ -28,6 +30,7 @@ import { SharedService } from '../shared.service';
     LogoComponent,
     ContactMeComponent,
     FooterComponent,
+    NavbarComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',

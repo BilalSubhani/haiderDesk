@@ -1,60 +1,64 @@
-<section class="logoStore">
-  <div class="logo-marketplace">
-    <div class="logo-marketplace-headline">
-      <div class="logo-marketplace-header">Shop</div>
-      <!-- <div class="cart-icon" (click)="navigateToCart()">
-        <div class="cart-count">{{ cartSize }}</div>
-        <img src="Images/shopping-bag.png" />
-      </div> -->
-    </div>
-    <div class="logo-grid">
-      <div
-        class="logo-card"
-        *ngFor="let logo of displayedLogos; trackBy: trackById"
-      >
-        <div class="logo-image">
-          <img [src]="logo.image" [alt]="logo.name" (click)="openLogo(logo)" />
-        </div>
-        <h2 (click)="openLogo(logo)">{{ logo.name }}</h2>
-        <div class="price">
-          <span class="original-price" *ngIf="logo.originalPrice">
-            ${{ logo.originalPrice.toFixed(2) }}
-          </span>
-          <span class="sale-price">${{ logo.salePrice.toFixed(2) }}</span>
-        </div>
+<div class="container">
+  <app-navbar />
+  <section class="logoStore">
+    <div class="logo-marketplace">
+      <div class="logo-marketplace-headline">
+        <div class="logo-marketplace-header">Shop</div>
+        <!-- <div class="cart-icon" (click)="navigateToCart()">
+          <div class="cart-count">{{ cartSize }}</div>
+          <img src="Images/shopping-bag.png" />
+        </div> -->
       </div>
-    </div>
-
-    <div class="pagination" *ngIf="totalPages > 1">
-      <button
-        class="prev-btn"
-        [disabled]="currentPage === 1"
-        (click)="changePage('prev')"
-      >
-        &lt;
-      </button>
-      <div class="page-numbers">
-        <span
-          *ngFor="let page of getPagesArray()"
-          [class.active]="page === currentPage"
-          (click)="goToPage(page)"
+      <div class="logo-grid">
+        <div
+          class="logo-card"
+          *ngFor="let logo of displayedLogos; trackBy: trackById"
         >
-          {{ page }}
-        </span>
+          <div class="logo-image">
+            <img [src]="logo.image" [alt]="logo.name" (click)="openLogo(logo)" />
+          </div>
+          <h2 (click)="openLogo(logo)">{{ logo.name }}</h2>
+          <div class="price">
+            <span class="original-price" *ngIf="logo.originalPrice">
+              ${{ logo.originalPrice.toFixed(2) }}
+            </span>
+            <span class="sale-price">${{ logo.salePrice.toFixed(2) }}</span>
+          </div>
+        </div>
       </div>
-      <button
-        class="next-btn"
-        [disabled]="currentPage === totalPages"
-        (click)="changePage('next')"
-      >
-        &gt;
-      </button>
+  
+      <div class="pagination" *ngIf="totalPages > 1">
+        <button
+          class="prev-btn"
+          [disabled]="currentPage === 1"
+          (click)="changePage('prev')"
+        >
+          &lt;
+        </button>
+        <div class="page-numbers">
+          <span
+            *ngFor="let page of getPagesArray()"
+            [class.active]="page === currentPage"
+            (click)="goToPage(page)"
+          >
+            {{ page }}
+          </span>
+        </div>
+        <button
+          class="next-btn"
+          [disabled]="currentPage === totalPages"
+          (click)="changePage('next')"
+        >
+          &gt;
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="cta-section">
-    <div class="cta-content">
-      <h2>Have something else in mind?</h2>
-      <a (click)="customLogoRequest()" class="buy-btn">Custom Logo Request</a>
+    <div class="cta-section">
+      <div class="cta-content">
+        <h2>Have something else in mind?</h2>
+        <a (click)="customLogoRequest()" class="buy-btn">Custom Logo Request</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  
+</div>

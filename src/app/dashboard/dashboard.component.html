@@ -1,5 +1,4 @@
 <div class="dashboard-container">
-  <!-- Sidenav -->
   <div class="sidenav">
     <div
       class="nav-item"
@@ -13,12 +12,11 @@
       [class.active]="activeSection === 'emails'"
       (click)="setActiveSection('emails')"
     >
-      Emails
+      Connected Emails
     </div>
   </div>
 
   <div class="main-content">
-    <!-- Logos Section -->
     <div *ngIf="activeSection === 'logos'" class="logos-section">
       <div class="section-header">
         <h2>All Logos</h2>
@@ -27,7 +25,6 @@
         </button>
       </div>
 
-      <!-- Add Logo Form -->
       <form
         *ngIf="showAddLogoForm"
         [formGroup]="logoForm"
@@ -67,9 +64,9 @@
             <h3>{{ logo.name }}</h3>
             <div class="price-container">
               <p *ngIf="logo.originalPrice" class="original-price">
-                Original: ${{ logo.originalPrice }}
+                Original Price: ${{ logo.originalPrice }}
               </p>
-              <p class="sale-price">Sale: ${{ logo.salePrice }}</p>
+              <p class="sale-price">Sale Price: ${{ logo.salePrice }}</p>
             </div>
             <p class="description">{{ logo.description }}</p>
           </div>
@@ -81,7 +78,6 @@
         </div>
       </div>
 
-      <!-- Pagination -->
       <div class="pagination">
         <button
           class="page-btn"
@@ -108,7 +104,6 @@
       </div>
     </div>
 
-    <!-- Emails Section -->
     <div *ngIf="activeSection === 'emails'" class="emails-section">
       <div class="section-header">
         <h2>Emails</h2>

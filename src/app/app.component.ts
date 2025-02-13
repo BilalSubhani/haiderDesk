@@ -3,11 +3,10 @@ import { RouterOutlet } from '@angular/router';
 import { LightboxComponent } from './lightbox/lightbox.component';
 import { CommonModule } from '@angular/common';
 import { SharedService } from './shared.service';
-import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LightboxComponent, CommonModule, NavbarComponent],
+  imports: [RouterOutlet, LightboxComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

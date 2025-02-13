@@ -6,7 +6,7 @@
 }
 
 .sidenav {
-  margin-top: 50px;
+  margin-top: 55px;
   width: 240px;
   background-color: #005840;
   padding: 30px 0;
@@ -143,6 +143,11 @@
   border-radius: 6px;
   cursor: pointer;
 }
+.logo-form button:disabled {
+  background-color: #005840;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 .logo-form button:hover {
   color: #9dff91;
@@ -152,12 +157,6 @@
 ::placeholder {
   color: #005840;
   opacity: 0.5;
-}
-
-.logos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
 }
 
 .logos-list {
@@ -170,7 +169,7 @@
 .logo-item {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  background-color: white;
+  background-color: #ffffff;
   padding: 16px;
   border-radius: 12px;
   border: 1px solid #005840;
@@ -214,13 +213,6 @@
   margin: 0;
 }
 
-.logo-details .description {
-  margin: 0;
-  color: #444;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
 .logo-item .original-price {
   color: #666;
   text-decoration: line-through;
@@ -235,6 +227,7 @@
 }
 
 .logo-item .description {
+  margin: 0;
   color: #005840;
   font-size: 14px;
   font-weight: 500;
@@ -257,7 +250,7 @@
 .page-btn {
   padding: 8px 16px;
   border: 1px solid #005840;
-  background-color: white;
+  background-color: #ffffef;
   color: #005840;
   border-radius: 4px;
   cursor: pointer;
@@ -266,12 +259,12 @@
 
 .page-btn:hover:not(:disabled) {
   background-color: #005840;
-  color: white;
+  color: #ffffef;
 }
 
 .page-btn.active {
   background-color: #005840;
-  color: white;
+  color: #ffffef;
 }
 
 .page-btn:disabled {
@@ -398,5 +391,9 @@
 
   .delete-btn {
     margin-top: 0;
+  }
+
+  .logo-form select {
+    width: 100%;
   }
 }

@@ -11,6 +11,7 @@ import { CartService } from '../cart.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 interface Logo {
   id: number;
@@ -23,7 +24,7 @@ interface Logo {
 
 @Component({
   selector: 'app-logo-store',
-  imports: [CommonModule],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: './logo-store.component.html',
   styleUrl: './logo-store.component.css',
   standalone: true,

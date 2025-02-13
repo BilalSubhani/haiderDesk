@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-custom-logo',
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './custom-logo.component.html',
   styleUrl: './custom-logo.component.css',
 })
