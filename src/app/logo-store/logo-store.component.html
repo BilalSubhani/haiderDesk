@@ -8,7 +8,10 @@
       </div> -->
     </div>
     <div class="logo-grid">
-      <div class="logo-card" *ngFor="let logo of displayedLogos">
+      <div
+        class="logo-card"
+        *ngFor="let logo of displayedLogos; trackBy: trackById"
+      >
         <div class="logo-image">
           <img [src]="logo.image" [alt]="logo.name" (click)="openLogo(logo)" />
         </div>

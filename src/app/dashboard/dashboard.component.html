@@ -1,0 +1,136 @@
+<div class="dashboard-container">
+  <!-- Sidenav -->
+  <div class="sidenav">
+    <div
+      class="nav-item"
+      [class.active]="activeSection === 'logos'"
+      (click)="setActiveSection('logos')"
+    >
+      All Logos
+    </div>
+    <div
+      class="nav-item"
+      [class.active]="activeSection === 'emails'"
+      (click)="setActiveSection('emails')"
+    >
+      Emails
+    </div>
+  </div>
+
+  <div class="main-content">
+    <!-- Logos Section -->
+    <div *ngIf="activeSection === 'logos'" class="logos-section">
+      <div class="section-header">
+        <h2>All Logos</h2>
+        <button (click)="toggleAddLogoForm()" class="add-btn">
+          {{ showAddLogoForm ? "Cancel" : "Add Logo" }}
+        </button>
+      </div>
+
+      <!-- Add Logo Form -->
+      <form
+        *ngIf="showAddLogoForm"
+        [formGroup]="logoForm"
+        (ngSubmit)="onSubmitLogo()"
+        class="logo-form"
+      >
+        <input type="text" formControlName="name" placeholder="Name" required />
+        <input
+          type="number"
+          formControlName="originalPrice"
+          placeholder="Original Price (Optional)"
+        />
+        <input
+          type="number"
+          formControlName="salePrice"
+          placeholder="Sale Price"
+          required
+        />
+        <textarea
+          formControlName="description"
+          placeholder="Description"
+        ></textarea>
+        <select formControlName="image" required>
+          <option value="">Select Image Source</option>
+          <option value="Logos/logo.jpg">Default Logo</option>
+          <option value="upload">Upload from Computer</option>
+        </select>
+        <button type="submit" [disabled]="!logoForm.valid">Save Logo</button>
+      </form>
+
+      <div class="logos-list">
+        <div *ngFor="let logo of logos" class="logo-item">
+          <div class="logo-image">
+            <img [src]="logo.image" alt="Logo" />
+          </div>
+          <div class="logo-details">
+            <h3>{{ logo.name }}</h3>
+            <div class="price-container">
+              <p *ngIf="logo.originalPrice" class="original-price">
+                Original: ${{ logo.originalPrice }}
+              </p>
+              <p class="sale-price">Sale: ${{ logo.salePrice }}</p>
+            </div>
+            <p class="description">{{ logo.description }}</p>
+          </div>
+          <div class="logo-actions">
+            <button (click)="deleteLogo(logo.id)" class="delete-btn">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button
+          class="page-btn"
+          [disabled]="currentPage === 1"
+          (click)="changePage(currentPage - 1)"
+        >
+          Previous
+        </button>
+        <button
+          *ngFor="let page of pageNumbers"
+          class="page-btn"
+          [class.active]="page === currentPage"
+          (click)="changePage(page)"
+        >
+          {{ page }}
+        </button>
+        <button
+          class="page-btn"
+          [disabled]="currentPage === totalPages"
+          (click)="changePage(currentPage + 1)"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- Emails Section -->
+    <div *ngIf="activeSection === 'emails'" class="emails-section">
+      <div class="section-header">
+        <h2>Emails</h2>
+      </div>
+
+      <div class="email-add-form">
+        <input
+          type="email"
+          [(ngModel)]="newEmail"
+          placeholder="Enter email address"
+        />
+        <button (click)="addEmail()" class="add-btn">Add Email</button>
+      </div>
+
+      <div class="emails-list">
+        <div *ngFor="let email of emails" class="email-item">
+          <span>{{ email.email }}</span>
+          <button (click)="deleteEmail(email.id)" class="delete-btn">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

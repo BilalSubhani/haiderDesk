@@ -1,0 +1,402 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffef;
+  font-family: "Inter", sans-serif;
+}
+
+.sidenav {
+  margin-top: 50px;
+  width: 240px;
+  background-color: #005840;
+  padding: 30px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.nav-item {
+  color: #ffffef;
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding-left: 28px;
+}
+
+.main-content {
+  margin-top: 40px;
+  flex: 1;
+  padding: 32px;
+  overflow-x: hidden;
+  margin-left: 240px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(0, 88, 64, 0.1);
+}
+
+.section-header h2 {
+  color: #005840;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.add-btn {
+  background-color: #005840;
+  color: #ffffef;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.add-btn:hover {
+  color: #9dff91;
+  transform: translateY(-1px);
+}
+
+.delete-btn {
+  background-color: #ff4444;
+  color: #ffffef;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin-top: 50%;
+}
+
+.delete-btn:hover {
+  background-color: #ff2222;
+  transform: translateY(-1px);
+}
+
+.logo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  margin-bottom: 32px;
+  padding: 24px;
+  background-color: #ffffef;
+  border-radius: 8px;
+  border: 1px solid #005840;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.logo-form input,
+.logo-form textarea,
+.logo-form select {
+  padding: 12px;
+  border: 1px solid rgba(0, 88, 64, 0.2);
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  font-size: 14px;
+  border: 1px solid #005840;
+  color: #005840;
+}
+
+.logo-form input:focus,
+.logo-form textarea:focus {
+  outline: none;
+  border-color: #005840;
+  background-color: #fcfcd2;
+  box-shadow: 0 0 0 2px rgba(0, 88, 64, 0.1);
+  color: #005840;
+}
+
+.logo-form input:hover,
+.logo-form textarea:hover {
+  outline: none;
+  border-color: #005840;
+  box-shadow: 0 0 0 2px rgba(0, 88, 64, 0.1);
+}
+
+.logo-form select:focus {
+  outline: none;
+  border-color: #005840;
+  box-shadow: 0 0 0 2px rgba(0, 88, 64, 0.1);
+  color: #005840;
+}
+
+.logo-form button {
+  color: #ffffef;
+  background-color: #005840;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logo-form button:hover {
+  color: #9dff91;
+  transform: translateY(-1px);
+}
+
+::placeholder {
+  color: #005840;
+  opacity: 0.5;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.logos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.logo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  background-color: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #005840;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 16px;
+  align-items: start;
+  height: auto;
+}
+
+.logo-item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.logo-image {
+  width: 100px;
+  height: 100px;
+}
+
+.logo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.logo-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.logo-details h3 {
+  color: #005840;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.price-container {
+  margin: 0;
+}
+
+.logo-details .description {
+  margin: 0;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.logo-item .original-price {
+  color: #666;
+  text-decoration: line-through;
+  font-size: 11px;
+}
+
+.logo-item .sale-price {
+  color: #005840;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.logo-item .description {
+  color: #005840;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.logo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.page-btn {
+  padding: 8px 16px;
+  border: 1px solid #005840;
+  background-color: white;
+  color: #005840;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: #005840;
+  color: white;
+}
+
+.page-btn.active {
+  background-color: #005840;
+  color: white;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.emails-section {
+  width: 100%;
+  height: auto;
+}
+
+.email-add-form {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.email-add-form input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #005840;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #005840;
+}
+
+.email-add-form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 88, 64, 0.1);
+}
+
+.emails-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.email-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #005840;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.email-item span {
+  color: #005840;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.email-item button {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 920px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidenav {
+    position: static;
+    width: 100%;
+    margin-top: 70px;
+    padding: 10px 0;
+    height: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .logo-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .logo-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  .logo-details {
+    text-align: center;
+  }
+
+  .logo-actions {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .logo-form {
+    max-width: 100%;
+  }
+
+  .email-add-form {
+    flex-direction: column;
+  }
+
+  .email-item {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .delete-btn {
+    margin-top: 0;
+  }
+}
