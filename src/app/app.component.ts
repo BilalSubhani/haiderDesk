@@ -9,6 +9,7 @@ import { SharedService } from './shared.service';
   imports: [RouterOutlet, LightboxComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  standalone: true,
 })
 export class AppComponent {
   constructor(private sharedService: SharedService) {}
