@@ -2,6 +2,7 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface LoginResponse {
   access_token: string;
@@ -15,7 +16,8 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router
   ) {}
 
   login(email: string, password: string): Observable<LoginResponse> {
@@ -42,6 +44,7 @@ export class LoginService {
   logout(): void {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('haiderDesk_token');
+      this.router.navigate(['/login']);
     }
   }
 }

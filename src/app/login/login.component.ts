@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService,
     private toastr: ToastrService,
+    @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -32,7 +33,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.removeItem('haiderDesk_token');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('haiderDesk_token');
+    }
   }
 
   async onSubmit() {
@@ -49,7 +52,9 @@ export class LoginComponent implements OnInit {
           .toPromise();
 
         if (result && result.access_token) {
-          localStorage.setItem('haiderDesk_token', result.access_token);
+          if (isPlatformBrowser(this.platformId)) {
+            localStorage.setItem('haiderDesk_token', result.access_token);
+          }
           this.toastr.success(`Login Successful!`, 'Welcome!');
           this.router.navigate(['/cportal']);
         }
