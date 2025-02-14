@@ -1,0 +1,148 @@
+.not-found-container {
+  min-height: 98vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffef;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  text-align: center;
+  padding: 40px;
+  background-color: #fcfcd2;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  width: 90%;
+}
+
+.error-code {
+  font-size: 120px;
+  font-weight: 700;
+  color: #005840;
+  line-height: 1;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 88, 64, 0.2);
+}
+
+.error-line {
+  width: 60px;
+  height: 4px;
+  background-color: #005840;
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.error-message h1 {
+  font-size: 32px;
+  color: #005840;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.error-message p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background-color: #005840;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  gap: 8px;
+}
+
+.home-button:hover {
+  color: #9dff91;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 88, 64, 0.2);
+}
+
+.button-icon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.home-button:hover .button-icon {
+  color: #9dff91;
+  transform: translateX(-4px);
+}
+
+.background-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  background-color: #005840;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  right: -100px;
+}
+
+.circle-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  right: 10%;
+}
+
+@media (max-width: 920px) {
+  .content {
+    padding: 30px;
+    width: 85%;
+  }
+
+  .error-code {
+    font-size: 80px;
+  }
+
+  .error-message h1 {
+    font-size: 24px;
+  }
+
+  .error-message p {
+    font-size: 14px;
+  }
+
+  .home-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}

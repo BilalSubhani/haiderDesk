@@ -1,0 +1,132 @@
+.login-container {
+  min-height: 98vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcfcd2;
+  font-family: "Inter", sans-serif;
+}
+
+.login-content {
+  display: flex;
+  width: 80%;
+  max-width: 1225px;
+  background-color: #ffffef;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-container {
+  flex: 1;
+  padding: 40px;
+}
+
+.login-gif {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.login-gif img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  color: #005840;
+  font-size: 36px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+p {
+  color: #005840;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 60px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  color: #005840;
+  font-weight: 500;
+}
+
+input {
+  padding: 12px;
+  border: 2px solid #005840;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #ffffef;
+}
+
+input:focus {
+  outline: none;
+  border-color: #005840;
+  box-shadow: 0 0 0 2px rgba(0, 88, 64, 0.2);
+}
+
+button {
+  background-color: #005840;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #004030;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+@media (max-width: 920px) {
+  .login-container {
+    min-height: 98vh;
+  }
+  .login-content {
+    flex-direction: column;
+    margin-top: 0;
+    width: 95%;
+  }
+
+  .login-form-container {
+    padding: 20px;
+  }
+  .login-form {
+    gap: 5px;
+  }
+
+  .login-gif {
+    order: -1;
+  }
+}
