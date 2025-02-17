@@ -14,11 +14,8 @@ Haiders Desk is an online shop built with Angular where users can purchase logos
 ## Technologies Used
 
 - **Frontend:** Angular
-- **Backend:** NestJS
-- **Database:** MongoDB Atlas
 - **Authentication:** JWT, Auth Guards
 - **Notifications:** Toastr
-- **Email Service:** Nodemailer
 
 ## Installation
 
@@ -37,14 +34,6 @@ cd haiderDesk
 cd frontend
 npm install
 npm start
-```
-
-#### Backend
-
-```sh
-cd backend
-npm install
-npm run start
 ```
 
 ## Usage
