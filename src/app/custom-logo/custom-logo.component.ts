@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { EmailService } from '../email.service';
+import { EmailService } from '../services/email.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -59,7 +59,7 @@ export class CustomLogoComponent {
               background-color: #f4f4f4;
             }
             h2 {
-              color: #333;
+              color: #005840;
               text-align: center;
               border-bottom: 2px solid #333;
               padding-bottom: 10px;
@@ -84,7 +84,7 @@ export class CustomLogoComponent {
         </head>
         <body>
           <div class="container">
-            <h2>New Order Received</h2>
+            <h2>Custom Logo Request</h2>
             <p><strong>Name:</strong> ${formData.name}</p>
             <p><strong>Email:</strong> ${formData.email}</p>
             <p><strong>Logo Name:</strong> ${formData.logoName}</p>

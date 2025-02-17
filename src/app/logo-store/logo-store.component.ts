@@ -6,8 +6,8 @@ import {
   Inject,
   ChangeDetectorRef,
 } from '@angular/core';
-import { SharedService } from '../shared.service';
-import { CartService } from '../cart.service';
+import { SharedService } from '../services/shared.service';
+import { CartService } from '../services/cart.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';

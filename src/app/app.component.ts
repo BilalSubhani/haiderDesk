@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LightboxComponent } from './lightbox/lightbox.component';
 import { CommonModule } from '@angular/common';
-import { SharedService } from './shared.service';
+import { SharedService } from './services/shared.service';
 
 @Component({
   selector: 'app-root',

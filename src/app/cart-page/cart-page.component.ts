@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
 import {
   FormBuilder,
@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { EmailService } from '../email.service';
+import { EmailService } from '../services/email.service';
 import { ToastrService } from 'ngx-toastr';
 
 interface CartItem {
@@ -219,7 +219,7 @@ export class CartPageComponent implements OnInit {
           .email-container {
             max-width: 600px;
             margin: auto;
-            background: #ffffff;
+            background: #ffffef;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -233,7 +233,7 @@ export class CartPageComponent implements OnInit {
           }
           p {
             font-size: 16px;
-            color: #333;
+            color: #005840;
             font-weight: bold;
           }
           ul {
@@ -256,7 +256,7 @@ export class CartPageComponent implements OnInit {
           }
           thead {
             background-color: #005840;
-            color: #ffffff;
+            color: #ffffef;
           }
           tbody tr:nth-child(even) {
             background-color: #f9f9f9;
