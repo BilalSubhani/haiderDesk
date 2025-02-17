@@ -100,7 +100,7 @@ export class CustomLogoComponent {
     this.emailService.sendEmails(emailBody).subscribe(
       (response) => {
         this.toastr.success(
-          'Custom logo request send successfully.',
+          'Custom logo request sent successfully.',
           'Successful!'
         );
       },
