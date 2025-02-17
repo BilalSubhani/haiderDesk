@@ -3,12 +3,15 @@ import { SharedService } from '../shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule],
 })
 export class DashboardComponent implements OnInit {
   activeSection: string = 'logos';
@@ -22,26 +25,18 @@ export class DashboardComponent implements OnInit {
   itemsPerPage: number = 30;
   totalPages: number = 1;
 
-  constructor(private sharedService: SharedService, private fb: FormBuilder) {
+  constructor(
+    private sharedService: SharedService,
+    private loginService: LoginService,
+    private fb: FormBuilder
+  ) {
     this.logoForm = this.fb.group({
       name: ['', Validators.required],
       originalPrice: [''],
       salePrice: ['', Validators.required],
       description: [''],
-      image: ['', Validators.required],
+      imageSrc: ['', Validators.required],
     });
-  }
-
-  ngOnInit() {
-    this.loadLogos();
-    this.loadEmails();
-  }
-
-  loadLogos() {
-    const allLogos = this.sharedService.getAllLogos();
-    this.totalPages = Math.ceil(allLogos.length / this.itemsPerPage);
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    this.logos = allLogos.slice(startIndex, startIndex + this.itemsPerPage);
   }
 
   get pageNumbers(): number[] {
@@ -52,10 +47,6 @@ export class DashboardComponent implements OnInit {
     this.currentPage = page;
     this.loadLogos();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  loadEmails() {
-    this.emails = this.sharedService.getAllEmails();
   }
 
   setActiveSection(section: string) {
@@ -69,32 +60,66 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  ngOnInit() {
+    this.loadLogos();
+    this.loadEmails();
+  }
+
+  loadLogos() {
+    this.sharedService.getAllLogos().subscribe((logos) => {
+      const allLogos = logos;
+      this.totalPages = Math.ceil(allLogos.length / this.itemsPerPage);
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      this.logos = allLogos.slice(startIndex, startIndex + this.itemsPerPage);
+    });
+  }
+
+  loadEmails() {
+    this.sharedService.getAllEmails().subscribe((emails) => {
+      this.emails = emails;
+    });
+  }
+
   onSubmitLogo() {
     if (this.logoForm.valid) {
-      this.sharedService.addLogo({
-        id: 0,
-        ...this.logoForm.value,
-      });
-      this.loadLogos();
-      this.toggleAddLogoForm();
+      this.sharedService
+        .addLogo({
+          ...this.logoForm.value,
+        })
+        .subscribe(() => {
+          this.loadLogos();
+          this.toggleAddLogoForm();
+        });
     }
   }
 
-  deleteLogo(id: number) {
-    this.sharedService.deleteLogo(id);
-    this.loadLogos();
+  deleteLogo(id: any) {
+    console.log(id);
+    this.sharedService.deleteLogo(id).subscribe(() => {
+      this.loadLogos();
+    });
   }
 
   addEmail() {
     if (this.newEmail && this.newEmail.trim()) {
-      this.sharedService.addEmail(this.newEmail.trim());
-      this.newEmail = '';
-      this.loadEmails();
+      this.sharedService.addEmail(this.newEmail.trim()).subscribe(() => {
+        this.newEmail = '';
+        this.loadEmails();
+      });
     }
   }
 
-  deleteEmail(id: number) {
-    this.sharedService.deleteEmail(id);
-    this.loadEmails();
+  deleteEmail(id: any) {
+    this.sharedService.deleteEmail(id).subscribe(() => {
+      this.loadEmails();
+    });
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 }

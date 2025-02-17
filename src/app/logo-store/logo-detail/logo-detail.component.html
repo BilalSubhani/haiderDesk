@@ -1,12 +1,12 @@
 <app-navbar />
 <div class="main-body">
   <div class="back-to-store">
-    <button (click)="navigateToStore()" class="store-btn">Back To Store</button>
+    <a href="/logo-store" class="store-btn">Back To Store</a>
   </div>
   <div class="logo-detail-container">
     <div class="logo-image-container">
       <img
-        [src]="logoDetail.image"
+        [src]="logoDetail.imageSrc"
         [alt]="logoDetail.name"
         class="logo-image"
       />

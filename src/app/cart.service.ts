@@ -2,15 +2,6 @@ import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 
-export interface LogoDetail {
-  id: number;
-  name: string;
-  originalPrice?: number;
-  salePrice: number;
-  image: string;
-  description: string;
-}
-
 @Injectable({
   providedIn: 'root',
 })
@@ -27,7 +18,7 @@ export class CartService {
     this.cartLengthSubject.next(this.getCart().length);
   }
 
-  getCart(): LogoDetail[] {
+  getCart(): any[] {
     if (isPlatformBrowser(this.platformId)) {
       const cart = localStorage.getItem(this.cartKey);
       return cart ? JSON.parse(cart) : [];
@@ -35,10 +26,10 @@ export class CartService {
     return [];
   }
 
-  addToCart(logo: LogoDetail): void {
+  addToCart(logo: any): void {
     if (isPlatformBrowser(this.platformId)) {
       const cart = this.getCart();
-      if (!cart.find((item) => item.id === logo.id)) {
+      if (!cart.find((item) => item._id === logo._id)) {
         cart.push(logo);
         localStorage.setItem(this.cartKey, JSON.stringify(cart));
         this.updateCartLength();
@@ -46,10 +37,10 @@ export class CartService {
     }
   }
 
-  removeFromCart(logoId: number): void {
+  removeFromCart(logoId: any): void {
     if (isPlatformBrowser(this.platformId)) {
       let cart = this.getCart();
-      cart = cart.filter((item) => item.id !== logoId);
+      cart = cart.filter((item) => item._id !== logoId);
       localStorage.setItem(this.cartKey, JSON.stringify(cart));
       this.updateCartLength();
     }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedService } from '../../shared.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,15 +7,6 @@ import { CartService } from '../../cart.service';
 
 import { ToastrService } from 'ngx-toastr';
 import { NavbarComponent } from '../../navbar/navbar.component';
-
-interface LogoDetail {
-  id: number;
-  name: string;
-  originalPrice?: number;
-  salePrice: number;
-  image: string;
-  description: string;
-}
 
 @Component({
   selector: 'app-logo-detail',
@@ -35,7 +26,7 @@ export class LogoDetailComponent {
   ) {}
   private subscription: Subscription = new Subscription();
 
-  logoDetail!: LogoDetail;
+  logoDetail!: any;
 
   ngOnInit() {
     this.subscription = this.sharedService.logoDetail$.subscribe((logo) => {
@@ -51,7 +42,7 @@ export class LogoDetailComponent {
     }
   }
 
-  addToCart(logo: LogoDetail) {
+  addToCart(logo: any) {
     this.cartService.addToCart(logo);
     this.toastr.success(`${logo.name} added to cart!`, 'Successful!');
   }

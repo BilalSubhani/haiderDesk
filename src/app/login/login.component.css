@@ -50,6 +50,11 @@ p {
   text-align: center;
 }
 
+::placeholder {
+  color: #005840;
+  opacity: 0.5;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -79,6 +84,7 @@ input {
 input:focus {
   outline: none;
   border-color: #005840;
+  color: #005840;
   box-shadow: 0 0 0 2px rgba(0, 88, 64, 0.2);
 }
 

@@ -1,3 +1,15 @@
+<nav class="navbar" #navbar>
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <img src="/Images/navbar-logo.avif" alt="Logo" (click)="scrollToTop()" />
+      <a href="/">Haiders Desk</a>
+    </div>
+
+    <div class="navbar-right">
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>
 <div class="dashboard-container">
   <div class="sidenav">
     <div
@@ -47,7 +59,7 @@
           formControlName="description"
           placeholder="Description"
         ></textarea>
-        <select formControlName="image" required>
+        <select formControlName="imageSrc" required>
           <option value="">Select Image Source</option>
           <option value="Logos/logo.jpg">Default Logo</option>
           <option value="upload">Upload from Computer</option>
@@ -58,7 +70,7 @@
       <div class="logos-list">
         <div *ngFor="let logo of logos" class="logo-item">
           <div class="logo-image">
-            <img [src]="logo.image" alt="Logo" />
+            <img [src]="logo.imageSrc" alt="Logo" />
           </div>
           <div class="logo-details">
             <h3>{{ logo.name }}</h3>
@@ -71,7 +83,7 @@
             <p class="description">{{ logo.description }}</p>
           </div>
           <div class="logo-actions">
-            <button (click)="deleteLogo(logo.id)" class="delete-btn">
+            <button (click)="deleteLogo(logo._id)" class="delete-btn">
               Delete
             </button>
           </div>
@@ -121,7 +133,7 @@
       <div class="emails-list">
         <div *ngFor="let email of emails" class="email-item">
           <span>{{ email.email }}</span>
-          <button (click)="deleteEmail(email.id)" class="delete-btn">
+          <button (click)="deleteEmail(email._id)" class="delete-btn">
             Delete
           </button>
         </div>

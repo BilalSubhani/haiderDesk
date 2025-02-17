@@ -10,23 +10,24 @@
         </div> -->
       </div>
       <div class="logo-grid">
-        <div
-          class="logo-card"
-          *ngFor="let logo of displayedLogos; trackBy: trackById"
-        >
+        <div class="logo-card" *ngFor="let item of displayedLogos">
           <div class="logo-image">
-            <img [src]="logo.image" [alt]="logo.name" (click)="openLogo(logo)" />
+            <img
+              [src]="item.imageSrc"
+              [alt]="item.name"
+              (click)="openLogo(item)"
+            />
           </div>
-          <h2 (click)="openLogo(logo)">{{ logo.name }}</h2>
+          <h2 (click)="openLogo(item)">{{ item.name }}</h2>
           <div class="price">
-            <span class="original-price" *ngIf="logo.originalPrice">
-              ${{ logo.originalPrice.toFixed(2) }}
+            <span class="original-price" *ngIf="item.originalPrice">
+              ${{ item.originalPrice.toFixed(2) }}
             </span>
-            <span class="sale-price">${{ logo.salePrice.toFixed(2) }}</span>
+            <span class="sale-price">${{ item.salePrice.toFixed(2) }}</span>
           </div>
         </div>
       </div>
-  
+
       <div class="pagination" *ngIf="totalPages > 1">
         <button
           class="prev-btn"
@@ -60,5 +61,4 @@
       </div>
     </div>
   </section>
-  
 </div>

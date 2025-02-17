@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { CartService, LogoDetail } from '../cart.service';
+import { CartService } from '../cart.service';
 import { Router } from '@angular/router';
 import {
   FormBuilder,
@@ -17,7 +17,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
   imports: [CommonModule, ReactiveFormsModule, NavbarComponent],
 })
 export class CartPageComponent implements OnInit {
-  cartItems: LogoDetail[] = [];
+  cartItems: any[] = [];
   total: number = 0;
   checkoutForm!: FormGroup;
   paymentMethods = ['PayPal', 'Stripe', 'Other'];
@@ -81,7 +81,7 @@ export class CartPageComponent implements OnInit {
     this.total = this.cartItems.reduce((sum, item) => sum + item.salePrice, 0);
   }
 
-  removeItem(logoId: number): void {
+  removeItem(logoId: any): void {
     this.cartService.removeFromCart(logoId);
     this.loadCart();
   }

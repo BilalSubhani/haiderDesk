@@ -25,7 +25,7 @@
       <div class="cart-items">
         <div *ngFor="let item of cartItems" class="cart-item">
           <div class="item-image">
-            <img [src]="item.image" [alt]="item.name" />
+            <img [src]="item.imageSrc" [alt]="item.name" />
           </div>
           <div class="item-details">
             <h3>{{ item.name }}</h3>
@@ -36,7 +36,7 @@
               </span>
             </div>
           </div>
-          <button (click)="removeItem(item.id)" class="remove-btn">
+          <button (click)="removeItem(item._id)" class="remove-btn">
             Remove
           </button>
         </div>
