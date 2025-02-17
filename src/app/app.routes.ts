@@ -17,9 +17,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cportal', component: DashboardComponent, canActivate: [AuthGuard] },
   {
-    path: 'logo-store/:logoName',
-    component: LogoDetailComponent,
-    data: { renderMode: 'dynamic' },
+    path: 'logo-store/logo-details',
+    component: LogoDetailComponent
   },
   { path: '**', component: PageNotFoundComponent },
 ];

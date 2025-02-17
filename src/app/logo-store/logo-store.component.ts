@@ -79,13 +79,9 @@ export class LogoStoreComponent implements OnInit {
     }
   }
 
-  replaceSpaces(str: string): string {
-    return str.replace(/ /g, '_');
-  }
-
   openLogo(logo: any): void {
     this.sharedService.setLogoDetail(logo);
-    this.router.navigate(['/logo-store/', this.replaceSpaces(logo.name)]);
+    this.router.navigate(['/logo-store/logo-details']);
   }
 
   cartSize: number = 0;
@@ -115,7 +111,6 @@ export class LogoStoreComponent implements OnInit {
         this.loadLogos();
       });
 
-    // Subscribe to allLogos$ from SharedService
     this.logosSubscription = this.sharedService.allLogos$.subscribe((logos) => {
       if (logos.length > 0) {
         this.allLogos = logos;

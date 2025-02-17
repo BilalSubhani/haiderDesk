@@ -37,35 +37,90 @@
         </button>
       </div>
 
-      <form
-        *ngIf="showAddLogoForm"
-        [formGroup]="logoForm"
-        (ngSubmit)="onSubmitLogo()"
-        class="logo-form"
+      <div
+        [@slideInOut]="showAddLogoForm ? 'in' : 'out'"
+        class="form-container"
       >
-        <input type="text" formControlName="name" placeholder="Name" required />
-        <input
-          type="number"
-          formControlName="originalPrice"
-          placeholder="Original Price (Optional)"
-        />
-        <input
-          type="number"
-          formControlName="salePrice"
-          placeholder="Sale Price"
-          required
-        />
-        <textarea
-          formControlName="description"
-          placeholder="Description"
-        ></textarea>
-        <select formControlName="imageSrc" required>
-          <option value="">Select Image Source</option>
-          <option value="Logos/logo.jpg">Default Logo</option>
-          <option value="upload">Upload from Computer</option>
-        </select>
-        <button type="submit" [disabled]="!logoForm.valid">Save Logo</button>
-      </form>
+        <form
+          *ngIf="showAddLogoForm"
+          [formGroup]="logoForm"
+          (ngSubmit)="onSubmitLogo()"
+          class="logo-form"
+        >
+          <div class="form-grid">
+            <div class="form-group">
+              <input
+                type="text"
+                formControlName="name"
+                placeholder="Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                formControlName="originalPrice"
+                placeholder="Original Price (Optional)"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                formControlName="salePrice"
+                placeholder="Sale Price"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                formControlName="description"
+                placeholder="Description"
+                rows="3"
+              />
+            </div>
+            <div class="form-group">
+              <select formControlName="imageSrc" required>
+                <option value="">Select Image Source</option>
+                <option value="Logos/logo.jpg">Default Logo</option>
+                <option value="upload">Upload from Computer</option>
+              </select>
+            </div>
+            <div
+              class="form-group"
+              *ngIf="logoForm.get('imageSrc')?.value === 'upload'"
+            >
+              <div
+                class="dropzone"
+                (dragover)="onDragOver($event)"
+                (dragleave)="onDragLeave($event)"
+                (drop)="onDrop($event)"
+                [class.dragover]="isDragging"
+              >
+                <div class="dropzone-content">
+                  <i class="upload-icon"></i>
+                  <span>Drag & drop image here or</span>
+                  <label class="upload-button">
+                    Browse
+                    <input
+                      type="file"
+                      (change)="onFileSelected($event)"
+                      accept="image/*"
+                      hidden
+                    />
+                  </label>
+                </div>
+                <div *ngIf="selectedFile" class="selected-file">
+                  {{ selectedFile.name }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="!logoForm.valid" class="submit-btn">
+            Save Logo
+          </button>
+        </form>
+      </div>
 
       <div class="logos-list">
         <div *ngFor="let logo of logos" class="logo-item">

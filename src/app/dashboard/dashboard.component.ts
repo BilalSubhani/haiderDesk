@@ -3,6 +3,13 @@ import { SharedService } from '../shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from '../login/login.service';
 
@@ -12,18 +19,40 @@ import { LoginService } from '../login/login.service';
   styleUrls: ['./dashboard.component.css'],
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule],
+  animations: [
+    trigger('slideInOut', [
+      state(
+        'in',
+        style({
+          height: '*',
+          opacity: 1,
+        })
+      ),
+      state(
+        'out',
+        style({
+          height: '0',
+          opacity: 0,
+        })
+      ),
+      transition('in <=> out', [animate('300ms ease-in-out')]),
+    ]),
+  ],
 })
 export class DashboardComponent implements OnInit {
   activeSection: string = 'logos';
   logos: any[] = [];
   emails: any[] = [];
-  showAddLogoForm: boolean = false;
-  logoForm: FormGroup;
   newEmail: string = '';
 
   currentPage: number = 1;
   itemsPerPage: number = 30;
   totalPages: number = 1;
+
+  logoForm: FormGroup;
+  showAddLogoForm = false;
+  isDragging = false;
+  selectedFile: File | null = null;
 
   constructor(
     private sharedService: SharedService,
@@ -51,13 +80,6 @@ export class DashboardComponent implements OnInit {
 
   setActiveSection(section: string) {
     this.activeSection = section;
-  }
-
-  toggleAddLogoForm() {
-    this.showAddLogoForm = !this.showAddLogoForm;
-    if (!this.showAddLogoForm) {
-      this.logoForm.reset();
-    }
   }
 
   ngOnInit() {
@@ -121,5 +143,46 @@ export class DashboardComponent implements OnInit {
 
   logout() {
     this.loginService.logout();
+  }
+
+  toggleAddLogoForm(): void {
+    this.showAddLogoForm = !this.showAddLogoForm;
+    if (!this.showAddLogoForm) {
+      this.logoForm.reset();
+      this.selectedFile = null;
+    }
+  }
+
+  onDragOver(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = true;
+  }
+
+  onDragLeave(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = false;
+  }
+
+  onDrop(event: DragEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.isDragging = false;
+
+    const files = event.dataTransfer?.files;
+    if (files && files.length > 0) {
+      const file = files[0];
+      if (file.type.startsWith('image/')) {
+        this.selectedFile = file;
+      }
+    }
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
   }
 }

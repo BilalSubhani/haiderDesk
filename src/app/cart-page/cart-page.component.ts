@@ -9,6 +9,16 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { EmailService } from '../email.service';
+import { ToastrService } from 'ngx-toastr';
+
+interface CartItem {
+  name: string;
+  originalPrice?: number;
+  salePrice: number;
+  description?: string;
+  imageSrc: string;
+}
 
 @Component({
   selector: 'app-cart-page',
@@ -21,19 +31,20 @@ export class CartPageComponent implements OnInit {
   total: number = 0;
   checkoutForm!: FormGroup;
   paymentMethods = ['PayPal', 'Stripe', 'Other'];
-  buttonDetails: string = 'Add Your First Logo';
+  buttonDetails: string = 'Add First Logo';
 
   constructor(
     private cartService: CartService,
     private router: Router,
     private fb: FormBuilder,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    private emailService: EmailService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.cartService.cartLength$.subscribe((length) => {
-      this.buttonDetails =
-        length === 0 ? 'Add Your First Logo' : 'Add More Logos';
+      this.buttonDetails = length === 0 ? 'Add First Logo' : 'Add More Logos';
     });
 
     this.checkoutForm = this.fb.group(
@@ -56,19 +67,11 @@ export class CartPageComponent implements OnInit {
     });
 
     this.checkoutForm.statusChanges.subscribe((status) => {
-      // console.log('Form Status:', status);
-      // console.log('Form Errors:', this.checkoutForm.errors);
-      // console.log('Form Valid:', this.checkoutForm.valid);
-      // console.log('Form Values:', this.checkoutForm.value);
       this.cdRef.detectChanges();
     });
 
     Object.keys(this.checkoutForm.controls).forEach((key) => {
-      this.checkoutForm.get(key)?.valueChanges.subscribe((value) => {
-        // console.log(`${key} value changed:`, value);
-        // console.log(`${key} validity:`, this.checkoutForm.get(key)?.valid);
-        // console.log(`${key} errors:`, this.checkoutForm.get(key)?.errors);
-      });
+      this.checkoutForm.get(key)?.valueChanges.subscribe((value) => {});
     });
   }
 
@@ -96,7 +99,6 @@ export class CartPageComponent implements OnInit {
   }
 
   showCardDetails(): boolean {
-    // return this.checkoutForm.get('paymentMethod')?.value === 'Other';
     return false;
   }
 
@@ -135,17 +137,6 @@ export class CartPageComponent implements OnInit {
   }
 
   isFormValid(): boolean {
-    // console.log('Form Valid State:', {
-    //   formValid: this.checkoutForm.valid,
-    //   formTouched: this.checkoutForm.touched,
-    //   formDirty: this.checkoutForm.dirty,
-    //   formErrors: this.checkoutForm.errors,
-    //   controls: Object.keys(this.checkoutForm.controls).map((key) => ({
-    //     key,
-    //     valid: this.checkoutForm.get(key)?.valid,
-    //     errors: this.checkoutForm.get(key)?.errors,
-    //   })),
-    // });
     return this.checkoutForm.valid;
   }
 
@@ -180,12 +171,22 @@ export class CartPageComponent implements OnInit {
 
   onSubmit(): void {
     if (this.checkoutForm.valid) {
-      //console.log('Form submitted:', this.checkoutForm.value);
       const emailData = {
         userdata: this.checkoutForm.value,
         cartData: this.cartItems,
       };
-      // console.log(emailData);
+
+      const emailBody = this.generateEmailBody(emailData);
+
+      this.emailService.sendEmails(emailBody).subscribe(
+        (response) => {
+          this.toastr.success(`Order Placed successfully!`, 'Successful!');
+          this.clearCart();
+        },
+        (error) => {
+          this.toastr.error(``, 'Error checking out!');
+        }
+      );
     } else {
       Object.keys(this.checkoutForm.controls).forEach((key) => {
         const control = this.checkoutForm.get(key);
@@ -198,5 +199,118 @@ export class CartPageComponent implements OnInit {
   isFieldInvalid(fieldName: string): boolean {
     const control = this.checkoutForm.get(fieldName);
     return control ? control.invalid && control.touched : false;
+  }
+
+  generateEmailBody(formData: any): string {
+    const { userdata, cartData }: { userdata: any; cartData: CartItem[] } =
+      formData;
+
+    return `
+      <html>
+      <head>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+          }
+          .email-container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+          }
+          h2 {
+            color: #005840;
+            text-align: center;
+            border-bottom: 2px solid #005840;
+            padding-bottom: 10px;
+          }
+          p {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+          }
+          ul {
+            list-style-type: none;
+            padding: 0;
+            color: #555;
+          }
+          ul li {
+            padding: 5px 0;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+          }
+          thead {
+            background-color: #005840;
+            color: #ffffff;
+          }
+          tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+          }
+          img {
+            max-width: 80px;
+            border-radius: 4px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="email-container">
+          <h2>New Order Received</h2>
+
+          <p>User Information</p>
+          <ul>
+            <li><strong>Name:</strong> ${userdata.name}</li>
+            <li><strong>Email:</strong> ${userdata.email}</li>
+            <li><strong>Phone:</strong> ${userdata.phone}</li>
+            <li><strong>Payment Method:</strong> ${userdata.paymentMethod}</li>
+          </ul>
+
+          <p>Cart Details</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Original Price</th>
+                <th>Sale Price</th>
+                <th>Description</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${cartData
+                .map(
+                  (item: CartItem) => `
+                <tr>
+                  <td>${item.name}</td>
+                  <td>${
+                    item.originalPrice ? `$${item.originalPrice}` : 'N/A'
+                  }</td>
+                  <td>$${item.salePrice}</td>
+                  <td>${item.description || 'No description available'}</td>
+                  <td><img src="${item.imageSrc}" alt="${item.name}"></td>
+                </tr>
+              `
+                )
+                .join('')}
+            </tbody>
+          </table>
+        </div>
+      </body>
+    </html>
+    `;
   }
 }

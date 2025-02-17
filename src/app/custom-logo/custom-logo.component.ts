@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { EmailService } from '../email.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-custom-logo',
@@ -8,6 +10,11 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrl: './custom-logo.component.css',
 })
 export class CustomLogoComponent {
+  constructor(
+    private emailService: EmailService,
+    private toastr: ToastrService
+  ) {}
+
   formData = {
     name: '',
     email: '',
@@ -34,10 +41,72 @@ export class CustomLogoComponent {
       this.formData.logoIdea = (
         form.querySelector('textarea') as HTMLTextAreaElement
       ).value;
-
-      console.log('Form Data:', this.formData);
+      this.sendEmail();
 
       form.reset();
     }
+  }
+
+  convertFormDataToHtml(formData: any): string {
+    return `
+      <html>
+        <head>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 20px;
+              background-color: #f4f4f4;
+            }
+            h2 {
+              color: #333;
+              text-align: center;
+              border-bottom: 2px solid #333;
+              padding-bottom: 10px;
+            }
+            p {
+              font-size: 16px;
+              color: #333;
+              line-height: 1.6;
+            }
+            strong {
+              color: #333;
+            }
+            .container {
+              background-color: #ffffef;
+              padding: 20px;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              max-width: 600px;
+              margin: 0 auto;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <h2>New Order Received</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Logo Name:</strong> ${formData.logoName}</p>
+            <p><strong>Logo Description:</strong> ${formData.logoIdea}</p>
+          </div>
+        </body>
+      </html>
+    `;
+  }
+
+  sendEmail() {
+    const emailBody = this.convertFormDataToHtml(this.formData);
+    this.emailService.sendEmails(emailBody).subscribe(
+      (response) => {
+        this.toastr.success(
+          'Custom logo request send successfully.',
+          'Successful!'
+        );
+      },
+      (error) => {
+        this.toastr.error('Error sending email.', 'Error!');
+      }
+    );
   }
 }
