@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SharedService } from './shared.service';
 import { Observable, switchMap, map } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmailService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = environment.API_URL;
 
   constructor(private http: HttpClient, private sharedService: SharedService) {}
 

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = environment.API_URL;
 
   private imageSource = new BehaviorSubject<string | null>(null);
   image$ = this.imageSource.asObservable();
