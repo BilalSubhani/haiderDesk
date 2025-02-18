@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 interface LoginResponse {
   access_token: string;
@@ -12,7 +13,7 @@ interface LoginResponse {
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = environment.API_URL;
 
   constructor(
     private http: HttpClient,

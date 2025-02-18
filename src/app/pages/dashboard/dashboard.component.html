@@ -17,28 +17,28 @@
       [class.active]="activeSection === 'logos'"
       (click)="setActiveSection('logos')"
     >
-      All Logos
+      Products
     </div>
     <div
       class="nav-item"
       [class.active]="activeSection === 'emails'"
       (click)="setActiveSection('emails')"
     >
-      Connected Emails
+      Notifications
     </div>
     <div
       class="nav-item"
       [class.active]="activeSection === 'admins'"
       (click)="setActiveSection('admins')"
     >
-      Admins
+      Users
     </div>
   </div>
 
   <div class="main-content">
     <div *ngIf="activeSection === 'logos'" class="logos-section">
       <div class="section-header">
-        <h2>All Logos</h2>
+        <h2>All Products</h2>
         <button (click)="toggleAddLogoForm()" class="add-btn">
           {{ showAddLogoForm ? "Cancel" : "Add Logo" }}
         </button>

@@ -12,7 +12,7 @@ import {
   animate,
 } from '@angular/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginService } from '../login/login.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-dashboard',
