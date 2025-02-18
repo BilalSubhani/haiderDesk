@@ -1,3 +1,4 @@
+import { AdminService } from './../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../services/shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -54,10 +55,15 @@ export class DashboardComponent implements OnInit {
   isDragging = false;
   selectedFile: File | null = null;
 
+  admins: any[] = [];
+  showAddAdminForm = false;
+  adminForm: FormGroup;
+
   constructor(
     private sharedService: SharedService,
     private loginService: LoginService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private adminService: AdminService
   ) {
     this.logoForm = this.fb.group({
       name: ['', Validators.required],
@@ -65,6 +71,12 @@ export class DashboardComponent implements OnInit {
       salePrice: ['', Validators.required],
       description: [''],
       imageSrc: ['', Validators.required],
+    });
+
+    this.adminForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
@@ -85,6 +97,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.loadLogos();
     this.loadEmails();
+    this.loadAdmins();
   }
 
   loadLogos() {
@@ -102,6 +115,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  loadAdmins() {
+    this.adminService.getAllAdmins().subscribe((admins) => {
+      this.admins = admins;
+    });
+  }
+
   onSubmitLogo() {
     if (this.logoForm.valid) {
       this.sharedService
@@ -112,6 +131,15 @@ export class DashboardComponent implements OnInit {
           this.loadLogos();
           this.toggleAddLogoForm();
         });
+    }
+  }
+
+  onSubmitAdmin() {
+    if (this.adminForm.valid) {
+      this.adminService.createAdmin(this.adminForm.value).subscribe(() => {
+        this.loadAdmins();
+        this.toggleAddAdminForm();
+      });
     }
   }
 
@@ -137,6 +165,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  deleteAdmin(id: any) {
+    this.adminService.deleteAdmin(id).subscribe(() => {
+      this.loadAdmins();
+    });
+  }
+
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -150,6 +184,13 @@ export class DashboardComponent implements OnInit {
     if (!this.showAddLogoForm) {
       this.logoForm.reset();
       this.selectedFile = null;
+    }
+  }
+
+  toggleAddAdminForm(): void {
+    this.showAddAdminForm = !this.showAddAdminForm;
+    if (!this.showAddAdminForm) {
+      this.adminForm.reset();
     }
   }
 

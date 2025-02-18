@@ -197,7 +197,6 @@
 
 .logo-form select {
   width: 95%;
-  margin-bottom: 10px;
 }
 
 .logo-form textarea {
@@ -232,7 +231,6 @@
   background-color: rgba(0, 88, 64, 0.05);
   cursor: pointer;
   width: 87%;
-  margin-bottom: 10px;
 }
 
 .dropzone.dragover {
@@ -287,6 +285,7 @@
 }
 
 .submit-btn {
+  margin-top: 20px;
   padding: 12px 20px;
   border-radius: 6px;
   width: fit-content;
@@ -410,7 +409,8 @@
 }
 
 /* Email Section Styles */
-.emails-section {
+.emails-section,
+.admins-section {
   width: 100%;
   height: auto;
 }
