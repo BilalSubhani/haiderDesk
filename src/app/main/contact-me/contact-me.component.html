@@ -14,17 +14,35 @@
     </div>
 
     <div class="form-card" #formContainer>
-      <form>
-        <input type="text" class="input-field" placeholder="Name" required />
-        <input type="text" class="input-field" placeholder="Budget" required />
+      <form
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        class="contact-form"
+      >
+        <input
+          type="text"
+          formControlName="name"
+          class="input-field"
+          placeholder="Name"
+          required
+        />
+        <input
+          type="text"
+          formControlName="budget"
+          class="input-field"
+          placeholder="Budget"
+          required
+        />
         <input
           type="email"
+          formControlName="email"
           class="input-field"
           placeholder="Email address"
           required
         />
         <textarea
           class="message-field"
+          formControlName="message"
           placeholder="Enter your message"
           required
         ></textarea>

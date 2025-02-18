@@ -97,7 +97,11 @@ export class CustomLogoComponent {
 
   sendEmail() {
     const emailBody = this.convertFormDataToHtml(this.formData);
-    this.emailService.sendEmails(emailBody).subscribe(
+    const emailData = {
+      subject: 'Custom Logo Request',
+      body: emailBody,
+    };
+    this.emailService.sendEmails(emailData).subscribe(
       (response) => {
         this.toastr.success(
           'Custom logo request sent successfully.',

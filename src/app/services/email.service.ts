@@ -17,8 +17,8 @@ export class EmailService {
       switchMap((emailAddresses) => {
         const emailData = {
           to: emailAddresses,
-          subject: 'New Order Received',
-          emailBody: emailBody,
+          subject: emailBody.subject,
+          emailBody: emailBody.body,
         };
         return this.http.post(`${this.apiUrl}/send-email`, emailData);
       })

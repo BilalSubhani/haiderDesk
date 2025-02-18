@@ -178,7 +178,12 @@ export class CartPageComponent implements OnInit {
 
       const emailBody = this.generateEmailBody(emailData);
 
-      this.emailService.sendEmails(emailBody).subscribe(
+      const cartData = {
+        subject: 'New Order Received',
+        body: emailBody,
+      };
+
+      this.emailService.sendEmails(cartData).subscribe(
         (response) => {
           this.toastr.success(`Order Placed successfully!`, 'Successful!');
           this.clearCart();
