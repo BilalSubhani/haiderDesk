@@ -1,6 +1,6 @@
-import { AdminService } from './../services/admin.service';
+import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../services/shared.service';
+import { SharedService } from '../../services/shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';

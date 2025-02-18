@@ -13,8 +13,8 @@ import { ContactMeComponent } from './contact-me/contact-me.component';
 import { FooterComponent } from './footer/footer.component';
 
 // Service
-import { SharedService } from '../services/shared.service';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { SharedService } from '../../services/shared.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-main',

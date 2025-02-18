@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
-import { LogoStoreComponent } from './logo-store/logo-store.component';
-import { LogoDetailComponent } from './logo-store/logo-detail/logo-detail.component';
-import { CartPageComponent } from './cart-page/cart-page.component';
-import { CustomLogoComponent } from './custom-logo/custom-logo.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MainComponent } from './pages/main/main.component';
+import { LogoStoreComponent } from './pages/logo-store/logo-store.component';
+import { LogoDetailComponent } from './pages/logo-store/logo-detail/logo-detail.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { CustomLogoComponent } from './pages/custom-logo/custom-logo.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -18,7 +18,7 @@ export const routes: Routes = [
   { path: 'cportal', component: DashboardComponent, canActivate: [AuthGuard] },
   {
     path: 'logo-store/logo-details',
-    component: LogoDetailComponent
+    component: LogoDetailComponent,
   },
   { path: '**', component: PageNotFoundComponent },
 ];

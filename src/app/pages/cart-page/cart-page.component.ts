@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
 import {
   FormBuilder,
@@ -8,8 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { EmailService } from '../services/email.service';
+import { NavbarComponent } from '../main/navbar/navbar.component';
+import { EmailService } from '../../services/email.service';
 import { ToastrService } from 'ngx-toastr';
 
 interface CartItem {

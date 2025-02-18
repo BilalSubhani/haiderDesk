@@ -15,7 +15,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmailService } from '../../services/email.service';
+import { EmailService } from '../../../services/email.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

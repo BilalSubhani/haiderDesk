@@ -6,12 +6,12 @@ import {
   Inject,
   ChangeDetectorRef,
 } from '@angular/core';
-import { SharedService } from '../services/shared.service';
-import { CartService } from '../services/cart.service';
+import { SharedService } from '../../services/shared.service';
+import { CartService } from '../../services/cart.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { NavbarComponent } from '../main/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({

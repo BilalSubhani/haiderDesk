@@ -5,9 +5,9 @@ import {
   PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
-import { SharedService } from '../services/shared.service';
+import { SharedService } from '../../../services/shared.service';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../../services/cart.service';
 import { Router } from '@angular/router';
 
 @Component({

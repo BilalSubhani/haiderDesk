@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { EmailService } from '../services/email.service';
+import { NavbarComponent } from '../main/navbar/navbar.component';
+import { EmailService } from '../../services/email.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

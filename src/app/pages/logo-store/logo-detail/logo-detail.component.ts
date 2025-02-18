@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SharedService } from '../../services/shared.service';
+import { SharedService } from '../../../services/shared.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../../services/cart.service';
 
 import { ToastrService } from 'ngx-toastr';
-import { NavbarComponent } from '../../navbar/navbar.component';
+import { NavbarComponent } from '../../main/navbar/navbar.component';
 
 @Component({
   selector: 'app-logo-detail',

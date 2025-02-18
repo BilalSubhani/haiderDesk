@@ -9,7 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from '../../services/shared.service';
+import { SharedService } from '../../../services/shared.service';
 
 @Component({
   selector: 'app-testimonials',
