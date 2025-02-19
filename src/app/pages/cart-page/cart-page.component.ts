@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../main/navbar/navbar.component';
 import { EmailService } from '../../services/email.service';
 import { ToastrService } from 'ngx-toastr';
+import e from 'express';
+import { OrdersService } from '../../services/orders.service';
 
 interface CartItem {
   name: string;
@@ -39,7 +41,8 @@ export class CartPageComponent implements OnInit {
     private fb: FormBuilder,
     private cdRef: ChangeDetectorRef,
     private emailService: EmailService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private ordersService: OrdersService
   ) {}
 
   ngOnInit(): void {
@@ -175,6 +178,7 @@ export class CartPageComponent implements OnInit {
         userdata: this.checkoutForm.value,
         cartData: this.cartItems,
       };
+      this.createOrder(emailData);
 
       const emailBody = this.generateEmailBody(emailData);
 
@@ -317,5 +321,22 @@ export class CartPageComponent implements OnInit {
       </body>
     </html>
     `;
+  }
+
+  createOrder(emailData: any) {
+    const idsArray = (emailData.cartData as { _id: string }[]).map(
+      (item) => item._id
+    );
+
+    const orderData = {
+      username: emailData.userdata.name,
+      userEmail: emailData.userdata.email,
+      userPhone: emailData.userdata.phone,
+      totalPrice: this.total,
+      paymentMethod: emailData.userdata.paymentMethod,
+      logos: idsArray,
+    };
+
+    this.ordersService.createOrder(orderData).subscribe();
   }
 }

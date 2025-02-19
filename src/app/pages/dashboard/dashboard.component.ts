@@ -13,6 +13,7 @@ import {
 } from '@angular/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
+import { OrdersService } from '../../services/orders.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -59,11 +60,14 @@ export class DashboardComponent implements OnInit {
   showAddAdminForm = false;
   adminForm: FormGroup;
 
+  orders: any[] = [];
+
   constructor(
     private sharedService: SharedService,
     private loginService: LoginService,
     private fb: FormBuilder,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private ordersService: OrdersService
   ) {
     this.logoForm = this.fb.group({
       name: ['', Validators.required],
@@ -91,6 +95,10 @@ export class DashboardComponent implements OnInit {
   }
 
   setActiveSection(section: string) {
+    this.loadLogos();
+    this.loadEmails();
+    this.loadAdmins();
+    this.loadOrders();
     this.activeSection = section;
   }
 
@@ -98,6 +106,7 @@ export class DashboardComponent implements OnInit {
     this.loadLogos();
     this.loadEmails();
     this.loadAdmins();
+    this.loadOrders();
   }
 
   loadLogos() {
@@ -118,6 +127,12 @@ export class DashboardComponent implements OnInit {
   loadAdmins() {
     this.adminService.getAllAdmins().subscribe((admins) => {
       this.admins = admins;
+    });
+  }
+
+  loadOrders() {
+    this.ordersService.getOrders().subscribe((orders) => {
+      this.orders = orders;
     });
   }
 
@@ -225,5 +240,28 @@ export class DashboardComponent implements OnInit {
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
     }
+  }
+
+  orderStatusOptions: string[] = ['Processing', 'Completed', 'Cancelled'];
+
+  changeOrderStatus(order: any, event: Event) {
+    const selectedStatus = (event.target as HTMLSelectElement).value;
+    order.status = selectedStatus;
+  }
+
+  onSaveOrderStatus(id: string, orderStatus: string) {
+    const status = {
+      status: orderStatus,
+    };
+
+    this.ordersService.updateOrderStatus(id, status).subscribe(() => {
+      this.loadOrders();
+    });
+  }
+
+  deleteOrder(id: any) {
+    this.ordersService.deleteOrder(id).subscribe(() => {
+      this.loadOrders();
+    });
   }
 }

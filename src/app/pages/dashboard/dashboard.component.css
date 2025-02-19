@@ -459,6 +459,76 @@
   font-weight: 500;
 }
 
+.delete-btn {
+  background: #ff4d4d;
+  color: #ffffef;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #cc0000;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  background: #fff;
+  box-shadow: 0 0.5px 1px #005840;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px;
+  text-align: left;
+  color: #005840;
+  border-bottom: 1px solid #ffffef;
+}
+
+.orders-table th {
+  background: #005840;
+  color: #ffffef;
+  font-weight: bold;
+}
+
+.orders-table select {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #005840;
+  border-radius: 5px;
+  background: #ffffef;
+  cursor: pointer;
+  color: #005840;
+}
+
+.orders-table select:focus {
+  outline: none;
+  border-color: #005840;
+}
+
+.save-btn {
+  background: #005840;
+  color: #ffffef;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  transition: background 0.3s;
+  margin-right: 10px;
+}
+
+.save-btn:hover {
+  color: #9dff91;
+  transform: translateY(-1px);
+}
 /* Media Queries */
 @media screen and (max-width: 920px) {
   .dashboard-container {
@@ -534,5 +604,59 @@
 
   .logo-form select {
     width: 100%;
+  }
+
+  .orders-table thead {
+    display: none;
+  }
+
+  .orders-table,
+  .orders-table tbody {
+    display: block;
+    width: 99%;
+  }
+  .orders-table tr,
+  .orders-table td {
+    display: block;
+    width: 95%;
+  }
+
+  .orders-table tr {
+    margin-bottom: 20px;
+    border: 1px solid #005840;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .orders-table td {
+    text-align: right;
+    font-size: 14px;
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid #eee;
+  }
+
+  .orders-table td:last-child {
+    border-bottom: none;
+  }
+
+  .orders-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-align: left;
+    color: #005840;
+  }
+
+  .orders-table select,
+  .orders-table button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .save-btn {
+    margin-right: 0;
+    margin-bottom: 5px;
   }
 }
