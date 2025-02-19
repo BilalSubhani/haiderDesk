@@ -31,7 +31,7 @@ export class VisualizationComponent implements OnInit, OnDestroy {
   others = 0;
 
   visitCount: number = 0;
-  currentDate: string = '';
+
 
   orderStatusData: any[] = [];
   paymentMethodData: any[] = [];
@@ -70,12 +70,6 @@ export class VisualizationComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadDashboardData();
-
-    this.currentDate = new Date().toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
 
     this.dataSubscription = timer(0, 30000)
       .pipe(switchMap(() => this.fetchAllData()))

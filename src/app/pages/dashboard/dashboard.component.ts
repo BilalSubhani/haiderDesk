@@ -68,6 +68,7 @@ export class DashboardComponent implements OnInit {
   adminForm: FormGroup;
 
   orders: any[] = [];
+  currentDate: string = '';
 
   constructor(
     private sharedService: SharedService,
@@ -114,6 +115,12 @@ export class DashboardComponent implements OnInit {
     this.loadEmails();
     this.loadAdmins();
     this.loadOrders();
+
+    this.currentDate = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
   }
 
   loadLogos() {

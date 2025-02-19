@@ -6,25 +6,6 @@
   margin: 0 auto;
 }
 
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-
-  h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #005840;
-  }
-
-  .current-date {
-    color: #8f9bb3;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-}
-
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -217,12 +198,6 @@
 @media screen and (max-width: 920px) {
   .dashboard-container {
     padding: 1rem;
-  }
-
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
   }
 
   .stats-grid {

@@ -460,6 +460,10 @@
     </div>
 
     <div *ngIf="activeSection === 'dashboard'" class="emails-section">
+      <div class="section-header">
+        <h2>Dashboard Overview</h2>
+        <span class="current-date">{{ currentDate | date : "MMM d, y" }}</span>
+      </div>
       <app-visualization></app-visualization>
     </div>
   </div>
