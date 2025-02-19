@@ -14,13 +14,20 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { OrdersService } from '../../services/orders.service';
+import { VisualizationComponent } from './visualization/visualization.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    VisualizationComponent,
+  ],
   animations: [
     trigger('slideInOut', [
       state(
@@ -42,7 +49,7 @@ import { OrdersService } from '../../services/orders.service';
   ],
 })
 export class DashboardComponent implements OnInit {
-  activeSection: string = 'logos';
+  activeSection: string = '';
   logos: any[] = [];
   emails: any[] = [];
   newEmail: string = '';

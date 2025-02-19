@@ -21,6 +21,8 @@
     "@angular/platform-server": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@angular/ssr": "^19.0.5",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@swimlane/ngx-charts": "^22.0.0-alpha.0",
     "express": "^4.18.2",
     "ngx-toastr": "^19.0.0",
     "nodemailer": "^6.10.0",

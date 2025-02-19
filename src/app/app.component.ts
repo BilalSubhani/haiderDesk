@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { LightboxComponent } from './pages/lightbox/lightbox.component';
 import { CommonModule } from '@angular/common';
 import { SharedService } from './services/shared.service';
+import { AnalyticsService } from './services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,13 @@ import { SharedService } from './services/shared.service';
   standalone: true,
 })
 export class AppComponent {
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private analyticsService: AnalyticsService
+  ) {}
 
   ngOnInit() {
+    this.analyticsService.trackVisit();
     this.sharedService.image$.subscribe((image) => {
       this.selectedImage = image;
       if (this.selectedImage) this.openLightbox();
