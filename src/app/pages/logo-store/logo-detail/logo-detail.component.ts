@@ -2,9 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { SharedService } from '../../../services/shared.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CartService } from '../../../services/cart.service';
-
 import { ToastrService } from 'ngx-toastr';
 import { NavbarComponent } from '../../main/navbar/navbar.component';
 
@@ -19,7 +18,6 @@ import { NavbarComponent } from '../../main/navbar/navbar.component';
 export class LogoDetailComponent {
   constructor(
     private sharedService: SharedService,
-    private route: ActivatedRoute,
     private cartService: CartService,
     private toastr: ToastrService,
     private router: Router
@@ -31,8 +29,6 @@ export class LogoDetailComponent {
   ngOnInit() {
     this.subscription = this.sharedService.logoDetail$.subscribe((logo) => {
       this.logoDetail = logo;
-
-      const logoName = this.route.snapshot.paramMap.get('logoName');
     });
   }
 

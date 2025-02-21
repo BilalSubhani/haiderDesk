@@ -8,9 +8,7 @@ import {
 } from '@angular/core';
 import { SharedService } from '../../services/shared.service';
 import { CartService } from '../../services/cart.service';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { NavbarComponent } from '../main/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -26,8 +24,6 @@ export class LogoStoreComponent implements OnInit {
   private logosPerPage: number = 30;
   public displayedLogos: any[] = [];
   public totalPages: number = 1;
-  private routerSubscription!: Subscription;
-  private logosSubscription!: Subscription;
 
   allLogos: any[] = [];
 
@@ -104,21 +100,6 @@ export class LogoStoreComponent implements OnInit {
     });
 
     this.loadLogos();
-
-    this.routerSubscription = this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.loadLogos();
-      });
-
-    this.logosSubscription = this.sharedService.allLogos$.subscribe((logos) => {
-      if (logos.length > 0) {
-        this.allLogos = logos;
-        this.updatePagination();
-        this.displayLogosForCurrentPage();
-        this.cd.detectChanges();
-      }
-    });
   }
 
   loadLogos(): void {
@@ -133,14 +114,5 @@ export class LogoStoreComponent implements OnInit {
         console.error('Error loading logos:', error);
       }
     );
-  }
-
-  ngOnDestroy(): void {
-    if (this.routerSubscription) {
-      this.routerSubscription.unsubscribe();
-    }
-    if (this.logosSubscription) {
-      this.logosSubscription.unsubscribe();
-    }
   }
 }

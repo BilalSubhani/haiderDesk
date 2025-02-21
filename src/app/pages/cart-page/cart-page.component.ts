@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../main/navbar/navbar.component';
 import { EmailService } from '../../services/email.service';
 import { ToastrService } from 'ngx-toastr';
-import e from 'express';
 import { OrdersService } from '../../services/orders.service';
 
 interface CartItem {
