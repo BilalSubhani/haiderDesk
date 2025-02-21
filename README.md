@@ -1,54 +1,73 @@
-# Haiders Desk
+# Haider's Desk
 
-Haiders Desk is an online shop built with Angular where users can purchase logos for brands and request custom logos. It features a dashboard protected through auth guards, and utilizes Toastr for notifications. The backend is developed using NestJS, handling email functionality through Nodemailer and serving logo data.
+Haider's Desk is an online shop built with **Angular** where users can purchase brand logos and request custom designs. It features a secure **admin dashboard** with authentication guards, real-time notifications via **Toastr**, and interactive **data visualization** using ngx-charts. The **NestJS backend** handles email functionality through **Nodemailer** and serves logo data efficiently.
 
-## Features
+## 🚀 Features
+
+### 🛍️ User Features
 
 - Browse and purchase brand logos
-- Request custom logos
-- Secure admin dashboard (protected via auth guards)
-- Notifications using Toastr
-- Emails handled via Nodemailer (NestJS server)
-- Logo data fetched from the server
+- Request custom logo designs
+- Receive notifications via **Toastr**
+- Secure transactions with JWT authentication
 
-## Technologies Used
+### 🔑 Admin Panel Features
 
-- **Frontend:** Angular
-- **Authentication:** JWT, Auth Guards
-- **Notifications:** Toastr
+- **Product Management:** Add, delete, and manage listed logos
+- **Order Management:** View orders, update statuses, and delete orders
+- **User Management:** Add/remove other admins
+- **Email Configuration:** Manage connected emails for notifications
+- **Data Insights:** Visualizations and statistics using **ngx-charts**
 
-## Installation
+### 📊 Dashboard Data Visualization
 
-### Clone the Repository
+- **Pie Chart:** Displays the status distribution of orders (e.g., Pending, Completed)
+- **Bar Graph:** Visualizes the payment methods selected by customers
+- **Key Metrics:**
+  - Total visits to the main page
+  - Count of admins, products, orders, and connected emails
+
+## 🛠️ Technologies Used
+
+| **Technology**   | **Usage**                             |
+| ---------------- | ------------------------------------- |
+| Angular          | Frontend framework                    |
+| ngx-charts       | Data visualization (Pie & Bar Charts) |
+| NestJS           | Backend API                           |
+| JWT, Auth Guards | Authentication & Authorization        |
+| Toastr           | Notifications                         |
+| Nodemailer       | Email service                         |
+
+## 🏗️ Installation Guide
+
+### 1️⃣ Clone the Repository
 
 ```sh
 git clone https://github.com/BilalSubhani/haiderDesk.git
 cd haiderDesk
 ```
 
-### Install Dependencies
+### 2️⃣ Install Dependencies
 
 #### Frontend
 
 ```sh
 cd frontend
 npm install
-npm start
 ```
 
-## Usage
+### 4️⃣ Run the Application
 
-- Open `http://localhost:4200/` in your browser to access the web app.
-- The dashboard is accessible to authorized users only.
-- Users can browse logos, purchase them, and request custom designs.
+#### Start Frontend Server
 
-## Contact
+```sh
+ng serve
+```
 
-For any inquiries, feel free to reach out:
+## 🤝 Contributing
 
-- **Email:** [bilalsubhanii@outlook.com](mailto:bilalsubhanii@outlook.com)
-- **GitHub Repository:** [Haiders Desk](https://github.com/BilalSubhani/haiderDesk.git)
+Contributions are welcome! Feel free to open issues or submit pull requests to improve the project.
 
----
+## 📩 Contact
 
-Feel free to contribute or report any issues through the repository!
+For inquiries, reach out at [bilalsubhanii@outlook.com](mailto:bilalsubhanii@outlook.com).
