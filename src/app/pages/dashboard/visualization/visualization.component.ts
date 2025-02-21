@@ -31,7 +31,8 @@ export class VisualizationComponent implements OnInit, OnDestroy {
   others = 0;
 
   visitCount: number = 0;
-
+  totalRevenue: number = 0;
+  finalRevenue: number = 0;
 
   orderStatusData: any[] = [];
   paymentMethodData: any[] = [];
@@ -168,5 +169,22 @@ export class VisualizationComponent implements OnInit, OnDestroy {
       { name: 'Stripe', value: this.stripe },
       { name: 'Others', value: this.others },
     ];
+
+    this.calculateRevenue(data);
+  }
+
+  calculateRevenue(data: any) {
+    this.totalRevenue = Array.isArray(data.orders)
+      ? data.orders.reduce(
+          (
+            acc: number,
+            order: { totalPrice?: number | string; status?: string }
+          ) =>
+            order.status?.toLowerCase() === 'completed'
+              ? acc + (Number(order.totalPrice) || 0)
+              : acc,
+          0
+        )
+      : 0;
   }
 }
