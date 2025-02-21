@@ -549,8 +549,13 @@
     position: static;
     width: 100%;
     margin-top: 70px;
-    padding: 10px 0;
+    padding: 5px 0;
     height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0;
+    font-size: 0;
   }
 
   .main-content {
@@ -619,7 +624,7 @@
   .orders-table,
   .orders-table tbody {
     display: block;
-    width: 99%;
+    width: 98%;
   }
   .orders-table tr,
   .orders-table td {
