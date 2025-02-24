@@ -676,6 +676,14 @@
       </div>
     </div>
 
-    <button class="logout-btn" (click)="logout()">Logout</button>
+    <button class="lightbox-logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="modal-overlay">
+  <div class="modal-box">
+    <p>Are you sure you want to delete?</p>
+    <button (click)="onConfirm(true)">Confirm</button>
+    <button (click)="onConfirm(false)">Cancel</button>
   </div>
 </div>

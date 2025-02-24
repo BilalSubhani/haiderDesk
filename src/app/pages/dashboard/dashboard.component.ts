@@ -258,27 +258,45 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteLogo(id: any) {
-    this.sharedService.deleteLogo(id).subscribe(
-      (response) => {
-        this.toastr.success(`Logo deleted successfully!`, 'Successful!');
-        this.loadLogos();
-      },
-      (error) => {
-        this.toastr.error(``, 'Error!');
+    this.confirmDelete().then((confirmed) => {
+      if (confirmed) {
+        this.sharedService.deleteLogo(id).subscribe(
+          (response) => {
+            this.toastr.success(`Logo deleted successfully!`, 'Successful!');
+            this.loadLogos();
+          },
+          (error) => {
+            this.toastr.error(``, 'Error!');
+          }
+        );
+      } else {
+        this.toastr.info(`Data is unchanged.`, 'Cancelled!');
       }
-    );
+    });
   }
 
   deleteCategory(id: any) {
-    this.sharedService.deleteCategory(id).subscribe(
-      (response) => {
-        this.toastr.success(`Category deleted successfully!`, 'Successful!');
-        this.loadCategories();
-      },
-      (error) => {
-        this.toastr.error(`Category has products attached to it.`, 'Error!');
+    this.confirmDelete().then((confirmed) => {
+      if (confirmed) {
+        this.sharedService.deleteCategory(id).subscribe(
+          (response) => {
+            this.toastr.success(
+              `Category deleted successfully!`,
+              'Successful!'
+            );
+            this.loadCategories();
+          },
+          (error) => {
+            this.toastr.error(
+              `Category has products attached to it.`,
+              'Error!'
+            );
+          }
+        );
+      } else {
+        this.toastr.info(`Data is unchanged.`, 'Cancelled!');
       }
-    );
+    });
   }
 
   addEmail() {
@@ -297,27 +315,39 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteEmail(id: any) {
-    this.sharedService.deleteEmail(id).subscribe(
-      (response) => {
-        this.toastr.success(`Email deleted successfully!`, 'Successful!');
-        this.loadEmails();
-      },
-      (error) => {
-        this.toastr.error(``, 'Error!');
+    this.confirmDelete().then((confirmed) => {
+      if (confirmed) {
+        this.sharedService.deleteEmail(id).subscribe(
+          (response) => {
+            this.toastr.success(`Email deleted successfully!`, 'Successful!');
+            this.loadEmails();
+          },
+          (error) => {
+            this.toastr.error(``, 'Error!');
+          }
+        );
+      } else {
+        this.toastr.info(`Data is unchanged.`, 'Cancelled!');
       }
-    );
+    });
   }
 
   deleteAdmin(id: any) {
-    this.adminService.deleteAdmin(id).subscribe(
-      (response) => {
-        this.toastr.success(`Admin deleted successfully!`, 'Successful!');
-        this.loadAdmins();
-      },
-      (error) => {
-        this.toastr.error(``, 'Error!');
+    this.confirmDelete().then((confirmed) => {
+      if (confirmed) {
+        this.adminService.deleteAdmin(id).subscribe(
+          (response) => {
+            this.toastr.success(`Admin deleted successfully!`, 'Successful!');
+            this.loadAdmins();
+          },
+          (error) => {
+            this.toastr.error(``, 'Error!');
+          }
+        );
+      } else {
+        this.toastr.info(`Data is unchanged.`, 'Cancelled!');
       }
-    );
+    });
   }
 
   scrollToTop() {
@@ -407,15 +437,21 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteOrder(id: any) {
-    this.ordersService.deleteOrder(id).subscribe(
-      (response) => {
-        this.toastr.success(`Order deleted successfully!`, 'Successful!');
-        this.loadOrders();
-      },
-      (error) => {
-        this.toastr.error(``, 'Error!');
+    this.confirmDelete().then((confirmed) => {
+      if (confirmed) {
+        this.ordersService.deleteOrder(id).subscribe(
+          (response) => {
+            this.toastr.success(`Order deleted successfully!`, 'Successful!');
+            this.loadOrders();
+          },
+          (error) => {
+            this.toastr.error(``, 'Error!');
+          }
+        );
+      } else {
+        this.toastr.info(`Data is unchanged.`, 'Cancelled!');
       }
-    );
+    });
   }
 
   isProfileOpen = false;
@@ -432,5 +468,24 @@ export class DashboardComponent implements OnInit {
 
   closeProfile() {
     this.isProfileOpen = false;
+  }
+
+  showModal: boolean = false;
+  resolveFn: ((result: boolean) => void) | null = null;
+
+  confirmDelete(): Promise<boolean> {
+    this.showModal = true;
+
+    return new Promise<boolean>((resolve) => {
+      this.resolveFn = resolve;
+    });
+  }
+
+  onConfirm(result: boolean): void {
+    this.showModal = false;
+    if (this.resolveFn) {
+      this.resolveFn(result);
+      this.resolveFn = null;
+    }
   }
 }

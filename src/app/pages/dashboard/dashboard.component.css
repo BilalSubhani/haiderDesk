@@ -494,7 +494,8 @@
   transform: translateY(-1px);
 }
 
-.lightbox-overlay {
+.lightbox-overlay,
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -509,7 +510,8 @@
   animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.lightbox-content {
+.lightbox-content,
+.modal-box {
   background: linear-gradient(to bottom right, #ffffef, #fcfcd2);
   padding: 2.5rem;
   border-radius: 16px;
@@ -621,7 +623,7 @@
   font-weight: 500;
 }
 
-.logout-btn {
+.lightbox-logout-btn {
   background: #005840;
   color: #ffffef;
   padding: 0.875rem 2rem;
@@ -635,13 +637,13 @@
   box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
 }
 
-.logout-btn:hover {
+.lightbox-logout-btn:hover {
   transform: translateY(-2px);
   background-color: #005840;
   box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3);
 }
 
-.logout-btn:active {
+.lightbox-logout-btn:active {
   transform: translateY(0);
 }
 
@@ -663,6 +665,50 @@
     transform: translateY(0) scale(1);
     opacity: 1;
   }
+}
+
+.modal-box p {
+  color: #005840;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.modal-box button {
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  margin: 0 0.75rem;
+}
+
+.modal-box button:first-of-type {
+  background: #005840;
+  color: #ffffef;
+}
+
+.modal-box button:first-of-type:hover {
+  background: #004a35;
+  transform: translateY(-2px);
+}
+
+.modal-box button:last-of-type {
+  background: #dc2626;
+  color: #ffffef;
+}
+
+.modal-box button:last-of-type:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+.modal-box button:active {
+  transform: translateY(0);
 }
 
 /* Media Queries */
@@ -829,5 +875,26 @@
 
   .info-value {
     font-size: 0.875rem;
+  }
+
+  .modal-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .modal-box p {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-box button {
+    padding: 0.8rem 0.8rem;
+    font-size: 0.875rem;
+    min-width: 100px;
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
   }
 }
