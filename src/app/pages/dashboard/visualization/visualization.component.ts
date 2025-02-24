@@ -21,6 +21,7 @@ export class VisualizationComponent implements OnInit, OnDestroy {
   totalOrders = 0;
   totalAdmins = 0;
   totalEmails = 0;
+  totalCategories = 0;
 
   processingOrders = 0;
   completedOrders = 0;
@@ -98,6 +99,7 @@ export class VisualizationComponent implements OnInit, OnDestroy {
       orders: this.ordersService.getOrders(),
       admins: this.adminService.getAllAdmins(),
       emails: this.sharedService.getAllEmails(),
+      category: this.sharedService.getAllCategories(),
     });
   }
 
@@ -121,6 +123,7 @@ export class VisualizationComponent implements OnInit, OnDestroy {
     this.totalOrders = data.orders?.length ?? 0;
     this.totalAdmins = data.admins?.length ?? 0;
     this.totalEmails = data.emails?.length ?? 0;
+    this.totalCategories = data.category?.length ?? 0;
 
     this.processingOrders =
       data.orders?.filter(

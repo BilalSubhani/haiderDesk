@@ -52,6 +52,7 @@ export class DashboardComponent implements OnInit {
   activeSection: string = '';
   logos: any[] = [];
   emails: any[] = [];
+  categories: any[] = [];
   newEmail: string = '';
 
   currentPage: number = 1;
@@ -66,6 +67,9 @@ export class DashboardComponent implements OnInit {
   admins: any[] = [];
   showAddAdminForm = false;
   adminForm: FormGroup;
+
+  categoryForm: FormGroup;
+  showCategoryForm = false;
 
   orders: any[] = [];
   currentDate: string = '';
@@ -83,12 +87,19 @@ export class DashboardComponent implements OnInit {
       salePrice: ['', Validators.required],
       description: [''],
       imageSrc: ['', Validators.required],
+      category: ['', Validators.required],
     });
 
     this.adminForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
+    });
+
+    this.categoryForm = this.fb.group({
+      name: ['', Validators.required],
+      width: ['', Validators.required],
+      height: ['', Validators.required],
     });
   }
 
@@ -98,15 +109,33 @@ export class DashboardComponent implements OnInit {
 
   changePage(page: number) {
     this.currentPage = page;
-    this.loadLogos();
+    if (this.activeSection == 'logos') {
+      this.loadLogos();
+    } else if (this.activeSection === 'emails') {
+      this.loadEmails();
+    } else if (this.activeSection === 'categories') {
+      this.loadCategories();
+    } else if (this.activeSection === 'admins') {
+      this.loadAdmins();
+    } else if (this.activeSection === 'orders') {
+      this.loadOrders();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   setActiveSection(section: string) {
-    this.loadLogos();
-    this.loadEmails();
-    this.loadAdmins();
-    this.loadOrders();
+    this.currentPage = 1;
+    if (section == 'logos') {
+      this.loadLogos();
+    } else if (section === 'emails') {
+      this.loadEmails();
+    } else if (section === 'categories') {
+      this.loadCategories();
+    } else if (section === 'admins') {
+      this.loadAdmins();
+    } else if (section === 'orders') {
+      this.loadOrders();
+    }
     this.activeSection = section;
   }
 
@@ -115,6 +144,7 @@ export class DashboardComponent implements OnInit {
     this.loadEmails();
     this.loadAdmins();
     this.loadOrders();
+    this.loadCategories();
 
     this.currentDate = new Date().toLocaleDateString('en-US', {
       year: 'numeric',
@@ -132,21 +162,42 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  loadCategories() {
+    this.sharedService.getAllCategories().subscribe((category) => {
+      const allCategories = category;
+      this.totalPages = Math.ceil(allCategories.length / this.itemsPerPage);
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      this.categories = allCategories.slice(
+        startIndex,
+        startIndex + this.itemsPerPage
+      );
+    });
+  }
+
   loadEmails() {
     this.sharedService.getAllEmails().subscribe((emails) => {
-      this.emails = emails;
+      const allemails = emails;
+      this.totalPages = Math.ceil(allemails.length / this.itemsPerPage);
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      this.emails = allemails.slice(startIndex, startIndex + this.itemsPerPage);
     });
   }
 
   loadAdmins() {
     this.adminService.getAllAdmins().subscribe((admins) => {
-      this.admins = admins;
+      const alladmins = admins;
+      this.totalPages = Math.ceil(alladmins.length / this.itemsPerPage);
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      this.admins = alladmins.slice(startIndex, startIndex + this.itemsPerPage);
     });
   }
 
   loadOrders() {
     this.ordersService.getOrders().subscribe((orders) => {
-      this.orders = orders;
+      const allOrders = orders;
+      this.totalPages = Math.ceil(allOrders.length / this.itemsPerPage);
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      this.orders = allOrders.slice(startIndex, startIndex + this.itemsPerPage);
     });
   }
 
@@ -163,6 +214,19 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  onSubmitCategory() {
+    if (this.categoryForm.valid) {
+      this.sharedService
+        .addCategory({
+          ...this.categoryForm.value,
+        })
+        .subscribe(() => {
+          this.loadCategories();
+          this.toggleAddCategoryForm();
+        });
+    }
+  }
+
   onSubmitAdmin() {
     if (this.adminForm.valid) {
       this.adminService.createAdmin(this.adminForm.value).subscribe(() => {
@@ -173,9 +237,14 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteLogo(id: any) {
-    console.log(id);
     this.sharedService.deleteLogo(id).subscribe(() => {
       this.loadLogos();
+    });
+  }
+
+  deleteCategory(id: any) {
+    this.sharedService.deleteCategory(id).subscribe(() => {
+      this.loadCategories();
     });
   }
 
@@ -213,6 +282,13 @@ export class DashboardComponent implements OnInit {
     if (!this.showAddLogoForm) {
       this.logoForm.reset();
       this.selectedFile = null;
+    }
+  }
+
+  toggleAddCategoryForm(): void {
+    this.showCategoryForm = !this.showCategoryForm;
+    if (!this.showCategoryForm) {
+      this.categoryForm.reset();
     }
   }
 
@@ -260,7 +336,7 @@ export class DashboardComponent implements OnInit {
 
   changeOrderStatus(order: any, event: Event) {
     const selectedStatus = (event.target as HTMLSelectElement).value;
-    order.status = selectedStatus;
+    this.onSaveOrderStatus(order._id, selectedStatus);
   }
 
   onSaveOrderStatus(id: string, orderStatus: string) {

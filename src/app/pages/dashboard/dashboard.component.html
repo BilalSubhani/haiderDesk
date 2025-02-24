@@ -32,6 +32,24 @@
     </div>
     <div
       class="nav-item"
+      [class.active]="activeSection === 'categories'"
+      (click)="setActiveSection('categories')"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="14"
+        width="14"
+        viewBox="0 0 512 512"
+      >
+        <path
+          fill="#ffffef"
+          d="M500.3 7.3C507.7 13.3 512 22.4 512 32l0 144c0 26.5-28.7 48-64 48s-64-21.5-64-48s28.7-48 64-48l0-57L352 90.2 352 208c0 26.5-28.7 48-64 48s-64-21.5-64-48s28.7-48 64-48l0-96c0-15.3 10.8-28.4 25.7-31.4l160-32c9.4-1.9 19.1 .6 26.6 6.6zM74.7 304l11.8-17.8c5.9-8.9 15.9-14.2 26.6-14.2l61.7 0c10.7 0 20.7 5.3 26.6 14.2L213.3 304l26.7 0c26.5 0 48 21.5 48 48l0 112c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 352c0-26.5 21.5-48 48-48l26.7 0zM192 408a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM478.7 278.3L440.3 368l55.7 0c6.7 0 12.6 4.1 15 10.4s.6 13.3-4.4 17.7l-128 112c-5.6 4.9-13.9 5.3-19.9 .9s-8.2-12.4-5.3-19.2L391.7 400 336 400c-6.7 0-12.6-4.1-15-10.4s-.6-13.3 4.4-17.7l128-112c5.6-4.9 13.9-5.3 19.9-.9s8.2 12.4 5.3 19.2zm-339-59.2c-6.5 6.5-17 6.5-23 0L19.9 119.2c-28-29-26.5-76.9 5-103.9c27-23.5 68.4-19 93.4 6.5l10 10.5 9.5-10.5c25-25.5 65.9-30 93.9-6.5c31 27 32.5 74.9 4.5 103.9l-96.4 99.9z"
+        />
+      </svg>
+      &nbsp; Categories
+    </div>
+    <div
+      class="nav-item"
       [class.active]="activeSection === 'logos'"
       (click)="setActiveSection('logos')"
     >
@@ -105,6 +123,108 @@
   </div>
 
   <div class="main-content">
+    <div *ngIf="activeSection === 'categories'" class="logos-section">
+      <div class="section-header">
+        <h2>All Categories</h2>
+        <button (click)="toggleAddCategoryForm()" class="add-btn">
+          {{ showCategoryForm ? "Cancel" : "Add Category" }}
+        </button>
+      </div>
+
+      <div
+        [@slideInOut]="showCategoryForm ? 'in' : 'out'"
+        class="form-container"
+      >
+        <form
+          *ngIf="showCategoryForm"
+          [formGroup]="categoryForm"
+          (ngSubmit)="onSubmitCategory()"
+          class="logo-form"
+        >
+          <div class="form-grid">
+            <div class="form-group">
+              <input
+                type="text"
+                formControlName="name"
+                placeholder="Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                formControlName="width"
+                placeholder="Width (px)"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                formControlName="height"
+                placeholder="Height (px)"
+                required
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            [disabled]="!categoryForm.valid"
+            class="submit-btn"
+          >
+            Save Category
+          </button>
+        </form>
+      </div>
+
+      <table class="orders-table" *ngIf="categories.length > 0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Width (px)</th>
+            <th>Height (px)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td data-label="Name">{{ category.name }}</td>
+            <td data-label="Width">{{ category.width }}px</td>
+            <td data-label="Height">{{ category.height }}px</td>
+            <td>
+              <button (click)="deleteCategory(category._id)" class="delete-btn">
+                <i class="fa-solid fa-trash fa-sm" style="color: #ffffef"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button
+          class="page-btn"
+          [disabled]="currentPage === 1"
+          (click)="changePage(currentPage - 1)"
+        >
+          Previous
+        </button>
+        <button
+          *ngFor="let page of pageNumbers"
+          class="page-btn"
+          [class.active]="page === currentPage"
+          (click)="changePage(page)"
+        >
+          {{ page }}
+        </button>
+        <button
+          class="page-btn"
+          [disabled]="currentPage === totalPages"
+          (click)="changePage(currentPage + 1)"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
     <div *ngIf="activeSection === 'logos'" class="logos-section">
       <div class="section-header">
         <h2>All Products</h2>
@@ -162,6 +282,17 @@
                 <option value="upload">Upload from Computer</option>
               </select>
             </div>
+            <div class="form-group">
+              <select formControlName="category" required>
+                <option value="">Select a Category</option>
+                <option
+                  [value]="category._id"
+                  *ngFor="let category of categories"
+                >
+                  {{ category.name }}
+                </option>
+              </select>
+            </div>
             <div
               class="form-group"
               *ngIf="logoForm.get('imageSrc')?.value === 'upload'"
@@ -198,28 +329,37 @@
         </form>
       </div>
 
-      <div class="logos-list">
-        <div *ngFor="let logo of logos" class="logo-item">
-          <div class="logo-image">
-            <img [src]="logo.imageSrc" alt="Logo" />
-          </div>
-          <div class="logo-details">
-            <h3>{{ logo.name }}</h3>
-            <div class="price-container">
-              <p *ngIf="logo.originalPrice" class="original-price">
-                Original Price: ${{ logo.originalPrice }}
-              </p>
-              <p class="sale-price">Sale Price: ${{ logo.salePrice }}</p>
-            </div>
-            <p class="description">{{ logo.description }}</p>
-          </div>
-          <div class="logo-actions">
-            <button (click)="deleteLogo(logo._id)" class="delete-btn">
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
+      <table class="orders-table" *ngIf="logos.length > 0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Dimensions</th>
+            <th>Original Price</th>
+            <th>Sale Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let logo of logos">
+            <td data-label="Name">{{ logo.name }}</td>
+            <td data-label="Category">{{ logo.category.name }}</td>
+            <td data-label="Dimensions">
+              {{ logo?.category?.width }} x {{ logo?.category?.height }}
+            </td>
+            <td data-label="Original">
+              <span *ngIf="logo.originalPrice">$</span
+              >{{ logo.originalPrice ?? "N/A" }}
+            </td>
+            <td data-label="Sale">${{ logo.salePrice }}</td>
+            <td>
+              <button (click)="deleteLogo(logo._id)" class="delete-btn">
+                <i class="fa-solid fa-trash fa-sm" style="color: #ffffef"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <div class="pagination">
         <button
@@ -261,14 +401,26 @@
         <button (click)="addEmail()" class="add-btn">Add Email</button>
       </div>
 
-      <div class="emails-list">
-        <div *ngFor="let email of emails" class="email-item">
-          <span>{{ email.email }}</span>
-          <button (click)="deleteEmail(email._id)" class="delete-btn">
-            Delete
-          </button>
-        </div>
-      </div>
+      <table class="orders-table" *ngIf="emails.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let email of emails">
+            <td data-label="ID">{{ email._id }}</td>
+            <td data-label="Email">{{ email.email }}</td>
+            <td>
+              <button (click)="deleteEmail(email._id)" class="delete-btn">
+                <i class="fa-solid fa-trash fa-sm" style="color: #ffffef"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <div class="pagination">
         <button
@@ -350,14 +502,26 @@
         </form>
       </div>
 
-      <div class="emails-list">
-        <div *ngFor="let admin of admins" class="email-item">
-          <span>{{ admin.email }}</span>
-          <button (click)="deleteAdmin(admin._id)" class="delete-btn">
-            Delete
-          </button>
-        </div>
-      </div>
+      <table class="orders-table" *ngIf="admins.length > 0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let admin of admins">
+            <td data-label="Name">{{ admin.name }}</td>
+            <td data-label="Email">{{ admin.email }}</td>
+            <td>
+              <button (click)="deleteAdmin(admin._id)" class="delete-btn">
+                <i class="fa-solid fa-trash fa-sm" style="color: #ffffef"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <div class="pagination">
         <button
@@ -418,15 +582,15 @@
                 </option>
               </select>
             </td>
-            <td data-label="Actions">
+            <td>
               <button
                 (click)="onSaveOrderStatus(order._id, order.status)"
                 class="save-btn"
               >
-                Save
+                <i class="fa-solid fa-eye fa-sm" style="color: #ffffef"></i>
               </button>
               <button (click)="deleteOrder(order._id)" class="delete-btn">
-                Delete
+                <i class="fa-solid fa-trash fa-sm" style="color: #ffffef"></i>
               </button>
             </td>
           </tr>

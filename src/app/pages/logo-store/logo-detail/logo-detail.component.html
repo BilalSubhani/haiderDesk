@@ -22,7 +22,19 @@
         <span class="sale-price">${{ logoDetail.salePrice.toFixed(2) }}</span>
       </div>
 
-      <p class="logo-description">{{ logoDetail.description }}</p>
+      <div class="details" style="margin-top: 10px">
+        <h2 style="color: #333; font-size: 24px">• Product Details</h2>
+        <p class="logo-description" *ngIf="logoDetail.description">
+          → {{ logoDetail.description }}
+        </p>
+        <p class="logo-description">
+          → Category: {{ logoDetail.category.name }}
+        </p>
+        <p class="logo-description">
+          → Dimensions: {{ logoDetail.category.width }}px x
+          {{ logoDetail.category.height }}px
+        </p>
+      </div>
 
       <button class="add-to-cart-button" (click)="addToCart(logoDetail)">
         Add to Cart
