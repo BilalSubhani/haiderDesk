@@ -19,6 +19,11 @@ interface CartItem {
   salePrice: number;
   description?: string;
   imageSrc: string;
+  category: {
+    name: string;
+    width: number;
+    height: number;
+  };
 }
 
 @Component({
@@ -292,6 +297,7 @@ export class CartPageComponent implements OnInit {
             <thead>
               <tr>
                 <th>Name</th>
+                <th>Category</th>
                 <th>Original Price</th>
                 <th>Sale Price</th>
                 <th>Description</th>
@@ -304,6 +310,7 @@ export class CartPageComponent implements OnInit {
                   (item: CartItem) => `
                 <tr>
                   <td>${item.name}</td>
+                  <td>${item.category.name}</td>
                   <td>${
                     item.originalPrice ? `$${item.originalPrice}` : 'N/A'
                   }</td>

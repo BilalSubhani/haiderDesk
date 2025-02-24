@@ -15,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { OrdersService } from '../../services/orders.service';
 import { VisualizationComponent } from './visualization/visualization.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 import { ToastrService } from 'ngx-toastr';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +30,7 @@ import { ToastrService } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     VisualizationComponent,
+    OrderDetailsComponent,
   ],
   animations: [
     trigger('slideInOut', [
@@ -74,6 +77,8 @@ export class DashboardComponent implements OnInit {
 
   orders: any[] = [];
   currentDate: string = '';
+
+  isOrderDetailsVisible = false;
 
   constructor(
     private sharedService: SharedService,
@@ -487,5 +492,36 @@ export class DashboardComponent implements OnInit {
       this.resolveFn(result);
       this.resolveFn = null;
     }
+  }
+
+  orderDetails: any;
+  outputOrder: any;
+  orderLogoDetails: any[] = [];
+
+  async getOrderDetails(orderId: any) {
+    this.orderDetails = this.orders?.[orderId] ?? {}; // Ensure orderDetails is never undefined
+    this.outputOrder = { ...this.orderDetails }; // Avoid reference mutation
+
+    if (this.orderDetails?.logos?.length) {
+      try {
+        this.orderLogoDetails = await Promise.all(
+          this.orderDetails.logos.map((logoId: string) =>
+            firstValueFrom(this.sharedService.getLogoById(logoId))
+          )
+        );
+        this.outputOrder.logos = this.orderLogoDetails;
+        this.showOrderDetails();
+      } catch (error) {
+        console.error('Error fetching logo details:', error);
+      }
+    }
+  }
+
+  showOrderDetails() {
+    this.isOrderDetailsVisible = true;
+  }
+
+  receiveOutput(event: boolean) {
+    this.isOrderDetailsVisible = event;
   }
 }

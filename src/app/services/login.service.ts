@@ -24,11 +24,7 @@ export class LoginService {
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router
-  ) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.haiderDesk_token = localStorage.getItem('haiderDesk_token');
-    }
-  }
+  ) {}
 
   login(email: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.apiUrl}/auth/login`, {
@@ -73,8 +69,9 @@ export class LoginService {
   }
 
   getAdminByEmail(email: string): any {
+    this.haiderDesk_token = localStorage.getItem('haiderDesk_token');
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.haiderDesk_token || ''}`,
+      Authorization: `Bearer ${this.haiderDesk_token}`,
     });
 
     return this.http.get<{ name: string; email: string }>(

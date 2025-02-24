@@ -588,7 +588,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let order of orders">
+          <tr *ngFor="let order of orders; let i = index">
             <td data-label="Order ID">{{ order._id }}</td>
             <td data-label="User Name">{{ order.username }}</td>
             <td data-label="Email">{{ order.userEmail }}</td>
@@ -605,10 +605,7 @@
               </select>
             </td>
             <td>
-              <button
-                (click)="onSaveOrderStatus(order._id, order.status)"
-                class="save-btn"
-              >
+              <button (click)="getOrderDetails(i)" class="save-btn">
                 <i class="fa-solid fa-eye fa-sm" style="color: #ffffef"></i>
               </button>
               <button (click)="deleteOrder(order._id)" class="delete-btn">
@@ -687,3 +684,10 @@
     <button (click)="onConfirm(false)">Cancel</button>
   </div>
 </div>
+
+<app-order-details
+  *ngIf="isOrderDetailsVisible"
+  [orderData]="outputOrder"
+  [isOpen]="isOrderDetailsVisible"
+  (closeModal)="receiveOutput($event)"
+></app-order-details>

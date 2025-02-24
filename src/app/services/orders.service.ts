@@ -19,6 +19,10 @@ export class OrdersService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
+  getOrderByID(orderId: string): Observable<any> {
+    return this.http.get<any>(`this.apiUrl/${orderId}`);
+  }
+
   updateOrderStatus(orderId: string, status: any): Observable<any> {
     return this.http.patch<any>(`${this.apiUrl}/${orderId}/status`, status);
   }

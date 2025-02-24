@@ -1,0 +1,65 @@
+<div class="lightbox-overlay" *ngIf="orderData && isOpen">
+  <div class="lightbox-content">
+    <button class="close-btn" (click)="close()">&times;</button>
+
+    <h2>Order Details</h2>
+
+    <!-- User Information -->
+    <div class="user-info-container">
+      <div class="info-item">
+        <div class="info-label">Name</div>
+        <div class="info-value">{{ orderData.username }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Email</div>
+        <div class="info-value">{{ orderData.userEmail }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Phone</div>
+        <div class="info-value">{{ orderData.userPhone }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Payment Method</div>
+        <div class="info-value">{{ orderData.paymentMethod }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Total Price</div>
+        <div class="info-value">$ {{ orderData.totalPrice }}</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Status</div>
+        <div class="info-value">{{ orderData.status }}</div>
+      </div>
+    </div>
+
+    <!-- Cart Details -->
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Original Price</th>
+          <th>Sale Price</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of orderData.logos">
+          <td>{{ item.name }}</td>
+          <td>{{ item.category.name }}</td>
+          <td>{{ item.originalPrice ? "$" + item.originalPrice : "N/A" }}</td>
+          <td>$ {{ item.salePrice }}</td>
+          <td>{{ item.description || "No description available" }}</td>
+          <td>
+            <img
+              [src]="item.imageSrc"
+              [alt]="item.name"
+              class="product-image"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
