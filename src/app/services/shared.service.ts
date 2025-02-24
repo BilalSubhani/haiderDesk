@@ -21,6 +21,9 @@ export class SharedService {
   private logoSource = new BehaviorSubject<any[]>([]);
   public allLogos$: Observable<any[]> = this.logoSource.asObservable();
 
+  private categorySource = new BehaviorSubject<any[]>([]);
+  public allCategories$: Observable<any[]> = this.categorySource.asObservable();
+
   private emailSource = new BehaviorSubject<any[]>([]);
   public allEmails$: Observable<any[]> = this.emailSource.asObservable();
 
@@ -42,6 +45,27 @@ export class SharedService {
     return this.logoDetailSubject.getValue();
   }
 
+  // Categories API Methods
+  getAllCategories(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/categories`);
+  }
+
+  getCategoryById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/categories/${id}`);
+  }
+
+  addCategory(category: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/categories`, category);
+  }
+
+  updateCategory(id: string, category: any): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/categories/${id}`, category);
+  }
+
+  deleteCategory(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/categories/${id}`);
+  }
+
   // Logo API Methods
   getAllLogos(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/logo`);
@@ -56,7 +80,7 @@ export class SharedService {
   }
 
   updateLogo(id: string, logo: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/logo/${id}`, logo);
+    return this.http.patch<any>(`${this.apiUrl}/logo/${id}`, logo);
   }
 
   deleteLogo(id: string): Observable<void> {
