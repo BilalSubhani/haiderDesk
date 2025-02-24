@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { OrdersService } from '../../services/orders.service';
 import { VisualizationComponent } from './visualization/visualization.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -79,7 +80,8 @@ export class DashboardComponent implements OnInit {
     private loginService: LoginService,
     private fb: FormBuilder,
     private adminService: AdminService,
-    private ordersService: OrdersService
+    private ordersService: OrdersService,
+    private toastr: ToastrService
   ) {
     this.logoForm = this.fb.group({
       name: ['', Validators.required],
@@ -207,10 +209,16 @@ export class DashboardComponent implements OnInit {
         .addLogo({
           ...this.logoForm.value,
         })
-        .subscribe(() => {
-          this.loadLogos();
-          this.toggleAddLogoForm();
-        });
+        .subscribe(
+          () => {
+            this.toastr.success(`Product added successfully!`, 'Successful!');
+            this.loadLogos();
+            this.toggleAddLogoForm();
+          },
+          (error) => {
+            this.toastr.error(``, 'Error!');
+          }
+        );
     }
   }
 
@@ -220,53 +228,95 @@ export class DashboardComponent implements OnInit {
         .addCategory({
           ...this.categoryForm.value,
         })
-        .subscribe(() => {
-          this.loadCategories();
-          this.toggleAddCategoryForm();
-        });
+        .subscribe(
+          (response) => {
+            this.toastr.success(`Category added successfully!`, 'Successful!');
+            this.loadCategories();
+            this.toggleAddCategoryForm();
+          },
+          (error) => {
+            this.toastr.error(``, 'Error!');
+          }
+        );
     }
   }
 
   onSubmitAdmin() {
     if (this.adminForm.valid) {
-      this.adminService.createAdmin(this.adminForm.value).subscribe(() => {
-        this.loadAdmins();
-        this.toggleAddAdminForm();
-      });
+      this.adminService.createAdmin(this.adminForm.value).subscribe(
+        (response) => {
+          this.toastr.success(`Admin added successfully!`, 'Successful!');
+          this.loadAdmins();
+          this.toggleAddAdminForm();
+        },
+        (error) => {
+          this.toastr.error(``, 'Error!');
+        }
+      );
     }
   }
 
   deleteLogo(id: any) {
-    this.sharedService.deleteLogo(id).subscribe(() => {
-      this.loadLogos();
-    });
+    this.sharedService.deleteLogo(id).subscribe(
+      (response) => {
+        this.toastr.success(`Logo deleted successfully!`, 'Successful!');
+        this.loadLogos();
+      },
+      (error) => {
+        this.toastr.error(``, 'Error!');
+      }
+    );
   }
 
   deleteCategory(id: any) {
-    this.sharedService.deleteCategory(id).subscribe(() => {
-      this.loadCategories();
-    });
+    this.sharedService.deleteCategory(id).subscribe(
+      (response) => {
+        this.toastr.success(`Category deleted successfully!`, 'Successful!');
+        this.loadCategories();
+      },
+      (error) => {
+        this.toastr.error(`Category has products attached to it.`, 'Error!');
+      }
+    );
   }
 
   addEmail() {
     if (this.newEmail && this.newEmail.trim()) {
-      this.sharedService.addEmail(this.newEmail.trim()).subscribe(() => {
-        this.newEmail = '';
-        this.loadEmails();
-      });
+      this.sharedService.addEmail(this.newEmail.trim()).subscribe(
+        (response) => {
+          this.toastr.success(`Email added successfully!`, 'Successful!');
+          this.newEmail = '';
+          this.loadEmails();
+        },
+        (error) => {
+          this.toastr.error(``, 'Error!');
+        }
+      );
     }
   }
 
   deleteEmail(id: any) {
-    this.sharedService.deleteEmail(id).subscribe(() => {
-      this.loadEmails();
-    });
+    this.sharedService.deleteEmail(id).subscribe(
+      (response) => {
+        this.toastr.success(`Email deleted successfully!`, 'Successful!');
+        this.loadEmails();
+      },
+      (error) => {
+        this.toastr.error(``, 'Error!');
+      }
+    );
   }
 
   deleteAdmin(id: any) {
-    this.adminService.deleteAdmin(id).subscribe(() => {
-      this.loadAdmins();
-    });
+    this.adminService.deleteAdmin(id).subscribe(
+      (response) => {
+        this.toastr.success(`Admin deleted successfully!`, 'Successful!');
+        this.loadAdmins();
+      },
+      (error) => {
+        this.toastr.error(``, 'Error!');
+      }
+    );
   }
 
   scrollToTop() {
@@ -344,14 +394,26 @@ export class DashboardComponent implements OnInit {
       status: orderStatus,
     };
 
-    this.ordersService.updateOrderStatus(id, status).subscribe(() => {
-      this.loadOrders();
-    });
+    this.ordersService.updateOrderStatus(id, status).subscribe(
+      (response) => {
+        this.toastr.success(`Status updated successfully!`, 'Successful!');
+        this.loadOrders();
+      },
+      (error) => {
+        this.toastr.error(`Try again later.`, 'Error!');
+      }
+    );
   }
 
   deleteOrder(id: any) {
-    this.ordersService.deleteOrder(id).subscribe(() => {
-      this.loadOrders();
-    });
+    this.ordersService.deleteOrder(id).subscribe(
+      (response) => {
+        this.toastr.success(`Order deleted successfully!`, 'Successful!');
+        this.loadOrders();
+      },
+      (error) => {
+        this.toastr.error(``, 'Error!');
+      }
+    );
   }
 }
