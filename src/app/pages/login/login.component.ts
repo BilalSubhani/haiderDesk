@@ -55,6 +55,8 @@ export class LoginComponent implements OnInit {
           if (isPlatformBrowser(this.platformId)) {
             localStorage.setItem('haiderDesk_token', result.access_token);
           }
+          this.loginService.setUserDetails(this.loginForm.get('email')?.value);
+
           this.toastr.success(`Login Successful!`, 'Welcome!');
           this.router.navigate(['/cportal']);
         }

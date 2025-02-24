@@ -147,6 +147,7 @@ export class DashboardComponent implements OnInit {
     this.loadAdmins();
     this.loadOrders();
     this.loadCategories();
+    this.getAdminDetails();
 
     this.currentDate = new Date().toLocaleDateString('en-US', {
       year: 'numeric',
@@ -415,5 +416,21 @@ export class DashboardComponent implements OnInit {
         this.toastr.error(``, 'Error!');
       }
     );
+  }
+
+  isProfileOpen = false;
+  user: any;
+
+  getAdminDetails() {
+    this.user = this.loginService.getUserDetails();
+  }
+
+  openProfile() {
+    this.getAdminDetails();
+    this.isProfileOpen = true;
+  }
+
+  closeProfile() {
+    this.isProfileOpen = false;
   }
 }
