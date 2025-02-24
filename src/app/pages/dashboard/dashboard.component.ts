@@ -499,8 +499,8 @@ export class DashboardComponent implements OnInit {
   orderLogoDetails: any[] = [];
 
   async getOrderDetails(orderId: any) {
-    this.orderDetails = this.orders?.[orderId] ?? {}; // Ensure orderDetails is never undefined
-    this.outputOrder = { ...this.orderDetails }; // Avoid reference mutation
+    this.orderDetails = this.orders?.[orderId] ?? {};
+    this.outputOrder = { ...this.orderDetails };
 
     if (this.orderDetails?.logos?.length) {
       try {
