@@ -1,4 +1,3 @@
-/* Lightbox Overlay */
 .lightbox-overlay {
   position: fixed;
   top: 0;
@@ -12,17 +11,17 @@
   z-index: 9999;
   backdrop-filter: blur(4px);
   animation: fadeIn 0.3s ease-in-out;
+  font-family: "Inter", sans-serif;
 }
 
-/* Lightbox Content */
 .lightbox-content {
   background: linear-gradient(to bottom right, #ffffef, #fcfcd2);
   padding: 2rem;
   border-radius: 16px;
   width: 90%;
-  max-width: 700px; /* Keeps it from getting too wide */
-  max-height: 80vh; /* Prevents it from taking the whole screen */
-  overflow-y: auto; /* Allows scrolling if content overflows */
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
   color: #005840;
   text-align: center;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -30,7 +29,6 @@
   animation: slideIn 0.4s ease-in-out;
 }
 
-/* Close Button */
 .close-btn {
   position: absolute;
   top: 1rem;
@@ -54,7 +52,6 @@
   color: #005840;
 }
 
-/* User Info */
 .user-info-container {
   background: #fff;
   border: 1px solid #ffffef;
@@ -64,7 +61,6 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Individual Info Item */
 .info-item {
   background: #ffffef;
   border-radius: 8px;
@@ -74,7 +70,6 @@
   text-align: left;
 }
 
-/* Labels and Values */
 .info-label {
   font-size: 0.875rem;
   color: #005840;
@@ -87,12 +82,11 @@
   font-weight: 500;
 }
 
-/* Table Styling */
 .order-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
-  max-height: 300px; /* Keeps the table from expanding too much */
+  max-height: 300px;
   overflow-y: auto;
 }
 
@@ -112,14 +106,12 @@
   background-color: #f9f9f9;
 }
 
-/* Product Image */
 .product-image {
   max-width: 60px;
   max-height: 60px;
   border-radius: 4px;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -137,5 +129,62 @@
   to {
     transform: translateY(0) scale(1);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 919px) {
+  .lightbox-content {
+    width: 95%;
+    padding: 1.5rem;
+    max-height: 80vh;
+  }
+
+  .user-info-container {
+    padding: 1rem;
+  }
+
+  .info-item {
+    padding: 0.5rem;
+  }
+
+  .info-label {
+    font-size: 0.8rem;
+  }
+
+  .info-value {
+    font-size: 0.9rem;
+  }
+
+  .order-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    border-radius: 10px;
+  }
+
+  .order-table th,
+  .order-table td {
+    padding: 0.5rem;
+  }
+
+  .order-table th:nth-child(3),
+  .order-table th:nth-child(5),
+  .order-table th:nth-child(6),
+  .order-table td:nth-child(3),
+  .order-table td:nth-child(5),
+  .order-table td:nth-child(6) {
+    display: none;
+  }
+  .product-image {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  .close-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
+    width: 28px;
+    height: 28px;
   }
 }

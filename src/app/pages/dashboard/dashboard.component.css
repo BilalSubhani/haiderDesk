@@ -16,6 +16,7 @@
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
+  font-family: "Inter", sans-serif;
 }
 
 .navbar.expand {
@@ -522,6 +523,7 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   position: relative;
   animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Inter", sans-serif;
 }
 
 .close-btn {
